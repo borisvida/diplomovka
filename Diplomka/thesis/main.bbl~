@@ -1,0 +1,19 @@
+\begin{thebibliography}{1}
+
+\bibitem{hopcroft:fola}
+J.E. Hopcroft and J.D. Ullman.
+\newblock {\em Formal Languages and Their Relation to Automata}.
+\newblock Addison-Wesley Pub. Co., 1969.
+
+\bibitem{gin:AATPFL}
+S. Ginsburg.
+\newblock {\em Algebraic and Automata-Theoretic Properties of Foemal Languages}.
+\newblock Elsevier Science Inc., New York, NY, USA, 1975.
+
+\bibitem{Rovan:AFL}
+B. Rovan.
+\newblock {\em Proving containment of bounded AFL}.
+\newblock Elsevier Science Inc., New York, NY, USA, 1975.
+\end{thebibliography}
+
+

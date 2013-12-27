@@ -1,0 +1,85 @@
+\chapter{Current State of Research}
+\label{chap:currentState}
+
+\paragraph{}
+In this chapter, we would like to present some known results regarding transformation devices in general and their complexity aspects.
+
+\section{Basic Properties of A-transducers}
+\paragraph{}
+This section contains few basic results from \cite{gin:AATPFL}.
+
+\paragraph{}
+\clema $\R $ and $\CF $ are closed under a-transduction.
+
+\paragraph{}
+\dokaz Let $M$ be an a-transducer and $L$ a regular (context-free) language. We use the alternative definition of image $L$:\\
+\centerline{$M(L) = \{ pr_{2}(pr_{1}^{-1}(w) \cap \Pi_{M} | w \in L \}$} \\
+Since $\Pi_{M}$ is regular and both classes, of regular and of context-free languages are closed under intersection with a regular language, homomorphism and inverse homomorphism (\cite{hopcroft:fola}), they are also closed under a-transduction. \square
+
+\paragraph{}
+\cdosledok Since sequential transducers and generalized sequential machines are just generalizations of an a-transducer, this lemma also holds for these devices.
+
+\paragraph{}
+In previous chapter, we have defined a special class of 1-bounded a-transducers. Following theorem shows, that this limitation forms a normal form.
+
+\paragraph{}
+\clema Let $M_{1}$ be an arbitrary a-transducer. Then there exists a 1-bounded a-transducer $M_{2}$, such that $\forall L: M_{1}(L) = M_{2}(L)$.
+
+\paragraph{}
+\dokaz Let $(q, u, v, p) \in H_{1}, u \equiv a_{1}a_{2}...a_{m}, v \equiv b_{1}b_{2}...b_{n}$. Let $m\geq n$ (for $m < n$ the proof is very similar). $M_{2}$ will have states $q, q_{a_{1}}, q_{a_{2}}, ..., q_{a_{n-1}}, q_{a_{n}} \equiv p$ and transitions in form $(q_{a_{i}}, a_{i+1}, b_{i+1}, a_{a_{i+1}})$ for $1 \leq i<n$, resp. $(q_{a_{j}}, a_{j+1}, \epsilon, a_{a_{j+1}})$ for $n < j < m$. This will be done for every $h \in H$. It is easy to see, that the a-transduction by $M_{1}$ and $M_{2}$ is the same and therefore $\forall L: M_{1}(L) = M_{2}(L)$. \square
+
+\paragraph{}
+As one can see, this construction can increase the number of states of an a-transducer by a constant multiple. Sometimes it is more convenient to consider only 1-bounded a-transducer, since its complexity can be easier compared with other computational models.
+
+\paragraph{}
+In the next section, we quote results regarding the question, when it is possible to transform one language to another using an a-transducer. The next theorem gives us another view of this problem using the theory of language families.
+
+\paragraph{}
+\clema For every two ($\epsilon $-free a-transducers $M_{1}$ and $M_{2}$ there exists an ($\epsilon $-free) a-transducer $M_{3}$ such that $\forall L: M_{3}(L) = M_{2}(M_{1}(L))$.
+
+\paragraph{}
+\dokaz We show just the idea of the proof: We may assume that $M_{1}$ and $M_{2}$ are 1-bounded. $M_{3}$ simulates both of the a-transducers concurrently (so its internal state have the form $(q \times p)$), reads the input according to transition function of $M_{1}$ and writes the corresponding output of $M_{2}$, while the output of $M_{1}$ forms the input of $M_{2}$. It is easy to see, that $\forall L: M_{3}(L) = M_{2}(M_{1}(L))$. \square
+
+\paragraph{}
+\clema For every ($\epsilon $-free) homomorphism $h: \Sigma_{1}^{*} \rightarrow \Sigma_{2}^{*}$ there is an ($\epsilon $-free) a-transducer $M$, such that $\forall L: M(L) = h(L)$.
+
+\paragraph{}
+\dokaz The a-transducer $M=(K, \Sigma_{1}, \Sigma_{2}, H, q_{0}, F)$ will look as follows:
+\begin{itemize}
+\item $K = F = \{ q \}$,
+\item $q_{0} = q$,
+\item $H = \{ (q, a, h(a), q) | a \in \Sigma_{1} \}$. \square
+\end{itemize}
+
+\paragraph{}
+\clema For every homomorphism $h$ there is an a-transducer $M$, such that $\forall L: M(L) = h^{-1}(L)$.
+
+\paragraph{}
+\dokaz As in previous Lemma, except $H = \{ (q, h(a), a, q) | a \in \Sigma_{1} \}$. \square
+
+\paragraph{}
+\clema For every $R \in \R $, there exists an $\epsilon $-free a-transducer $M$, such that $M(L) = L \cap R$.
+
+\paragraph{}
+\dokaz Let $A = (K, \Sigma, q_{0}, \delta, F)$ be a nondeterministic finite automaton, such that $L(A) = R$. Then $M=(K, \Sigma, \Sigma, H, q_{0}, F)$, where $H=\{ (q, a, a, \delta (q,a)) | q \in K, a \in \Sigma \} $. \square
+
+\paragraph{}
+\oznacenie For each family $\mathcal{L} $ of languages, \\
+\centerline{$\mathcal{M(L)} = \{ M(L) | L \in \mathcal{L}, M$ is an $\epsilon $-free a-transducer$\} $} \\
+\centerline{$\mathcal{\hat{M}(L)} = \{ M(L) | L \in \mathcal{L}, M$ is an arbitrary a-transducer$\} $}
+
+\paragraph{}
+\cveta For each family $\mathcal{L} $ of languages, $\mathcal{M(L)} $ $(\mathcal{\hat{M}(L)}) $ is the smallest (full) trio containing $\mathcal{L} $.
+
+\paragraph{}
+\dokaz Once again, we use the alternative definition of image of $L$, $M(L) = \{ pr_{2}(pr_{1}^{-1}(w) \cap \Pi_{M} | w \in L \}$. Considering previous lemmas, $\mathcal{M(L)} $ $(\mathcal{\hat{M}(L)}) $ is clearly a (full) trio (note, that if $M$ is $\epsilon $-free, $pr_{2}$ is also $\epsilon $-free).
+
+\paragraph{}
+Now, let $\mathcal{L'} $ be a (full) trio containing $\mathcal{L} $. Obviously, $\mathcal{L'} $ also contains $\mathcal{M(L)} $ $(\mathcal{\hat{M}(L)}) $, since it has to be closed under ($\epsilon $-free) homomorphism, inverse homomorphism and intersection with a regular language. Therefore, $\mathcal{M(L)} $ $(\mathcal{\hat{M}(L)}) $ is the smallest (full) trio containing $\mathcal{L} $. \square
+
+\paragraph{}
+\oznacenie If $\mathcal{L}$ is a single language, we write $\mathcal{M}(L)$ instead of $\mathcal{M}(\{ L\} )$.
+
+\section{Existence of an A-transducer for a Pair of Languages}
+\paragraph{}
+Here we present few results regarding the question, when it is possible to transform a language $L_{1}$ to a language $L_{2}$. Most of these results come from \cite{Rovan:AFL}.
