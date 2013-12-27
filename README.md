@@ -1,0 +1,4 @@
+diplomovka
+==========
+
+Diplomova praca
