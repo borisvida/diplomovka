@@ -7,13 +7,18 @@ J.E. Hopcroft and J.D. Ullman.
 
 \bibitem{gin:AATPFL}
 S. Ginsburg.
-\newblock {\em Algebraic and Automata-Theoretic Properties of Foemal Languages}.
+\newblock {\em Algebraic and Automata-Theoretic Properties of Formal Languages}.
 \newblock Elsevier Science Inc., New York, NY, USA, 1975.
 
 \bibitem{Rovan:AFL}
 B. Rovan.
 \newblock {\em Proving containment of bounded AFL}.
-\newblock Elsevier Science Inc., New York, NY, USA, 1975.
+\newblock J. Comput. Syst. Sci. 11, 1 (August 1975), 1-55.
+
+\bibitem{gingrei:pAFL}
+S. Ginsburg and S. Greibach.
+\newblock {\em Principal AFL}.
+\newblock J. Comput. Syst. Sci. 4, 4 (August 1970), 308-338.
 \end{thebibliography}
 
 

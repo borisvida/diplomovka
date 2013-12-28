@@ -70,7 +70,22 @@
 \contentsline {paragraph}{}{9}
 \contentsline {paragraph}{}{9}
 \contentsline {paragraph}{}{9}
+\contentsline {paragraph}{}{9}
 \contentsline {section}{\numberline {2.2}Existence of an A-transducer for a Pair of Languages}{9}
 \contentsline {paragraph}{}{9}
-\contentsline {chapter}{Conclusion}{10}
+\contentsline {subsection}{\numberline {2.2.1}Regular Languages}{9}
+\contentsline {paragraph}{}{9}
 \contentsline {paragraph}{}{10}
+\contentsline {paragraph}{}{10}
+\contentsline {subsection}{\numberline {2.2.2}Context-free Languages}{10}
+\contentsline {paragraph}{}{10}
+\contentsline {paragraph}{}{10}
+\contentsline {paragraph}{}{10}
+\contentsline {paragraph}{}{10}
+\contentsline {paragraph}{}{10}
+\contentsline {paragraph}{}{10}
+\contentsline {paragraph}{}{10}
+\contentsline {paragraph}{}{11}
+\contentsline {paragraph}{}{11}
+\contentsline {chapter}{Conclusion}{12}
+\contentsline {paragraph}{}{12}

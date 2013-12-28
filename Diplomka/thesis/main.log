@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2013.11.28)  27 DEC 2013 15:33
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2013.11.28)  28 DEC 2013 14:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -881,18 +881,26 @@ it/12 M\OT1/txr/m/n/12 (\OML/txmi/m/it/12 L\OT1/txr/m/n/12 ) = \OMS/txsy/m/n/12
 (\OML/txmi/m/it/12 w\OT1/txr/m/n/12 ) \OMS/txsy/m/n/12 \
  []
 
-) (./mainmatter/conclusion.tex [9])) (./main.bbl [10
+[9]
+Overfull \hbox (1.09201pt too wide) in paragraph at lines 106--106
+ [] \T1/txr/bx/n/12 Def-i-ni-tion. \T1/txr/m/n/12 A lan-guage is called \T1/txr
+/m/it/12 bounded\T1/txr/m/n/12 , if $\OML/txmi/m/it/12 L \OMS/txsy/m/n/12 ^^R \
+OML/txmi/m/it/12 w[]w[]:::w[]$ \T1/txr/m/n/12 for some words $\OML/txmi/m/it/12
+ w[]; w[]; :::; w[]$\T1/txr/m/n/12 . 
+ []
 
-]) [11
+[10]) (./mainmatter/conclusion.tex [11])) (./main.bbl [12
+
+]) [13
 
 ] (./main.aux
 (./frontmatter/cover.aux) (./frontmatter/title.aux)) ) 
 Here is how much of TeX's memory you used:
- 6239 strings out of 494997
- 82671 string characters out of 6180233
- 157784 words of memory out of 5000000
- 9230 multiletter control sequences out of 15000+600000
- 67784 words of font info for 90 fonts, out of 8000000 for 9000
+ 6244 strings out of 494997
+ 82727 string characters out of 6180233
+ 157790 words of memory out of 5000000
+ 9233 multiletter control sequences out of 15000+600000
+ 72488 words of font info for 94 fonts, out of 8000000 for 9000
  24 hyphenation exceptions out of 8191
  41i,18n,45p,644b,430s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf
@@ -901,14 +909,15 @@ blic/txfonts/rtxbsc.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfon
 ts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxsc.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/txfonts/txsyc.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/t
-imes/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (19 pages, 204248 bytes).
+xmf-dist/fonts/type1/public/txfonts/txsyb.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/txfonts/txsyc.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
+rw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (21 pages, 211806 bytes).
 PDF statistics:
- 142 PDF objects out of 1000 (max. 8388607)
- 96 compressed objects within 1 object stream
+ 153 PDF objects out of 1000 (max. 8388607)
+ 103 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
