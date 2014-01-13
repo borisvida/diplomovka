@@ -147,15 +147,64 @@ we denote the set $\{ a_{1}^{f_{1}(x)}...a_{n}^{f_{n}(x)} | x \in \mathbb{N} \} 
 Note, that $\langle a_{1}^{f_{1}(x)}...a_{n}^{f_{n}(x)} \rangle = \langle a_{1}^{f_{1}(x)}...a_{n}^{f_{n}(x)} \rangle_{0} $.
 
 \paragraph{}
-For $U$ and $V$ of this form, we present few necessary conditions and then one little surprising example.
+For $U$ and $V$ of this form, we present few necessary conditions and then some examples of their use.
 
 \paragraph{}
-\cveta Let $U = \langle a_{1}^{f_{1}(x)}...a_{n}^{f_{n}(x)} \rangle_{p_{1}} $ and $V = \langle b_{1}^{g_{1}(x)}...b_{m}^{g_{m}(x)} \rangle_{p_{2}} $ with $V \in \mathcal{F}(U) $. Then there exists a set $Q \subseteq \{ 1, ..., n \} $ and integers $z_{1}, ..., z_{m+1}, 1=z_{1} < ... < z_{m+1} = n+1 $ with the following two properties.
+\oznacenie The function $f_{i}, 1 \leq i \leq q$, is a \emph{largest element} of $\{ f_{s} | 1 \leq s \leq q \}$, if $\lim_{x\to \infty}\frac{f_{i}(x)}{f_{j}(x)}$ exists and is nonzero for all $j, 1 \leq j \leq q$.
+
+\paragraph{}
+\cveta Let $U = \langle a_{1}^{f_{1}(x)}...a_{n}^{f_{n}(x)} \rangle_{p_{1}} $ and $V = \langle b_{1}^{g_{1}(x)}...b_{m}^{g_{m}(x)} \rangle_{p_{2}} $, with $V \in \hat{\mathcal{F}}(U) $. Then there exists a set $Q \subseteq \{ 1, ..., n \} $ and integers $z_{1}, ..., z_{m+1}, 1=z_{1} < ... < z_{m+1} = n+1 $ with the following two properties.
 \begin{enumerate}
 \item $Q_{i} = \{ s | z_{i} \leq s < z_{i+1}, s \notin Q \} \neq \emptyset $ for all $i, 1 \leq i \leq m$.
-\item There exist real numbers $t_{j}$ and positive real numbers $t_{js}, 1 \leq j \leq m$ and $s \in Q_{i}$, such that for every $F: \mathbb{R}^{m} \rightarrow \mathbb{R}$, \\
-\centerline{$\lim_{x\to \infty } F(g_{1}(x), ..., g_{m}(x)) = \lim_{x \to \infty}F(t_{1} + \sum_{Q_{1}}t_{1s}f_{s}(x), ..., t_{m} + \sum_{Q_{m}}t_{ms}f_{s}(x)),$} \\
-if both limit exist.
+\item For all integers $i$ and $j$, $1 \leq i, j \leq m$, and for all positive real numbers $k$ and $l$ the following holds. Suppose there exist a largest element $f'_{i}$ of $\{ f_{s} | s \in Q_{i} \} $ and a largest element $f'_{j}$ of $\{ f_{s} | s \in Q_{j} \} $. Then \\
+\centerline{$\lim_{x \to \infty}\frac{(g_{i}(x))^{k}}{(g_{j}(x))^{l}} > 0 \Leftrightarrow \lim_{x \to \infty}\frac{(f_{i}(x))^{k}}{(f_{j}(x))^{l}} > 0$} \\
+if both limits exist.
 \end{enumerate} 
+
+\paragraph{}
+If $m = n$, there holds a corollary, which can be quite easily used to show, that $V \notin \hat{\mathcal{F}}(U)$.
+
+\paragraph{}
+\cdosledok Let $U = \langle a_{1}^{f_{1}(x)}...a_{n}^{f_{n}(x)} \rangle_{p_{1}} $ and $V = \langle b_{1}^{g_{1}(x)}...b_{n}^{g_{n}(x)} \rangle_{p_{2}} $, with $V \in \hat{\mathcal{F}}(U) $. Then for every pair of integers $i, j, 1\leq i, j \leq n$, and for all positive real numbers $k$ and $l$ \\
+\centerline{$\lim_{x \to \infty}\frac{(g_{i}(x))^{k}}{(g_{j}(x))^{l}} > 0 \Leftrightarrow \lim_{x \to \infty}\frac{(f_{i}(x))^{k}}{(f_{j}(x))^{l}} > 0$} \\
+if both limits exist.
+
+\paragraph{}
+\priklad Let $U = \langle a_{1}^{2^{3x}}a_{2}^{2^{2x}}a_{3}^{2^{x}} \rangle $ and $V = \langle b_{1}^{2^{4x}}b_{2}^{2^{3x}} \rangle $. Suppose $V \in \mathcal{F}(U)$. By theorem 11, $Q = \emptyset $, there are only two possible choices for $z_{1}, z_{2}$ and $z_{3}$:
+\begin{enumerate}
+\item $z_{1} = 1, z_{2} = 2 $ and $z_{3} = 4$. Then $f'_{1}(x) = 2^{3x}$ and $f'_{2}(x) = 2^{2x}$. For $k = 4, l = 3, i = 2$ and $j = 1$,\\
+\centerline{$\lim_{x \to \infty}\frac{(g_{i}(x))^{k}}{(g_{j}(x))^{l}} = \frac{(2^{3x})^{4}}{(2^{4x})^{3}} = 1$ and $\lim_{x \to \infty}\frac{(f'_{i}(x))^{k}}{(f'_{j}(x))^{l}} = \frac{(2^{2x})^{4}}{(2^{3x})^{3}} = 0$}.\\
+Thus Theorem 11 does not hold.
+\item $z_{1} = 1, z_{2} = 3 $ and $z_{3} = 4$. Then $f'_{1}(x) = 2^{3x}$ and $f'_{2}(x) = 2^{x}$. For $k = 4, l = 3, i = 2$ and $j = 1$,\\
+\centerline{$\lim_{x \to \infty}\frac{(g_{i}(x))^{k}}{(g_{j}(x))^{l}} = \frac{(2^{3x})^{4}}{(2^{4x})^{3}} = 1$ and $\lim_{x \to \infty}\frac{(f'_{i}(x))^{k}}{(f'_{j}(x))^{l}} = \frac{(2^{x})^{4}}{(2^{3x})^{3}} = 0$}.\\
+Thus Theorem 11 does not hold and therefore $V \notin \mathcal{F}(U)$.
+\end{enumerate}
+
+\paragraph{}
+As we have seen, Theorem 11 gave us an interesting result in form of example above, but since this condition is only necessary, but not sufficient, in some cases we need another conditions to show, that $V \notin \hat{\mathcal{F}}(U)$. Such a couple of languages is for example $U = \langle a^{(x+1)^{2}}b^{x^{2}}\rangle $ and $V = \langle a^{x^{2}}b^{x^{2}}\rangle $. In this case, following theorem works.
+
+\paragraph{}
+\cveta Let $U = \langle a_{1}^{f_{1}(x)}...a_{n}^{f_{n}(x)} \rangle_{p_{1}} $ and $V = \langle b_{1}^{g_{1}(x)}...b_{m}^{g_{m}(x)} \rangle_{p_{2}} $, with $V \in \hat{\mathcal{F}}(U) $. Then there exists a set $Q \subseteq \{ 1, ..., n \} $ and integers $z_{1}, ..., z_{m+1}, 1=z_{1} < ... < z_{m+1} = n+1 $ with the following two properties.
+\begin{enumerate}
+\item $Q_{i} = \{ s | z_{i} \leq s < z_{i+1}, s \notin Q \} \neq \emptyset $ for all $i, 1 \leq i \leq m$.
+\item Let $i \in \{ 1, .., m\} $ and real numbers $q_{1}, ..., q_{m}, l, l >0$, be such that
+\begin{enumerate}
+\item there exists a largest element $f'_{i}$ of $\{ f_{s} | s \in Q \} $,
+\item $\lim_{x\to \infty }\frac{\sum_{s=1}^{m}q_{s}g_{s}(x)}{(g_{i}(x))^{l}}$ exists, and
+\item $\lim_{x\to \infty }\frac{\sum_{s=1}^{n}r_{s}f_{s}(x)}{(f'_{i}(x))^{l}}$ exists for all real numbers $r_{s}$ which staisfy $sgn(r_{s}) = sgn(q_{j})$ for all $s \in Q_{j}, 1 \leq j \leq m$, and $r_{s} = 0$ for all $s \in Q$ ($sgn$ is a signum funcion).
+\end{enumerate}
+Then there exists real numbers $v_{1},...,v_{n}$ ($sgn(v_{s}) = sgn(q_{j})$ for all $s \in Q_{j}, 1 \leq j \leq m$, and $v_{s} = 0$ for $s\in Q$) for which \\
+\centerline{$\lim_{x\to \infty }\frac{\sum_{s=1}^{m}q_{s}g_{s}(x)}{(g_{i}(x))^{l}} = \lim_{x\to \infty }\frac{\sum_{s=1}^{n}v_{s}f_{s}(x)}{(f'_{i}(x))^{l}}$.}
+\end{enumerate} 
+
+\paragraph{}
+With help with this theorem, we can now present aforementioned example.
+
+\paragraph{}
+\priklad Using Theorem 12, $Q = \emptyset, z_{1} = 1, z_{2} = 2, z_{3} = 3$. Let $q_{1} = 1, q_{2} = -1, i = 2$ and $l = \frac{1}{2}$. Clearly, (a), (b) and (c) of 2 of Theorem 12 holds. However, \\
+\centerline{$\lim_{x\to \infty }\frac{g_{1}(x)-g_{2}(x)}{(g_{2}(x))^{1/2}} = \lim_{x\to \infty }\frac{x^{2}-x^{2}}{(x^{2})^{1/2}} = 0$} \\
+and \\
+\centerline{$\lim_{x\to \infty }\frac{v_{1}f_{1}(x)-v_{2}f_{2}(x)}{(f'_{2}(x))^{1/2}} = \lim_{x\to \infty }\frac{v_{1}(x+1)^{2}-v_{2}x^{2}}{(x^{2})^{1/2}} \neq 0$} \\
+for every choice of nonzero real $v_{1}$ and $v_{2}$. Therefore $V \notin \hat{\mathcal{F}}(U)$.
 
 \paragraph{}
