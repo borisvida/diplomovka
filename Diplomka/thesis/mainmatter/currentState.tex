@@ -35,7 +35,7 @@ As one can see, this construction can increase the number of states of an a-tran
 In the next section, we quote results regarding the question, when it is possible to transform one language to another using an a-transducer. The next theorem gives us another view of this problem using the theory of language families.
 
 \paragraph{}
-\clema For every two ($\epsilon $-free a-transducers $M_{1}$ and $M_{2}$ there exists an ($\epsilon $-free) a-transducer $M_{3}$ such that $\forall L: M_{3}(L) = M_{2}(M_{1}(L))$.
+\clema For every two ($\epsilon $-free) a-transducers $M_{1}$ and $M_{2}$ there exists an ($\epsilon $-free) a-transducer $M_{3}$ such that $\forall L: M_{3}(L) = M_{2}(M_{1}(L))$.
 
 \paragraph{}
 \dokaz We show just the idea of the proof: We may assume that $M_{1}$ and $M_{2}$ are 1-bounded. $M_{3}$ simulates both of the a-transducers concurrently (so its internal state have the form $(q \times p)$), reads the input according to transition function of $M_{1}$ and writes the corresponding output of $M_{2}$, while the output of $M_{1}$ forms the input of $M_{2}$. It is easy to see, that $\forall L: M_{3}(L) = M_{2}(M_{1}(L))$. \square
@@ -83,7 +83,7 @@ Now, let $\mathcal{L'} $ be a (full) trio containing $\mathcal{L} $. Obviously, 
 \paragraph{}
 In fact, it was shown in \cite{gingrei:pAFL}, that $\mathcal{M(L)} $ $(\mathcal{\hat{M}(L)}) $ is the smallest (full) semi-AFL containing language L.
 
-\section{Existence of an A-transducer for a Pair of Languages}studena vojna
+\section{Existence of an A-transducer for a Pair of Languages}
 \paragraph{}
 Here we present few results regarding the question, when it is possible to transform a language $L_{1}$ to a language $L_{2}$.
 
@@ -124,5 +124,38 @@ we denote the set $\{ a_{1}^{f_{1}(x)}...a_{n}^{f_{n}(x)} | x \in \mathbb{N} \} 
 \paragraph{}
 \oznacenie By $\psi_{\langle a_{1},...,a_{n}\rangle }$ we denote a mapping from $a_{1}^{*}...a_{n}^{*}$ into $\mathbb{N}^{n}$ defined as follows: \\
 \centerline{$\psi_{\langle a_{1},...,a_{n}\rangle (w) } = (\# _{a_{1}}(w), ..., \# _{a_{n}(w)}) $.}
+
+\paragraph{}
+\oznacenie Let $c = (c_{1}, c_{2}, ..., c_{n})$ and $l = (l_{1}, l_{2}, ..., l_{n}) \in \mathbb{N}^{n}$ and let $L_{1} \subseteq a_{1}^{*}a_{2}^{*}...a_{n}^{*}$. Let
+\centerline{$\mathcal{K}(L, c, l) = \{ k_{1}...k_{n} | a_{1}^{c_{1}+k_{1}.l_{1}}...a_{n}^{c_{n}+k_{n}.l_{n}} \in L, \forall i: k_{i} \geq 0 \} $}.
+
+\paragraph{}
+\cveta Let $U \subseteq a_{1}^{*}...a_{n}^{*}$ and $V = \langle b_{1}^{g_{1}(x)}...b_{m}^{g_{m}(x)} \rangle $ [with $\epsilon \in U \Leftrightarrow \epsilon \in V$]. Then $V$ is in $\mathcal{F}(U) \Leftrightarrow $ \\
+\centerline{$V = \bigcup_{i=1}^{q} $ for some $q \geq 1$, each $V_{i}$ of the form} \\
+\centerline{$\psi_{\langle b_{1},...,b_{n}\rangle }^{-1} [ \{ ( d_{i1} + \sum_{j=z_{i1}}^{z_{i2} - 1} k_{j}p_{ij}, ..., d_{i1} + \sum_{j=z_{im}}^{z_{im+1} - 1} k_{j}p_{ij}) | (k_{1},...,k_{n}) \in \mathcal{K}(L, c, l) \} ]$, } \\
+where $c_{i}, l_{i} = (l_{i1}, ..., l_{in}), (p_{i1},...,p_{in}) \in \mathbb{N}^{n}$, all $l_{i,j} > 0, (d_{i1}, ..., d_{im}) \in \mathbb{N}^{m}$ and $(z_{i1}, ..., z_{im+1}) \in \mathbb{N}^{m+1}, 1=z_{i1} < ... < z_{im+1} = n+1$.
+
+\paragraph{}
+As one can see, this condition is quite difficult to put to use, when dealing with a concrete two languages. Fortunately, if both $U$ and $V$ are restricted to a form $\langle a_{1}^{f_{1}(x)}...a_{n}^{f_{n}(x)} \rangle $, some easier applicable conditions arise. In fact, we can slightly relax this restriction to following.
+
+\paragraph{}
+\oznacenie Let $p \in \mathbb{N}$, $n \geq 2$ and $f_{i}$ be a strictly increasing function \underline{for $x \geq p$} (i. e. $x_{1} < x_{2} \Rightarrow f_{i}(x_{1}) < f_{i}(x_{2})$) from $\mathbb{N} $ to $\mathbb{N} $ for all $ 1 \leq i \leq n$. By \\
+\centerline{$\langle a_{1}^{f_{1}(x)}...a_{n}^{f_{n}(x)} \rangle_{p} $} \\
+we denote the set $\{ a_{1}^{f_{1}(x)}...a_{n}^{f_{n}(x)} | x \in \mathbb{N} \} $.
+
+\paragraph{}
+Note, that $\langle a_{1}^{f_{1}(x)}...a_{n}^{f_{n}(x)} \rangle = \langle a_{1}^{f_{1}(x)}...a_{n}^{f_{n}(x)} \rangle_{0} $.
+
+\paragraph{}
+For $U$ and $V$ of this form, we present few necessary conditions and then one little surprising example.
+
+\paragraph{}
+\cveta Let $U = \langle a_{1}^{f_{1}(x)}...a_{n}^{f_{n}(x)} \rangle_{p_{1}} $ and $V = \langle b_{1}^{g_{1}(x)}...b_{m}^{g_{m}(x)} \rangle_{p_{2}} $ with $V \in \mathcal{F}(U) $. Then there exists a set $Q \subseteq \{ 1, ..., n \} $ and integers $z_{1}, ..., z_{m+1}, 1=z_{1} < ... < z_{m+1} = n+1 $ with the following two properties.
+\begin{enumerate}
+\item $Q_{i} = \{ s | z_{i} \leq s < z_{i+1}, s \notin Q \} \neq \emptyset $ for all $i, 1 \leq i \leq m$.
+\item There exist real numbers $t_{j}$ and positive real numbers $t_{js}, 1 \leq j \leq m$ and $s \in Q_{i}$, such that for every $F: \mathbb{R}^{m} \rightarrow \mathbb{R}$, \\
+\centerline{$\lim_{x\to \infty } F(g_{1}(x), ..., g_{m}(x)) = \lim_{x \to \infty}F(t_{1} + \sum_{Q_{1}}t_{1s}f_{s}(x), ..., t_{m} + \sum_{Q_{m}}t_{ms}f_{s}(x)),$} \\
+if both limit exist.
+\end{enumerate} 
 
 \paragraph{}
