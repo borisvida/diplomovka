@@ -207,4 +207,90 @@ and \\
 \centerline{$\lim_{x\to \infty }\frac{v_{1}f_{1}(x)-v_{2}f_{2}(x)}{(f'_{2}(x))^{1/2}} = \lim_{x\to \infty }\frac{v_{1}(x+1)^{2}-v_{2}x^{2}}{(x^{2})^{1/2}} \neq 0$} \\
 for every choice of nonzero real $v_{1}$ and $v_{2}$. Therefore $V \notin \hat{\mathcal{F}}(U)$.
 
+\section{State Complexity of Finite State Devices}
+\paragraph{}
+The topic of descriptional complexity of finite state devices has been widely researched in connection with finite state automata. Some results have been introduced also for sequential transducers, but the complexity of a-transducers has been on the periphery of interest. For this reason, this section contains the achievments for simpler devices, which can be later useful when dealing with our main model, an a-transducer.
+
+\subsection{Finite State Automata}
+\paragraph{}
+We would like to occupy ourselves with the question, what is the lower bound of state count needed to accept a language $L$. Or, otherwise stated, what is the relation between the properties of a regular language and the minimal state size of its finite automaton?
+
+\paragraph{}
+For deterministic finite automaton, the answer was given by Nerode in \cite{Nerode:LAT}. We present his result in a slightly modified form, which suits better for our purposes.
+
+\paragraph{}
+\cveta Let $L$ be a regular language over alphabet $\Sigma $. Let $R_{L}$ be a relation on strings from $\Sigma ^{*}$ defined as follows: \\
+\centerline{$xR_{L}y \Leftrightarrow \forall z \in \Sigma ^{*}: xz \in L \leftrightarrow yz\in L$.}\\
+Let $k$ be a number of equivalence classes of $R_{L}$. If $A$ is a deterministic finite automaton accepting $L$, then $A$ has at least $k$ states.
+
+\paragraph{}
+\dokaz Let $A = (K, \Sigma , \delta , q_{0}, F)$. We can construct a relation $R'$ based on automaton $A$ as follows: \\
+\centerline{for $x, y \in \Sigma ^{*}$, $x R' y \Leftrightarrow \delta (q_{0}, x) = \delta (q_{0}, y)$.} \\
+Since $A$ is deterministic, it is easy to see, that $\forall z \in \Sigma ^{*}: xR'y \Leftrightarrow xzR'yz$. Moreover, the number of its equivalence classes is exactly the number of reachable states of $A$. Now, we will show, that the relation $R'$ is a refinement of $R_{L}$ (i. e. each equivalence class of $R'$ is contained in a equivalence class of $R_{L}$).
+
+\paragraph{}
+Assume $xR'y$. As stated before, also $xzR'yz$. That means, that $\delta (q_{0}, xz) \in F) \Leftrightarrow \delta (q_{0}, yz)$ and therefore $xR_{L}y$. It follows, that whole equivalence class of $R'$ containing $x$ (later noted as $[x]$) is a subclass of an equivalence class of $R_{L}$ and hence $R'$ has not less equivalence classes than $R_{L}$. \square
+
+\paragraph{}
+Important observation is, that this lower bound is tight, i. e. there really exists a DFA $A'$ accepting $L$ with $k$ states. We can construct is from relation $R_{L}$ as $A'=(K', \Sigma , \delta ', q'_{0}, F')$:
+\begin{itemize}
+\item $K'$ is the set of equivalence classes of $R_{L}$, 
+\item $\delta ([x], a) = [xa]$,
+\item $q'_{0} = [\epsilon ]$,
+\item $F' = \{ [z] | z \in L \}$.
+\end{itemize}
+It is easy to see, that this $L(A') = L$ and $A'$ has exactly $k$ states.
+
+\paragraph{}
+Similar result was achieved for nondeterministic automata. However, its lower bound is not always tight (i. e. sometimes the minimal number of states of NFA is even bigger) and moreover, it is not practically computable, since the problem, if there is a NFA with $\leq k$ states equivalent to a given DFA is $PSPACE$-complete (\cite{rav:minNFA}). Following theorem was introduced in \cite{gla:low}.
+
+\paragraph{}
+\cveta Let $L \subseteq \Sigma ^{*}$ be a regular language and suppose there exists a set of pairs $P=\{ (x_{i}, w_{i}): 1 \leq i \leq n\} $ such that
+\begin{enumerate}
+\item $x_{i}w_{i} \in L$ for $1 \leq i \leq n$,
+\item $x_{j}w_{i} \notin L$ for $1 \leq i,j \leq n$ and $i \neq j$.
+\end{enumerate}
+Then any nondeterministic finite automaton accepting $L$ has at least $n$ states.
+
+\paragraph{}
+\dokaz Let $A=(K, \Sigma, \delta, q_{0}, F)$ be a NFA accepting $L$. Now, let $S = \{ q | \exists i, 1\leq i \leq n: \delta (q_{0}, x_{i}) \ni q \} $. For every $i$, there must by a state $p_{i} \in S$, such that $p_{i} \in \delta (p_{0}, x_{i})$ and $\delta (p_{i}, w_{i}) \cap F \neq \emptyset $ (since $x_{i}w_{i} \in L$).
+
+\paragraph{}
+Now it is sufficient to show, that all states $p_{i}$ are distinct. Indeed, if $p_{i} = p_{j}$, then $\delta (p_{i}, w_{i}) = \delta (p_{j}, w_{i})$. Especially, $\delta (p_{i}, w_{i}) \cap F \neq \emptyset \Leftrightarrow \delta (p_{j}, w_{i}) \cap F\neq \emptyset $. It follows, that $x_{j}w_{i} \in L$, which is contradiction with definition of $P$.
+
+\paragraph{}
+Since $|S| \geq n$, $A$ has at least $n$ states. \square
+
+\subsection{Sequential Transducers}
+The natural question arises, how can be these results extended if we add an output function, in other words, what is the lower bound for number of states of an (sequential, a-) transducer, which transforms a language $L_{1}$ to a language $L_{2}$? Unfortunately, we do not have a answer in such a general form yet. However, in the case of sequential transducers, in \cite{moh:min} was given an answer to a simplified question: what is the minimal number of states of a sequential transducers representing a sequential function?
+
+\paragraph{}
+\oznacenie If $f$ is a sequential function (see Chapter 1), we denote
+\begin{itemize}
+\item $Dom(f)$ is a set of strings $w$, for which $f(w)$ is defined,
+\item $D(f) = \{ u \in \Sigma ^{*} | \exists w \in \Sigma ^{*}: uw \in Dom(f) \} $.
+\end{itemize}
+
+\paragraph{}
+\oznacenie By $\setminus $ we denote the operation of a left quotient.
+
+\paragraph{}
+\definicia For a sequential function $f$  we define a relation $R_{f}$ on $D(f)$ as follows:\\
+$\forall (u, v) \in D(f) \times D(f): u R_{f} v \iff$ \\
+\centerline{$\exists (x, y) \in \Sigma_{2}^* \times \Sigma_{2}^*: \forall w \in \Sigma_{1}^{*}, uw \in Dom(f) \Leftrightarrow vw \in Dom(f) \wedge $}\\
+\centerline{$\wedge uw \in Dom(f) \Rightarrow x\setminus f(uw) = y\setminus f(vw)$.}
+
+\paragraph{}
+\cveta A number of states of a sequential transducer $M$ representing a sequential function $f$ is greater or equal to a number of equivalence classes of $R_{f}$.
+
+\paragraph{}
+\dokaz Let $M=(K, \Sigma_{1}, \Sigma_{2}, \delta, \sigma, q_{0}, F)$. Choosing $x = \sigma (q_{0}, u)$ and $y = \sigma (q_{0}, v)$, it is easy to see, that\\
+\centerline{$\forall (u,v) \in D(f) \times D(f), \delta (q_{0}, u) = \delta (q_{0}, v) \Rightarrow u R_{f} v$.}\\
+Moreover, $\delta (q_{0}, u) = \delta (q_{0}, v)$ also defines an equivalence relation on $D(f)$. As we can see, this relation is just a special case of $R_{f}$, which means, that its number of equivalence classes (ergo the number of states of $M$) is greater or equal to the number of equivalence classes of $R_{f}$. \square
+
+\paragraph{}
+It was also shown, that this lower bound is tight, i. e. there is a sequential transducer realising $f$ with $|K|$ equal to number of equivalence classes of $R_{f}$. However, we do not induct the proof of this claim, since it is quite technical and is not of vast relevance itself.
+
+\paragraph{}
+As mention before, we do not know, how can be this result applied to a couple of languages $L_{1}$ and $L_{2}$, if we do not have the exact sequential function transforming the former to the latter.
 \paragraph{}
