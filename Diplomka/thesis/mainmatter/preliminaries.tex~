@@ -55,7 +55,7 @@ In this section, we would like to clarify some basic notations and terminology u
 \definicia A (full) trio is called a \emph{(full) semi-AFL}, if it is closed under union.
 
 \paragraph{}
-\definicia A (full) semi-AFL is called a \emph{(full) AFL}, if it is closed under concatenation and transitive closure $+$.
+\definicia A (full) semi-AFL is called a \emph{(full) AFL}, if it is closed under concatenation and $+$.
 
 \paragraph{}
 We now characterize two common used families of language, included in a Chomsky hierarchy, to make clear the notation in this thesis.

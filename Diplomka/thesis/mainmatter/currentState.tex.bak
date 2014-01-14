@@ -61,7 +61,7 @@ In the next section, we quote results regarding the question, when it is possibl
 \clema For every $R \in \R $, there exists an $\epsilon $-free a-transducer $M$, such that $M(L) = L \cap R$.
 
 \paragraph{}
-\dokaz Let $A = (K, \Sigma, q_{0}, \delta, F)$ be a non-deterministic finite automaton, such that $L(A) = R$. Then $M=(K, \Sigma, \Sigma, H, q_{0}, F)$, where $H=\{ (q, a, a, \delta (q,a)) | q \in K, a \in \Sigma \} $. \square
+\dokaz Let $A = (K, \Sigma, q_{0}, \delta, F)$ be a nondeterministic finite automaton, such that $L(A) = R$. Then $M=(K, \Sigma, \Sigma, H, q_{0}, F)$, where $H=\{ (q, a, a, \delta (q,a)) | q \in K, a \in \Sigma \} $. \square
 
 \paragraph{}
 \oznacenie For each family $\mathcal{L} $ of languages, \\
@@ -95,11 +95,11 @@ The answer to aforementioned question, when dealing with regular languages, is v
 \cveta For every regular language $R$ and arbitrary language $L$ there exists an a-transducer $M$, such that $M(L) = R$.
 
 \paragraph{}
-\dokaz Let $A = (K, \Sigma, q_{0}, \delta, F)$ be a non-deterministic finite automaton, such that $L(A) = R$. Then $M=(K, \Sigma_{1}, \Sigma, H, q_{0}, F)$, where $H=\{ (q, \epsilon , a, \delta (q,a)) | q \in K, a \in \Sigma \} \cap \{ (q_{0}, a, \epsilon, q_{0}) | a \in \Sigma_{1} \} $. \square
+\dokaz Let $A = (K, \Sigma, q_{0}, \delta, F)$ be a nondeterministic finite automaton, such that $L(A) = R$. Then $M=(K, \Sigma_{1}, \Sigma, H, q_{0}, F)$, where $H=\{ (q, \epsilon , a, \delta (q,a)) | q \in K, a \in \Sigma \} \cap \{ (q_{0}, a, \epsilon, q_{0}) | a \in \Sigma_{1} \} $. \square
 
 \subsection{Context-free Languages}
 \paragraph{}
-Contrary to the case of regular languages, it has showed itself, that the task to determine for two context-free languages $U$ and $V$, if $U \in \mathcal{M}(V)$, is not trivial to solve at all. Actually, it is quite easy to show, that $U \in \mathcal{M}(V)$, but to prove the revers, i. e. $U \notin \mathcal{M}(V)$, is relatively difficult. For this reason, it is convenient to consider only a special subclass of $\CF $, called bounded languages.
+Contrary to the case of regular languages, it has showed itself, that the task to determine for two context-free lagnuages $U$ and $V$, if $U \in \mathcal{M}(V)$, is not trivial to solve at all. Actually, it is quite easy to show, that $U \in \mathcal{M}(V)$, but to prove the revers, i. e. $U \notin \mathcal{M}(V)$, is relatively difficult. For this reason, it is convenient to consider only a special subclass of $\CF $, called bounded languages.
 
 \paragraph{}
 \definicia A language is called \emph{bounded}, if $L \subseteq w_{1}w_{2}...w_{n}$ for some words $w_{1}, w_{2}, ..., w_{n}$.
@@ -191,7 +191,7 @@ As we have seen, Theorem 11 gave us an interesting result in form of example abo
 \begin{enumerate}
 \item there exists a largest element $f'_{i}$ of $\{ f_{s} | s \in Q \} $,
 \item $\lim_{x\to \infty }\frac{\sum_{s=1}^{m}q_{s}g_{s}(x)}{(g_{i}(x))^{l}}$ exists, and
-\item $\lim_{x\to \infty }\frac{\sum_{s=1}^{n}r_{s}f_{s}(x)}{(f'_{i}(x))^{l}}$ exists for all real numbers $r_{s}$ which satisfy $sgn(r_{s}) = sgn(q_{j})$ for all $s \in Q_{j}, 1 \leq j \leq m$, and $r_{s} = 0$ for all $s \in Q$ ($sgn$ is a signum function).
+\item $\lim_{x\to \infty }\frac{\sum_{s=1}^{n}r_{s}f_{s}(x)}{(f'_{i}(x))^{l}}$ exists for all real numbers $r_{s}$ which staisfy $sgn(r_{s}) = sgn(q_{j})$ for all $s \in Q_{j}, 1 \leq j \leq m$, and $r_{s} = 0$ for all $s \in Q$ ($sgn$ is a signum funcion).
 \end{enumerate}
 Then there exists real numbers $v_{1},...,v_{n}$ ($sgn(v_{s}) = sgn(q_{j})$ for all $s \in Q_{j}, 1 \leq j \leq m$, and $v_{s} = 0$ for $s\in Q$) for which \\
 \centerline{$\lim_{x\to \infty }\frac{\sum_{s=1}^{m}q_{s}g_{s}(x)}{(g_{i}(x))^{l}} = \lim_{x\to \infty }\frac{\sum_{s=1}^{n}v_{s}f_{s}(x)}{(f'_{i}(x))^{l}}$.}
@@ -209,7 +209,7 @@ for every choice of nonzero real $v_{1}$ and $v_{2}$. Therefore $V \notin \hat{\
 
 \section{State Complexity of Finite State Devices}
 \paragraph{}
-The topic of descriptional complexity of finite state devices has been widely researched in connection with finite state automata. Some results have been introduced also for sequential transducers, but the complexity of a-transducers has been on the periphery of interest. For this reason, this section contains the achievements for simpler devices, which can be later useful when dealing with our main model, an a-transducer.
+The topic of descriptional complexity of finite state devices has been widely researched in connection with finite state automata. Some results have been introduced also for sequential transducers, but the complexity of a-transducers has been on the periphery of interest. For this reason, this section contains the achievments for simpler devices, which can be later useful when dealing with our main model, an a-transducer.
 
 \subsection{Finite State Automata}
 \paragraph{}
@@ -242,7 +242,7 @@ Important observation is, that this lower bound is tight, i. e. there really exi
 It is easy to see, that this $L(A') = L$ and $A'$ has exactly $k$ states.
 
 \paragraph{}
-Similar result was achieved for non-deterministic automata. However, its lower bound is not always tight (i. e. sometimes the minimal number of states of NFA is even bigger) and moreover, it is not practically computable, since the problem, if there is a NFA with $\leq k$ states equivalent to a given DFA is $PSPACE$-complete (\cite{rav:minNFA}). Following theorem was introduced in \cite{gla:low}.
+Similar result was achieved for nondeterministic automata. However, its lower bound is not always tight (i. e. sometimes the minimal number of states of NFA is even bigger) and moreover, it is not practically computable, since the problem, if there is a NFA with $\leq k$ states equivalent to a given DFA is $PSPACE$-complete (\cite{rav:minNFA}). Following theorem was introduced in \cite{gla:low}.
 
 \paragraph{}
 \cveta Let $L \subseteq \Sigma ^{*}$ be a regular language and suppose there exists a set of pairs $P=\{ (x_{i}, w_{i}): 1 \leq i \leq n\} $ such that
@@ -250,7 +250,7 @@ Similar result was achieved for non-deterministic automata. However, its lower b
 \item $x_{i}w_{i} \in L$ for $1 \leq i \leq n$,
 \item $x_{j}w_{i} \notin L$ for $1 \leq i,j \leq n$ and $i \neq j$.
 \end{enumerate}
-Then any non-deterministic finite automaton accepting $L$ has at least $n$ states.
+Then any nondeterministic finite automaton accepting $L$ has at least $n$ states.
 
 \paragraph{}
 \dokaz Let $A=(K, \Sigma, \delta, q_{0}, F)$ be a NFA accepting $L$. Now, let $S = \{ q | \exists i, 1\leq i \leq n: \delta (q_{0}, x_{i}) \ni q \} $. For every $i$, there must by a state $p_{i} \in S$, such that $p_{i} \in \delta (p_{0}, x_{i})$ and $\delta (p_{i}, w_{i}) \cap F \neq \emptyset $ (since $x_{i}w_{i} \in L$).
@@ -289,7 +289,7 @@ $\forall (u, v) \in D(f) \times D(f): u R_{f} v \iff$ \\
 Moreover, $\delta (q_{0}, u) = \delta (q_{0}, v)$ also defines an equivalence relation on $D(f)$. As we can see, this relation is just a special case of $R_{f}$, which means, that its number of equivalence classes (ergo the number of states of $M$) is greater or equal to the number of equivalence classes of $R_{f}$. \square
 
 \paragraph{}
-It was also shown, that this lower bound is tight, i. e. there is a sequential transducer realizing $f$ with $|K|$ equal to number of equivalence classes of $R_{f}$. However, we do not induct the proof of this claim, since it is quite technical and is not of vast relevance itself.
+It was also shown, that this lower bound is tight, i. e. there is a sequential transducer realising $f$ with $|K|$ equal to number of equivalence classes of $R_{f}$. However, we do not induct the proof of this claim, since it is quite technical and is not of vast relevance itself.
 
 \paragraph{}
 As mention before, we do not know, how can be this result applied to a couple of languages $L_{1}$ and $L_{2}$, if we do not have the exact sequential function transforming the former to the latter.
