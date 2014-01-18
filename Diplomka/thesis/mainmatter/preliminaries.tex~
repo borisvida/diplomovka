@@ -68,10 +68,10 @@ We now characterize two common used families of language, included in a Chomsky 
 
 \section{Transformation models}
 \paragraph{}
-Now we would like to define some of the models mentioned in the introduction. Although the central point of our interest is an a-transducer, we also introduce the definitions of other models, which will be used in the next chapter, because they can give us an insight of language transformations in general and many of the concepts used in results involving them can be put to use by examination of a-transducers.
+Now we would like to define some of the models mentioned in the introduction. Although the central point of our interest is an a-transducer, we also introduce the definitions of other models, which will be used in the next chapters, because they can give us an insight of language transformations in general and many of the concepts used in results involving them can be put to use by examination of a-transducers.
 
 \paragraph{}
-Since a-transducer is most general type of transducer, we define it first and then we only specify the differences between a-transducers and other models.
+Since a-transducer is the most general type of transducer, we define it first and then we only specify the differences between a-transducers and other models.
 
 \paragraph{}
 \definicia An \emph{a-transducer} is a 6-tuple $M=(K, \Sigma_{1}, \Sigma_{2}, H, q_{0}, F)$, where
@@ -118,7 +118,7 @@ If $H \subseteq K \times \Sigma_{1}^{*} \times \Sigma_{2}^{+} \times K$, we call
 
 \paragraph{}
 \definicia An \emph{a-transduction} is a function $\Phi : \Sigma_{1}^{*} \rightarrow 2^{\Sigma_{2}^{*}}$ defined as follows: \\
-\centerline{$\forall x \in \Sigma_{1}^{*}: \Phi(x) = \{ M(x) \} $}.
+\centerline{$\forall x \in \Sigma_{1}^{*}: \Phi(x) = \{ M(x) \} $.}
 
 \paragraph{}
 We have described the core model of our thesis, namely an a-transducer, and now we define two similar, but simpler models.
@@ -134,7 +134,7 @@ We have described the core model of our thesis, namely an a-transducer, and now 
 \paragraph{} 
 A sequential transducer can be seen as a "deterministic" 1-bounded a-transducer, which set $H$ fulfills following conditions:
 \begin{enumerate}
-\item for every tuplet $(q, a) \in K \times \Sigma_{1}$, there is exactly one element $h \in H$, such that $pr_{0}(h) = q$ and $pr_{1}(h) = a$,
+\item for every couple $(q, a) \in K \times \Sigma_{1}$, there is exactly one element $h \in H$, such that $pr_{0}(h) = q$ and $pr_{1}(h) = a$,
 \item $\forall h \in H: pr_{1}(h) \neq \epsilon \wedge pr_{2}(h) \neq \epsilon $.
 \end{enumerate}
 

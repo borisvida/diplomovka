@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2013.11.28)  14 JAN 2014 13:44
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2013.11.28)  18 JAN 2014 14:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -847,18 +847,8 @@ OML/txmi/m/it/12 a[]a[]:::a[]b[]b[]:::b[]$\T1/txr/m/n/12 ,
 [2
 
 ] [3] [4]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 122--122
-[]\T1/txr/m/n/12 . 
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 148--148
 
- []
-
-
-Overfull \hbox (3.0pt too wide) in paragraph at lines 155--155
-[]\T1/txr/m/n/12 . 
  []
 
 [5]) (./mainmatter/currentState.tex [6]
@@ -873,12 +863,12 @@ ucer
 [7
 
 ] [8]
-Overfull \hbox (2.02876pt too wide) in paragraph at lines 75--76
+Overfull \hbox (18.97276pt too wide) in paragraph at lines 75--76
  [] \T1/txr/m/it/12 Proof. \T1/txr/m/n/12 Once again, we use the al-ter-na-tive
- def-i-ni-tion of im-age of $\OML/txmi/m/it/12 L$\T1/txr/m/n/12 , $\OML/txmi/m/
-it/12 M\OT1/txr/m/n/12 (\OML/txmi/m/it/12 L\OT1/txr/m/n/12 ) = \OMS/txsy/m/n/12
- f\OML/txmi/m/it/12 pr[]\OT1/txr/m/n/12 (\OML/txmi/m/it/12 pr[]\OT1/txr/m/n/12 
-(\OML/txmi/m/it/12 w\OT1/txr/m/n/12 ) \OMS/txsy/m/n/12 \
+ def-i-ni-tion of the im-age of $\OML/txmi/m/it/12 L$\T1/txr/m/n/12 , $\OML/txm
+i/m/it/12 M\OT1/txr/m/n/12 (\OML/txmi/m/it/12 L\OT1/txr/m/n/12 ) = \OMS/txsy/m/
+n/12 f\OML/txmi/m/it/12 pr[]\OT1/txr/m/n/12 (\OML/txmi/m/it/12 pr[]\OT1/txr/m/n
+/12 (\OML/txmi/m/it/12 w\OT1/txr/m/n/12 ) \OMS/txsy/m/n/12 \
  []
 
 [9]
@@ -890,23 +880,18 @@ OML/txmi/m/it/12 w[]w[]:::w[]$ \T1/txr/m/n/12 for some words $\OML/txmi/m/it/12
  []
 
 [10]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 131--131
-[]\T1/txr/m/n/12 . 
- []
-
-
 Overfull \hbox (29.3747pt too wide) in paragraph at lines 163--163
 [] 
  []
 
 [11]
-Overfull \hbox (32.3747pt too wide) in paragraph at lines 182--182
-[]\T1/txr/m/n/12 . 
+Overfull \hbox (29.3747pt too wide) in paragraph at lines 182--182
+[] 
  []
 
 
-Overfull \hbox (32.3747pt too wide) in paragraph at lines 182--182
-[]\T1/txr/m/n/12 . 
+Overfull \hbox (29.3747pt too wide) in paragraph at lines 182--182
+[] 
  []
 
 [12]
@@ -927,7 +912,7 @@ Here is how much of TeX's memory you used:
  9237 multiletter control sequences out of 15000+600000
  72488 words of font info for 94 fonts, out of 8000000 for 9000
  24 hyphenation exceptions out of 8191
- 41i,18n,45p,644b,430s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,18n,45p,647b,430s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/t
 exlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fo
 nts/type1/public/txfonts/rtxbsc.pfb></usr/share/texlive/texmf-dist/fonts/type1/
@@ -940,7 +925,7 @@ nts/type1/public/txfonts/txsyc.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
 rw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (26 pages, 236726 bytes).
+Output written on main.pdf (26 pages, 236839 bytes).
 PDF statistics:
  173 PDF objects out of 1000 (max. 8388607)
  117 compressed objects within 2 object streams
