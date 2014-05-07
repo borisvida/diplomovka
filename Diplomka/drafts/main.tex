@@ -1,0 +1,23 @@
+\documentclass[12pt,oneside,a4paper]{book}
+\usepackage{mathtools}
+\usepackage[top=2.5cm,bottom=2.5cm,right=2cm,left=3.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+%\usepackage{lmodern}
+\usepackage{txfonts} %Times New Roman
+\usepackage[T1]{fontenc}
+\usepackage[english,slovak]{babel}
+\usepackage{amsmath}
+\linespread{1.3} %riadkovanie 1.5
+\input foja
+\begin{document}
+
+\paragraph{}
+\definicia A seqence of generalized sequential machines $\{G_n:n \in \mathbb{N}\}$ is called \emph{logspace uniform}, if there is a deterministic logspace-bounded Turing machine, which for all $n$, outputs the description of $G_{n}$ on the input $1^n$.
+
+\paragraph{}
+\definicia A \emph{translator} is a logspace(?) uniform sequence of generalized sequential machines.
+
+\paragraph{}
+Description of the framework: Let us have a sequence of gsm $\{G_n:n \in \mathbb{N}\}$ and a finite automaton(?) $V$ (verifier), which has to decide, if an input $w$ belongs to a language $L_{dec}$.
