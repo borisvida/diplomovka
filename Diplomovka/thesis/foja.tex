@@ -1,0 +1,85 @@
+\ifx\fojadefined{} \endinput \fi
+\def\fojadefined{}
+\input math
+
+% SYMBOLY
+\def\dh{\safemath{\hat\delta}}         % delta^
+\def\S{\safemath\Sigma}                % Sigma
+\def\Sa{\safemath{\Sigma^\ast}}        % Sigma*
+\def\s{\safemath\sigma}                % sigma
+\def\slashcent{{\mathchoice{\rm\rlap{$\displaystyle/$}c} % cent (sikmo 
+                           {\rm\rlap{$\textstyle/$}c}    % preskrtnuty c/)
+                           {\rm\rlap{$\scriptstyle/$}c}
+                           {\rm\rlap{$\scriptscriptstyle/$}c}}}
+\def\vertcent{{\mathchoice{\rm\rlap{$\kern1pt\displaystyle|$}c}  % cent (zvislo 
+                          {\rm\rlap{$\kern1pt\textstyle|$}c}     % preskrtnuty 
+                          {\rm\rlap{$\kern0.7pt\scriptstyle|$}c} % c|)
+                          {\rm\rlap{$\kern0.3pt\scriptscriptstyle|$}c}}}
+\def\scent{\let\cent=\slashcent}
+\def\vcent{\let\cent=\vertcent}
+\vcent
+\def\cd#1{\cent #1\$}
+
+% JAZYKY
+\def\T#1{\hbox{\tt #1}} \def\A{\T a} \def\B{\T b} \def\C{\T c} \def\D{\T d}
+\def\L#1{\safemath{\hbox{\scr L}_{\kern-1pt\hbox{\sevenit #1}}}}
+\def\RE{\L{\kern-0.5pt RE}}           % trieda rekurzivne vycislitelnych jazykov
+\def\rec{\L{rec}}                     % trieda rekurzivnych jazykov
+\def\CS{\L{\kern-0.5pt CS}}           % trieda kontextovych jazykov
+\def\ECS{\L{\kern-0.5pt ECS}}         % trieda rozsirenych kontextovych jazykov
+%\def\CF{\L{\kern-0.5pt CF}}           % trieda bezkontextovych jazykov
+\def\CF{\safemath{\cal{L}_{CF} }}
+\def\R{\safemath{{\cal R}}}           % trieda regularnych jazykov
+
+% GRAMATIKY
+\let\LRA=\Longrightarrow
+\let\KO=\vdash            % krok odvodenia
+\def\KOG#1{\underset{#1}{\LRA}}         % krok odvodenia v gramatike
+
+\def\NKO#1{\KO^{#1}}                    % N krokov odvodenia
+\def\NKOG#1#2{\underset{#2}{\LRA}^{#1}} % N krokov odvodenia v gramatike
+
+\def\O{\KO^\ast}                        % odvodenie
+\def\OG#1{\underset{#1}{\LRA}^\ast}     % odvodenie v gramatike
+
+% AUTOMATY
+%\newbox\vop\setbox\vop=\hbox{$\vdash^\ast$}
+%\def\Vop#1{\mathop{\hbox to \wd\vop {$#1$\hfil}}}
+\let\KV=\vdash                            % krok vypoctu
+\def\zKV{\vdash\mkern12.5mu}               % krok vypoctu
+\def\KVA#1{\underset{#1}{\vdash}}         % krok vypoctu automatu
+
+\def\NKV#1{\vdash^{#1}}                   % N krokov vypoctu
+\def\NKVA#1#2{\underset{#2}{\vdash^{#1}}} % N krokov vypoctu automatu
+
+\def\V{\vdash^\ast}                       % vypocet
+\def\VA#1{\underset{#1}{\vdash^\ast}}     % vypocet automatu
+
+
+\def\kod#1{\safemath{\mathord<#1\mathord>}}
+%\def\ds(#1,#2){\safemath{\textstyle\left(                % dvojstopa paska
+%  #1 \atop #2 \right)}}
+\def\ds(#1,#2){\hbox{$\bigl({#1 \atop #2}\bigr)$}}       % dve poschodia 
+\def\ts(#1,#2,#3){\safemath{\textstyle\left(             % tri poschodia
+    {\scriptscriptstyle #1 \atop \scriptscriptstyle #2 }
+    \atop \scriptscriptstyle #3
+  \right)}}
+\def\ss(#1,#2,#3,#4){\hbox{$\bigl({#1 \atop #2}\,
+                            {#3 \atop #4}\bigr)$}}       % styri poschodia 
+\def\stavy#1{%                                           % zadefinovanie novych
+  \if.#1 \let\next\relax \else \let\next\stavy \fi       % stavov, ktore sa
+  \expandafter\def\csname #1\endcsname%                  % budu vykreslovat
+  {\hbox{\sc \uppercase{#1}}} \next}                     % kapitalkami
+\def\acc{{\bf Accept}}                                   % akceptuj
+\def\rej{{\bf Reject}}                                   % odmietni
+\def\bl{{\bf B}}                                         % blank
+\def\TA{{\cal T}}                                        % Turingov stroj
+\def\stdG{(N, T, P, \s)}
+\def\defDFA#1{(K#1, \Sigma#1, \delta#1, q_0{}#1, F#1)}
+\def\defPDA#1{(K#1, \Sigma#1, \Gamma#1, \delta#1, q_0{}#1, Z_0{}#1, F#1)}
+\def\defTA#1{(K#1, \Sigma#1, \Gamma#1, \delta#1, q_0{}#1, F#1)}
+\def\stDFA{\defDFA\null} \def\sbDFA#1{\defDFA{_{#1}}} \def\prDFA{\defDFA'}
+\def\stPDA{\defPDA\null} \def\sbPDA#1{\defPDA{_{#1}}} \def\prPDA{\defPDA'}
+\def\stLBA{\defTA\null}  \def\sbLBA#1{\defTA{_{#1}}}   \def\prTA{\defTA'}
+ \def\stTA{\defTA\null}   \def\sbTA#1{\defTA{_{#1}}}   \def\prTA{\defTA'}
+

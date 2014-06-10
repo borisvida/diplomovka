@@ -1,0 +1,293 @@
+\chapter{Data-independence}
+\label{chap:dataIndependence}
+\section{Definitions}
+
+\paragraph{}
+In this chapter, we will occupy with the notion of data-independence, in relation to multihead automata. This model was first introduced in \cite{hol}, although the concept of data-independence (also called obliviousness) was examined before, e. g. on Turing machines. In this part of our thesis, we would like to digest current knowledge and present two own results concerning this area.
+
+\paragraph{}
+\cdefinicia
+Let $A$ be a multihead finite automaton. If the position of the $i$-th input head after $t$ steps of computation on a word $w$ depends only on $i$, $t$ and $|w|$, $A$ is called a \emph{data-independent (oblivious) multihead finite automaton}.
+
+\paragraph{}
+We abbreviate a two-way non-deterministic $k$-head data-independent finite automaton as $2DiNFA(k)$. The language class accepted by this automaton is denoted as $\mathcal{L} (2DiNFA(k))$. In a similar way, we will use abbreviations $1DiNFA(k)$ (for one-way non-deterministic automata), $1DiDFA(k)$ (one-way deterministic), $2DiDFA(k)$ (two-way deterministic) etc.
+
+\paragraph{}
+The configuration, computational step and language accepted by a data-independent multihead finite automaton are defined in the same way, as for the data-dependent ones.
+
+\paragraph{}
+As one can see, data-independence is a semantic restriction, which bounds the movement of input heads of an automaton - the head movement has to be identical for all words of the same length (that means, for words not belonging to accepted language, too). 
+
+\paragraph{}
+Having this in mind, it is easy to see, that every deterministic multihead finite automaton over a one letter alphabet is data-independent, since there is only one word for each given length. Ergo, we can state the following lemma:
+
+\paragraph{}
+\clema
+Let $L$ be any unary language in $\textbf{L}$. Then $L \in \bigcup_{k \in \N} \mathcal{L} (2DiDFA(k))$
+
+\paragraph{}
+However, we do not know, if this is true also for the non-deterministic case, because a non-deterministic multihead finite automaton can have more various computations with different head movement on a single input. Thus, it does not fulfill the definition of data-independence. The relation between classes unary-$\textbf{NL}$ and $\mathcal{L} (2DiNFA(k))$ is still an open problem.
+
+\section{Language class accepted by data-independent multihead finite automata}
+
+\paragraph{}
+As we have seen, general multihead finite automata characterize a very well known language class $\textbf{L} $ (resp. $\textbf{NL} $ ). Is the case similar with data-independent automata, too? The answer is, yes. Data-independent multihead finite automata accept a class, that is quite important in word of parallel computing, namely $\textbf{NC} ^{1}$, the class of problems, that can be solved efficient on parallel computing devices (such as Boolean circuits, alternating Turing machines etc.)
+
+\paragraph{}
+\cdefinicia
+By $\textbf{NC} ^{1}$ we denote the language class accepted by uniform Boolean circuits with polynomial size and logarithmic depth.
+
+\paragraph{}
+The proof of the equivalence of $\textbf{NC} ^{1}$ and $\bigcup_{k \in \N} \mathcal{L} (2DiNFA(k))$ was presented in \cite{hol}, using another model, namely log-space uniform leveled branching program families of constant width and polynomial depth. As shown by Barrington in \cite{bar}, this model is equivalent to aforementioned Boolean circuits.
+
+\paragraph{}
+\cdefinicia
+A \emph{branching program} is a finite directed acyclic graph with one source node and few sink nodes. Non-sink nodes are called testing nodes. A sink node can be accepting or rejecting. Each of test nodes is labelled with one input variable $x_{i}$ and has two output edges marked 0 and 1. An input $x \in \{ 0, 1 \} ^{*}$ is accepted iff the computation starting in source node and then traversing test nodes (following output edge with the value of $x_{i}$) ends in an accepting sink node.
+
+\paragraph{}
+A \emph{level} is a set of nodes with equal distance from the source node.
+
+\paragraph{}
+\emph{Width} of the branching program is maximal number of nodes in one level, its \emph{depth} is maximal number of levels.
+
+\paragraph{}
+The \emph{family} of branching programs is a sequence $\{ B_{n}\} $, where $\forall i$, $B_{i}$ is a branching program, that operates on inputs of length $i$.
+
+\paragraph{}
+The family of branching programs $\{ B_{n}\} $ is called \emph{log-space uniform}, if there is a log-space bounded Touring machines, that can compute the code of the branching program $B_{i}$ from input $1^{i}$ for all $i$.
+
+\paragraph{}
+\cveta
+$\textbf{NC} ^{1} = \bigcup_{k \in \N} \mathcal{L} (2DiNFA(k))$
+
+\paragraph{}
+\dokaz
+The proof of this theorem (\cite{hol}) is constructional and we present just outline of the simulation of a data-independent multihead finite automaton on a branching program. Let $A$ be a $2DiNFA(k)$. Since $A$ is data-independent, the positions of input heads of $A$ depends only on length of the input, ergo the levels of the branching program $B$ can be seen as computational steps of $A$. Now, we know, which fields of the input tape will be read in step $t$, so in $B$, we test corresponding input nodes in level $t$. The width of this program is constant, because there is only constant number of input combinations. Since $A$ has polynomial number of configurations, we can reduce the length of computation to polynomial time (if the computation runs longer, it will be circular). For these reasons, $B$ has only polynomial depth. \square
+
+\paragraph{}
+The natural question comes out, if the restriction of data-independence has any effect on the computational power. And if so, can we compensate it by adding more input heads, non-determinism, etc.? We will occupy with this question later, when we become familiar with basic concepts of data-independent multihead finite automata.
+
+\section{Relation of subclasses}
+Just like in the first chapter, we will occupy with class hierarchies and explore, if also for data-independent multihead finite automata, non-determinism is stronger than determinism, two-way movement than one-way and if more heads brings greater computational power.
+
+\subsection{Determinism and non-determinism}
+
+\paragraph{}
+We have seen, that for general multihead finite automata, there is a language, that is accepted by a two-head one-way non-deterministic automaton, but by no $k$-head one-way deterministic automaton. Moreover, we have stated, that this question for two-way setting is still open and has important place in the theory of complexity.
+
+\paragraph{}
+The problem for determinism was, that it could not simulate the possibility of differences in head movement. However, data-independent multihead finite automata, even the non-deterministic ones, have the head movement fixed for all words of the same length - that means, that also for different computations on the same input $w$, the head movement has to be identical.
+
+\paragraph{}
+Now, it is easy to see, that the following theorem holds:
+
+\paragraph{}
+\cveta
+For every $k \in \N $:
+\begin{enumerate}
+\item $\mathcal{L} (1DiDFA(k)) = \mathcal{L} (1DiNFA(k))$
+\item $\mathcal{L} (2DiDFA(k)) = \mathcal{L} (2DiNFA(k))$
+\end{enumerate}
+
+\paragraph{}
+\dokaz
+Since the only power of non-determinism is in the choice of the next state, classic powerset construction, well known from one-head finite automata, can be used for one-way, as for two-way setting. \square
+
+\paragraph{}
+So, the situation with data-independent multihead finite automata is (in this concern) simpler and in our latter sections, we will not distinguish between deterministic and non-deterministic automata. Also, in proofs of other theorems, we will consider deterministic automata only, unless otherwise stated.
+
+\subsection{One-way and two-way movement}
+
+\paragraph{}
+We have seen, that non-determinism does not give any more computational power for data-independent multihead finite automata, which was quite unexpected, since the situation is different than with data-dependent ones. However, such a surprising result does not awaits us, when occupying with one-way versus two-way head movement. In \cite{hol}, following relations were shown:
+
+\paragraph{}
+\cveta
+Let $k \geq 2$. Then $\mathcal{L} (1DiDFA(k)) \subsetneq \mathcal{L} (2DiDFA(k))$.
+
+\paragraph{}
+Moreover, $\bigcup_{k \in \N} \mathcal{L} (1DiDFA(k)) \subsetneq \bigcup_{k \in \N} \mathcal{L} (2DiNFA(k))$.
+
+\paragraph{}
+\dokaz
+To prove this inclusions, we will once again use the mirror language $L=\{ w| w \in \{ a,b \} ^{*} \wedge w=w^{R} \} $. As stated before, this language cannot be accepted by any one-way multihead automaton, but is easy to construct a appropriate two-way data-independent automaton with two heads - the first head travels to the right endmarker and then, the comparison starts - the first head traverses the word from right to left, while the second goes from left to right and the automaton compares the equality of corresponding input symbols. \square
+
+\paragraph{}
+The same relation obviously holds also for non-deterministic data-independent automata, since they are equivalent with deterministic ones.
+
+\subsection{Number of heads}
+
+\paragraph{}
+Now we would like to inspect the hierarchies of data-independent multihead finite automata in relation to number of input heads. We have seen by data-dependent automata, that $k+1$ heads do give us more computational power than $k$ heads. Moreover, in two-way deterministic setting, the witness language was unary, as stated by Theorem 5. Since every multihead deterministic automaton is data-independent by Lemma 10, we can derive following result:
+
+\paragraph{}
+\cveta
+For every $k \in \N $:
+\begin{enumerate}
+\item $\mathcal{L} (2DiDFA(k)) \subsetneq \mathcal{L} (2DiDFA(k+1))$
+\item $\mathcal{L} (2DiNFA(k)) \subsetneq \mathcal{L} (2DiNFA(k+1))$
+\end{enumerate}
+
+\paragraph{}
+And what is the situation like with one-way automata? The automaton for language used in \cite{yr}, which shows the head hierarchy of one-way multihead finite automata (deterministic as well as non-deterministic), is not data-independent, so it can not be used for our proof.
+
+\paragraph{}
+It turned out, that this question is not easy to solve and the problem of head hierarchy of one-way data-independent multihead automata is probably the most important open problem in this area. Although, some partial solutions have been found.
+
+\paragraph{}
+It is easy to see, that the language class accepted by one-head data-independent automata is exactly the class of regular languages, since every one-head deterministic one-way finite automaton is data-independent. Clearly, there is an one-way two-head data-independent finite automaton accepting non-regular language  $L=\{ 0^{n}10^{n} | n \ge 0\} $, therefore $\mathcal{L} (1DiDFA(1)) \subsetneq \mathcal{L} (1DiDFA(2))$.
+
+\paragraph{}
+Next few levels were separated in \cite{hol2}, where following theorem was proved:
+
+\paragraph{}
+\cveta
+$\mathcal{L} (1DiDFA(2)) \subsetneq \mathcal{L} (1DiDFA(3)) \subsetneq \mathcal{L} (1DiDFA(4))$. 
+
+\paragraph{}
+The breakthrough occurred in \cite{hkm}, where following bound was estimated:
+
+\paragraph{}
+\cveta
+Let $k \geq 1$. Then $\mathcal{L} (1DiDFA(k)) \subsetneq \mathcal{L} (1DiDFA(\frac{k.(k+1)}{2} +4))$.
+
+\paragraph{}
+\dokaz
+The witness language is a modification of language from Theorem 4, so that the subwords $w_{i}$ have fixed length. Formally, let $L^{n}_{b} = \{ w_{1}\ast w_{2}\ast ...\ast w_{2b}| (w_{i} \in \{ 0,1 \} ^{n}) \wedge (w_{i} = w_{2b+1-i}) $ \emph{for} $ 1 \leq i \leq 2b \} $. This modification was also used in proof of Theorem 4, where it was also shown, that $L^{n}_{b}$ can be accepted by an one-way $k$-head finite automaton if and only if $b \leq \frac{k.(k+1)}{2} $.
+
+\paragraph{}
+Therefore, there is no one-way $k$-head data-independent automaton, which accepts language $L^{n}_{b}$ for $b = \binom{k}{2} +1$. Now, we would like to show the working of one-way $(\frac{k.(k+1)}{2} +4)$-head data-independent automaton $A$ for this language.
+
+\paragraph{}
+Similarly to proof of Theorem 4, first head traverses the second half of input, i. e. words $w_{\frac{k.(k+1)}{2} +2}$, $w_{\frac{k.(k+1)}{2} +2}$, etc. to $w_{k.(k+1) +2}$. Next $\frac{k.(k+1)}{2} +1$ heads read corresponding substrings $w_{1}$ to $w_{\frac{k.(k+1)}{2} +1}$ in the first half on the input. Since $A$ is data-independent, the positioning of heads to start of the substrings cannot be done by looking for symbols *, so we will need one additional "positional" head - then, the positioning of heads will be achieved by sending them with different speeds and stopping, when the "positional" head finds the right endmarker (we believe, that this technique is well known to the reader).
+
+\paragraph{}
+Now, the comparison of the corresponding substrings starts. First, $w_{\frac{k.(k+1)}{2} +1}$ is compared to $w_{\frac{k.(k+1)}{2} +2}$. For correct position of the input head on the second half, one additional head is required. When the comparison is finished, the head from $w_{\frac{k.(k+1)}{2} +1}$ is used to reposition the second head on the next separator. Then, words $w_{\frac{k.(k+1)}{2}}$ and $w_{\frac{k.(k+1)}{2} +3}$ are compared and so on.
+
+\paragraph{}
+Thus, we have shown, that for $b = \binom{k}{2} +1$, language $L^{n}_{b} \in \mathcal{L} (1DiDFA(\frac{k.(k+1)}{2} +4)) - \mathcal{L} (1DiDFA(k))$ and therefore our theorem is proven. \square
+
+\paragraph{}
+This result was later improved in \cite{dur}, where the bound was enhanced from circa-quadratic to approximately linear growth of input heads. To be specific, following result was introduced, in our thesis, we present it without proof:
+
+\paragraph{}
+\cveta
+Let $k \geq 1$. Then $\mathcal{L} (1DiDFA(\sqrt{2}.k)) \subsetneq \mathcal{L} (1DiDFA(2k+2))$.
+
+\paragraph{}
+So, we have inspected the hierarchies of subclasses of data-independent multihead finite automata and we also believe, that the reader was given a basic insight in this model. In the next section, we would like to present two own results in this area.
+
+\section{Relation to other models}
+
+\paragraph{}
+Now its time to resolve the question, if the restriction of data-independence has any influence on computational power. Although the natural intuition is, that data-dependent multihead automata should be computationally stronger, this assumption has not been confirmed by any formal proof.
+
+\paragraph{}
+Actually this question is closely related to a very important complexity theory question - the relation of classes $\textbf{NC} ^{1}$ and $\textbf{L} $. Profiting from aforementioned simulations of $\textbf{L} $ and $\textbf{NC} ^{1}$ on data-dependent and data-independent multihead automata, respectively, it is easy to see, that  $\textbf{NC} ^{1} \subseteq  \textbf{L}$. If the inclusion is proper, is an open problem, but since in \cite{wag} it was shown, that there is a $\textbf{L}$-complete language in $\mathcal{L} (1DFA(2))$ and a $\textbf{NL}$-complete language in $\mathcal{L} (1NFA(2))$, Holzer in \cite{hol} has presented following:
+
+\paragraph{}
+\cveta
+\begin{enumerate}
+\item $\textbf{NC} ^{1} = \textbf{L}$ if and only if $\mathcal{L} (1DFA(2)) \subseteq \mathcal{L} (2DiDFA(k))$
+\item $\textbf{NC} ^{1} = \textbf{NL}$ if and only if $\mathcal{L} (1NFA(2)) \subseteq \mathcal{L} (2DiDFA(k))$
+\end{enumerate}
+
+\paragraph{}
+Although this question was not solved yet in general, for one-way setting, it turned out, that data-dependent multihead automata really have more computational power than data-independent ones, even when restricted to determinism and two heads.
+
+\paragraph{}
+\cveta
+$\mathcal{L} (1DFA(2)) - \bigcup _{k \in \N} \mathcal{L} (1DiDFA(k)) \neq \es$.
+
+\paragraph{}
+\dokaz
+As a witness language, we use $L = \{ w \# ^{+} w \# ^{+} | w \in \{ a, b \} ^{+} \} $.
+
+\paragraph{}
+It is easy to see, that this language can be accepted by an $1DFA(2)$ - the first head looks for the second occurrence of the string $w$, while the second waits at the beginning of the input. Then, the words are compared.
+
+\paragraph{}
+The remaining task is to show, that $L$ cannot be accepted by $1DiDFA(k)$ for any $k$. To accomplish this, we use similar technique as in the proof of Theorem 4. Ergo, we assume, that there is a $1DiDFA(k)$ for $L$ and this assumption will lead to a contradiction.
+
+\paragraph{}
+Let $A = (Q, \Sigma \cup \{ \vertcent , \$ \} , k, \delta , q_{0}, F)$ be a $k$-head deterministic data-independent finite automaton, which accepts $L$. Let $p$ be an integer sufficiently large in relation to $|Q|$ (later we will see, why is this important). Let $h=4.k^{2}+1$. Now, let $L_{h}$ be a subset of $L$, in which the length of substrings $w$ is $h.p$ and total number of separators \# is a multiple of $2.h.p$, whereby they are separated in multiples of $p$. Formally, $L_{h} = \{ w \# ^{i.p} w \# ^{j.p} | w \in \{ a, b \} ^{h.p} \wedge i + j = 2.h \} $. Since $A$ accepts $L$, it has to accepted every word in $L_{h}$.
+
+\paragraph{}
+Now, we divide the input $x$ in blocks of $p$ characters. This way, we can write the input $x$ as $x_{1}x_{2}...x_{h}\# ^{i.p} x'_{1}x'_{2}...x'_{h}\# ^{j.p} \cong u_{1}u_{2}...u_{4.h}$. We state, that for every input from $L_{h}$, there always is a pair $(x_{s}, x'_{s})$, which is never scanned simultaneously during the computation. We argue as follows:
+
+\paragraph{}
+We say, that a couple of blocks $(u_{a}, u_{b})$ is \emph{covered} by a pair of heads, if there is a point of the computation, in which one of the heads reads the block $u_{a}$ and at the same time, the second head scans the block $u_{b}$.
+
+\paragraph{}
+We want to determine the number of couples $(u_{a}, u_{b})$, that can be covered by one pair of input heads. The input $x$ consists of $p$ blocks. We denote the sequence of covered block pairs by $(i_{1}, j_{1}), (i_{2}, j_{2}), ..., (i_{l}, j_{l})$. Since for every $m$ it holds, that $i_{m} \leq i_{m+1} \wedge j_{m} \leq j_{m+1} \wedge \neg (i_{m} = i_{m+1} \wedge j_{m} = j_{m+1})$, the number of couples $(u_{a}, u_{b})$ covered by one pair of heads is $8.h - 1$. We have $\binom{k}{2}$ pairs of heads and therefore, $k$-head finite automaton can in one computation cover less than $k^{2}.8.h$ couples $(u_{a}, u_{b})$.
+
+\paragraph{}
+Now, the question is, how much possible relative positions can a pair $(x_{s}, x'_{s})$ have. Since the number of blocks of $\#$ is $i+j$, for fixed $x_{t}$, there are $i+j = 2.h}$ possible positions of $x'_{t}$. For $h$ different values of $s$, we have $h.2.h$ possible relative positions of a couple $(x_{s}, x'_{s})$. As we have stated before, $h=4.k^{2}+1$, so the claim, that there always is a pair $(x_{s}, x'_{s})$ never scanned simultaneously is proven right. Since $A$ is data-independent, the couple is the same in every word with the same structure (under structure, we understand integers $i, j$).
+
+\paragraph{}
+Now, we define the subclasses of words from $L_{h}$ according to the internal state of automaton $A$, when the scanning of subword $x'_{s}$ is started. Since the language $L_{h}$ is "dense" (there are $2^{ph}$ words of length $4.p.h$), there surely are two words $y = y_{1}...y_{h}\# ^{i.p} y'_{1}...y'_{h}\# ^{j.p}$, $z = z_{1}...z_{h}\# ^{i.p} z'_{1}...z'_{h}\# ^{j.p}$, which belong to the same class (this can be proven using Dirichlet's principle). This means that automaton $A$ cannot know, if it scans input $y$ or $z$. Since they are both accepted by $A$, we may construct an input $y_{1}...y_{s-1}z_{s}y_{s+1}...y_{h}\# ^{i.p} y'_{1}...y'_{s-1}y'_{s}y'_{s+1}...y'_{h}$, which is also accepted by $A$, although $v \notin L$.
+
+\paragraph{}
+We have completed the contradiction and therefore, $L$ cannot be accepted by $1DiDFA(k)$ for any $k$. \square
+
+\paragraph{}
+So, the relation for one-way multihead finite automata is can be summed up as follows:
+
+\paragraph{}
+\cdosledok
+$\bigcup _{k \in \N} \mathcal{L} (1DiDFA(k)) \subsetneq \bigcup _{k \in \N} \mathcal{L} (1DFA(k))$.
+
+\paragraph{}
+Finally, we would like to compare data-independent multihead finite automata to one more model, which is a partially blind finite automaton. We bring just one result for one-way two-head case to give a quick insight in this relation. We denote the family of languages accepted by a one-way deterministic finite automaton with one blind and one normal input head by $\mathcal{L} (1DPBFA(2))$.
+
+\paragraph{}
+\cveta
+$\mathcal{L} (1DPBFA(2)) - \mathcal{L} (1DiDFA(2)) \neq \es$.
+
+\paragraph{}
+\dokaz
+We prove this theorem using language $L = \{ a^{i}b^{j}c^{i}|i, j \geq 0\}$. Note, that this language can also be accepted by a finite counter automaton (a pushdown automaton with unary working alphabet) and therefore, it is context-free.
+
+\paragraph{}
+The partially blind finite automaton works as follows: while the normal head reads symbols $a$, the blind one moves with double speed. Then, when the sighted head finds first symbol $b$, the blind head changes its speed to normal (i. e. the speed of sighted head). The blind head should find the right endmarker at the same time, when the normal head arrives at first symbol $c$. Then, the normal head finishes checking the structure of the input word.
+
+\paragraph{}
+Now, we want to show, that $L$ cannot be accepted by any two-head one-way data-independent deterministic finite automaton. Once again, we prove this by contradiction.
+
+\paragraph{}
+Let $A$ be $1DiDFA(2)$, which accepts language $L$. First, we would like to analyze the head movement on a word of length $n$, for $n$ sufficiently large in relation to $|Q|$ ($Q$ is the state set of automaton $A$). To accomplish this, let us look at a computation on input $a^{n}$. Since $A$ is data-independent, the head movement on all other inputs of length $n$ will be the same.
+
+\paragraph{}
+Since $A$ is deterministic, $A$ on $a^{n}$ enters a loop $P$ during the first $|Q|$ steps of the computation, and $A$ remains in that loop till one of the heads reaches the end of the input. There are, in facts, just two possibilities.
+
+\paragraph{}
+\begin{enumerate}
+\item Just one of the heads moves in the loop $P$. Now, replace the input $a^{n}$ with the word $a^{i}b^{j}c^{i}$, where $2.i+j=n$.
+
+\paragraph{}
+As we have stated before, after maximum $|Q|$ steps of computation, automaton $A$ works in a loop $P$, while the second heads stands still. The movement of the second head starts, when the first one has reached the end of the input.
+
+\paragraph{}
+But, such a computation can be simulated by a proper one-head two-way automaton $B$, which works as follows: $B$ simulates the "moving head" of $A$ (so the one, that moves in cycle $P$). Since the second head of $A$ does not move in this part of the computation, the simulation is correct. When the "moving head" reaches the right endmarker, $B$ stops the simulation of the loop $P$ and its reading head travels to the left end of the input string. Then, the simulation of the second head of $A$ is done (with corresponding state changes). Once again, only one head of $A$ moves in this part of the computation, so also this simulation is proper.
+
+\paragraph{}
+As we have stated in Subsection 1.3.3, one-head two-way automata recognize exactly the class $\R$. Hovewer, the language $L$ clearly is not regular, and therefore it cannot be accepted by automaton $B$ and consequently, nor it can be accepted by automaton $A$ with such a head movement pattern.
+
+\item The second possibility is, that both heads are moving in the loop $P$. Again, what does it mean on an input word $a^{i}b^{j}c^{i}$, where $2.i+j=n$?
+
+\paragraph{}
+Consider the input $a^{i}b^{j}c^{i}$ with $i = |Q|$ and $j = |Q|^{2}$. Now, we claim, that there is a point $t$ of the computation, where both heads are scanning symbols $b$.
+
+\paragraph{}
+By $h$ we denote the "slower" head, by $g$ the "faster" one. Let $t$ be the first step of computation, when $g$ reads the rightmost character of the prefix $a^{i}b^{j}$ (i. e. $t \ge i+j = |Q| + |Q|^{2}$) and $h$ also reads the prefix $a^{i}b^{j}$. We state, that also $h$ reads the part of the input with symbols $b$, since both heads move in the cycle $P$ of maximum length $|Q|$ and therefore, both heads have to make at least $1$ step right every $|Q|$ steps of computation (every loop iteration). We remind, that the head movemnt on input words $a^{n}$ and $a^{i}b^{j}c^{i}$ is identical, so it has to be the same in first $t$ steps of computation, too.
+
+\paragraph{}
+Now, for $k = 1, 2, ..., |Q|+1$, let $s_{k}$ denote the internal state of automaton $A$ after $t$ steps of computation on the input $a^{i-k}b^{j+2k}c^{i-k}$. Clearly, according to Dirichlet's principle, ther are two unequal indexes $m, l$, for which $s_{m} = s_{l}$. This means, that after $t$ steps of computation, the internal state of $A$ (and also the head positions, since $A$ is data-independent) will be the same for input strings $w_{1}=a^{i-m}b^{j+2m}c^{i-m}$ and $w_{2}=a^{i-l}b^{j+2l}c^{i-n}$. Hovewer, this also means, that automaton $A$ will be in the state $s_{m}$ on the input $w_{3}=a^{i-m}b^{j+m+l}c^{i-l}$ - and also the head position will be the same. Finally, the computation will continue in the same way as on input $w_{2}$, ergo it will be accepting. Nevertheless, $w_{3} \notin L$ and the contradiction follows.
+
+\end{enumerate}
+
+\paragraph{}
+As we have seen, $L$ cannot be accepted by any $1DiDFA(2)$, but is accepted by a quite simple $1DPBFA(2)$. \square
+
+\paragraph{}
+We believe, that this two theorems have shown a bit about the restriction of data-independence on multihead finite automata.

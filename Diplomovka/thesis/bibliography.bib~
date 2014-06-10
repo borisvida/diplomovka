@@ -1,0 +1,13 @@
+@BOOK{hopcroft:fola,
+  AUTHOR = {Hopcroft, J.E. and Ullman, J.D.},
+  TITLE = {Formal languages and their relation to automata},
+  PUBLISHER = {Addison-Wesley Pub. Co.},
+  YEAR = {1969}, 
+}
+
+@book{pap,
+  title={Computational complexity},
+  author={Papadimitriou, C.H.},
+  year={1994},
+  publisher={Addison-Wesley}
+}

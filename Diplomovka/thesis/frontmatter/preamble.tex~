@@ -1,0 +1,11 @@
+\chapter*{Preamble}
+\paragraph{}
+The field of complexity of formal languages is one of the most interesting, but also most difficult parts of computer science. On the one hand, it needs strong theoretical and mathematical foundations, because it deals with the most abstract computational models, strict formal definitions of algorithms and many non-trivial concepts from combinatorics and discrete mathematics.
+\paragraph{}
+On the other hand, there are far-reaching consequences of the theory of complexity in the "real world" applications of computer science. One can surely agree, that it is not insignificant, how long an algorithm e. g. for searching of string in a text file runs, and how much memory it needs. Although this example is oversimplified and any "practical-oriented" programmer could come up with an effective algorithm for this purpose, the theory of complexity gives us useful tools for production of evidence of effectivity and for optimalization of computational patterns.
+\paragraph{}
+Because of aforementioned (and other) reasons, this field was very "lucrative" for research and many results were accomplished. But despite all effort, there are still few (and quite a bit) open problems, that resist to all attempts to find a solution. We believe, that P - NP problem, so the question, if language classes accepted by deterministic and non-deterministic polynomial time-bounded Thuring machines are equivalent, is well-known to the reader.
+\paragraph{}
+Similar open problems can be found in parallel computing. Probably the most important, still unresolved question is the relation between NC and P class. Informally, it is the question, if every problem, that can be solved effectively (in polynomial time) on a sequential model, such as Thuring machine, can be solved effectively (that is, in polylogarithmic time with polynomial number of processors) on a parallel model, e. g. Boolean circuit. The formal definition of NC is given in chapter \ref{chap:dataIndependence}.
+\paragraph{}
+We believe, that this thesis will provide the reader with an interesting insight in the topic of multihead automata.

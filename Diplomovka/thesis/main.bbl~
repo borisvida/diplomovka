@@ -1,0 +1,39 @@
+\begin{thebibliography}{1}
+
+\bibitem{hopcroft:fola}
+J.E. Hopcroft and J.D. Ullman.
+\newblock {\em Formal Languages and Their Relation to Automata}.
+\newblock Addison-Wesley Pub. Co., 1969.
+
+\bibitem{gin:AATPFL}
+S. Ginsburg.
+\newblock {\em Algebraic and Automata-Theoretic Properties of Formal Languages}.
+\newblock Elsevier Science Inc., New York, NY, USA, 1975.
+
+\bibitem{gingrei:pAFL}
+S. Ginsburg and S. Greibach.
+\newblock {\em Principal AFL}.
+\newblock J. Comput. Syst. Sci. 4, 4 (August 1970), 308-338.
+
+\bibitem{Rovan:AFL}
+B. Rovan.
+\newblock {\em Proving Containment of Bounded AFL}.
+\newblock J. Comput. Syst. Sci. 11, 1 (August 1975), 1-55.
+
+\bibitem{Nerode:LAT}
+A. Nerode.
+\newblock {\em Linear Automaton Transformations}.
+\newblock Proceedings of the American Mathematical Society, 9, 4 (Aug., 1958), 541-544.
+
+\bibitem{gla:low}
+I. Glaister, J. Shallit.
+\newblock {\em A Lower Bound Technique for the Size of Nondeterministic Finite Automata}.
+\newblock Inf. Process. Lett. 59, 2 (July 1996), 75-77.
+
+\bibitem{rav:minNFA}
+T. Jiang and B. Ravikumar. 
+\newblock {\em 1993. Minimal NFA problems are hard}. 
+\newblock SIAM J. Comput. 22, 6 (December 1993), 1117-1141.
+\end{thebibliography}
+
+

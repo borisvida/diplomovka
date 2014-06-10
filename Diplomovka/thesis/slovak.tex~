@@ -1,0 +1,45 @@
+\ifx\slovakdefined{} \endinput \fi
+\def\slovakdefined{}
+
+% FONTY
+\font\Lit=csti10 scaled \magstep3 % Large italic
+% \font\lsl=cssl10 scaled \magstep1 % large slanted
+
+% DATUM
+\def\today{$\oldstyle\number\day$.~\ifcase\month\or
+  januára\or februára\or marca\or apríla\or mája\or júna\or
+  júla\or augusta\or septembra\or októbra\or
+  novembra\or decembra\fi
+  \space\oldstyle\number\year }
+
+% UVODZOVKY
+\catcode`\"=\active                                     % uvodzovky:
+\def\sq{\def "{\begingroup\clqq\def "{\endgroup\crqq}}} % slovenske (,, ... '')
+\def\eq{\def "{\begingroup``\def "{\endgroup''}}}       % anglicke  (`` ... '')
+\def\nq{\def "{''}}                                     % normalne  ('' ... '' t.j. nezmenene)
+  
+% ZVYRAZNENIE
+\def\emph#1{{\it #1\/}}
+
+% ZOZNAMY
+\newcount\citem\citem=0
+\newcount\ciitem\ciitem=96
+\def\newI{\citem=0\ciitem=96}
+\def\I{\advance\citem by 1\ciitem=96\item{{\oldstyle\number\citem}.}}
+\def\II{\advance\ciitem by 1\itemitem{\char\number\ciitem)}}
+\def\BI{\item{$\bullet$}}
+\def\BII{\itemitem{$\bullet$}}
+
+% HLAVICKA
+\def\autor#1{\edef\meno{#1}}
+\def\header#1{
+  \centerline{\Lit #1}
+  \medskip
+  \line{\hfil {\lsl (\meno)} \hfil \llap{\today}}
+  \medskip\hrule\bigskip
+  \noindent %
+}
+
+% NASTAVENIA
+\eq                 % uvodzovky (\sq, \eq, \nq -- slovenske, anglicke, normalne)
+

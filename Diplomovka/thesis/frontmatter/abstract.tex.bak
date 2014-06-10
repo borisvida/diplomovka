@@ -1,0 +1,8 @@
+\chapter*{Abstract}
+In our thesis we concern ourselves with general multihead finite automata and we offer a brief summary of existing results in the area of their computational complexity, with considering of nondeterminism, head movement and head count. Beside this, we show the equivalence of this model with logarithmic space bounded Turing machines and we bring the relation of multihead finite automata complexity to another question in the theory of computational complexity of formal languages.
+
+\paragraph{}
+We examine similar questions about data-independent multihead finite automata, whereby we bring two own results, that compare their computational power to another well-known models, namely general multihead finite automata and partially blind finite automata. We also mention the equivalence of the language family accepted by this model to the class $\textbf{NC} ^1$. Moreover, we present few open problems regarding this model, too.
+\\
+\\
+\textbf{\textsc{Keywords:}} multihead automata, computational complexity, language classes, data-independence

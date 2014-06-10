@@ -1,0 +1,24 @@
+\chapter*{Conclusion}
+\addcontentsline{toc}{chapter}{Conclusion}
+\label{chap:conclusion}
+
+\paragraph{}
+In our thesis, we were concerned with multihead finite automata, with emphasis on the subclass of data-independent multihead finite automata. Our main aim was to present a brief summary of their computational power and the computational complexity in relation to determinism, one-way or two-way movement and number of input heads.
+
+\paragraph{}
+The first chapter digests known results about multihead finite automata in general, while the main result, namely the equivalence with logarithmic space bounded Turing machines, was provided with our own proof. We have also presented few other theorems from various authors, some of them were provided with outlines of their proofs. We believe, that this chapter has given some basic insight in the computational power of multihead finite automata.
+
+\paragraph{}
+Also in the first chapter, there were mentioned few open problems concerning the computational complexity of multihead finite automata, probably the most important one was the relation of classes $\textbf{L}$ and $\textbf{NL}$. Similar question in this area, which has not been resolved so far, is the separation of classes $\textbf{L}$ and $\textbf{P}$, respectively $\textbf{NL}$ and $\textbf{P}$.
+
+\paragraph{}
+The second chapter presents current state of the research in the area of data-independent multihead finite automata. Again, we have investigated determinism, head movement and number of heads from the complexity point of view. Moreover, we have completed our intention to compare the computational power of one-way deterministic multihead automata with one-way data-independent multihead automata, whereby we have brought an own result concerning this problem. Also, we have examined the relation of partially blind automata with our model, presenting our own result, too.
+
+\paragraph{}
+Nevertheless, data-independent multihead finite automata still provide a wide variety of open problems, primarily the question, if they really are computationally weaker than general multihead finite automata in two way setting. This would resolve the question, whether $\textbf{NC} ^{1} = \textbf{L}$ or not. Also, there still is an unresolved relation of one-way data-independent multihead finite automata concerning the head count.
+
+\paragraph{}
+Another problem, worth further research is the relation between partially blind finite automata and data-independent multihead finite automata in general (since our results regards only one-way setting and two heads).
+
+\paragraph{}
+We close our thesis with a constatation, that the research in the field of complexity of multihead finite automata and specifically data-independent ones, is worthwhile, since it has wide implications in theory of formal languages.

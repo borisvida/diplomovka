@@ -1,0 +1,45 @@
+\documentclass[12pt,oneside,a4paper]{book}
+\usepackage{mathtools}
+\usepackage[top=2.5cm,bottom=2.5cm,right=2cm,left=3.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+%\usepackage{lmodern}
+\usepackage{txfonts} %Times New Roman
+\usepackage[T1]{fontenc}
+\usepackage[english,slovak]{babel}
+\usepackage{asmmath}
+\linespread{1.3} %riadkovanie 1.5
+\input foja
+\begin{document}
+
+%informacie o praci, autorovi,...
+\def\school{Comenius University, Bratislava}
+\def\faculty{Faculty of Mathematics, Physics and Informatics}
+\def\title{Complexity of Language Transformations}
+\def\thesis{Diploma Thesis}
+\def\author{Boris Vida}
+\def\year{2013}
+\def\placeandyear{Bratislava, \year}
+\def\supervisor{Prof. RNDr. Branislav Rovan, PhD.\ }
+\def\studyprogramme{Computer Science}
+\def\studyfield{2508 Computer Science, Informatics}
+\def\department{Department of Computer Science}
+
+\pdfinfo{/Author (\author) /Title (\title)}
+
+\selectlanguage{english}
+\frontmatter
+\input{frontmatter}
+
+\mainmatter
+\input{mainmatter}
+
+%\appendix
+%\input{appendix}
+
+\bibliographystyle{plain} %cisla
+%\bibliographystyle{alpha} %autor+rok
+\bibliography{bibliography}
+
+\end{document}
