@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.5.7)  21 NOV 2014 13:39
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.5.7)  8 OCT 2014 15:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**main.tex
-(./main.tex
+**basic_results.tex
+(./basic_results.tex
 LaTeX2e <2011/06/27>
 Babel <3.9h> and hyphenation patterns for 4 languages loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
@@ -784,9 +784,8 @@ Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 \cdef=\count116
 \chyp=\count117
 \cex=\count118
-)) (./main.aux (./frontmatter/cover.aux)
-(./frontmatter/title.aux))
-\openout1 = `main.aux'.
+)) (./basic_results.aux)
+\openout1 = `basic_results.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 16.
 LaTeX Font Info:    Try loading font information for OML+txmi on input line 16.
@@ -920,266 +919,57 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box31
-
-(./frontmatter.tex
-\openout2 = `frontmatter/cover.aux'.
-
- (./frontmatter/cover.tex) [1
-
-
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-\openout2 = `frontmatter/title.aux'.
-
- (./frontmatter/title.tex
-LaTeX Font Info:    Try loading font information for OT1+txr on input line 13.
+LaTeX Font Info:    Try loading font information for OT1+txr on input line 24.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/ot1txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txmia on input line 13.
+LaTeX Font Info:    Try loading font information for U+txmia on input line 24.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxmia.fd
 File: utxmia.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 13.
+LaTeX Font Info:    Try loading font information for U+msa on input line 24.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 13.
+LaTeX Font Info:    Try loading font information for U+msb on input line 24.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+txsyc on input line 13.
+LaTeX Font Info:    Try loading font information for U+txsyc on input line 24.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 13.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 24.
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-)) [2
+) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
-
-]
-<frontmatter/assignment.pdf, id=11, 597.50786pt x 845.04686pt>
-File: frontmatter/assignment.pdf Graphic file (type pdf)
-
-<use frontmatter/assignment.pdf>
-Package pdftex.def Info: frontmatter/assignment.pdf used on input line 9.
-(pdftex.def)             Requested size: 597.5064pt x 845.0448pt.
-File: frontmatter/assignment.pdf Graphic file (type pdf)
- <use frontmatter/assignment.pdf>
-Package pdftex.def Info: frontmatter/assignment.pdf used on input line 9.
-(pdftex.def)             Requested size: 597.5064pt x 845.0448pt.
-
-<frontmatter/assignment.pdf, id=14, page=1, 597.50786pt x 845.04686pt>
-File: frontmatter/assignment.pdf Graphic file (type pdf)
-
-<use frontmatter/assignment.pdf, page 1>
-Package pdftex.def Info: frontmatter/assignment.pdf, page1 used on input line 9
-.
-(pdftex.def)             Requested size: 597.5064pt x 845.0448pt.
-File: frontmatter/assignment.pdf Graphic file (type pdf)
-
-<use frontmatter/assignment.pdf, page 1>
-Package pdftex.def Info: frontmatter/assignment.pdf, page1 used on input line 9
-.
-(pdftex.def)             Requested size: 597.53374pt x 845.08348pt.
-File: frontmatter/assignment.pdf Graphic file (type pdf)
-
-<use frontmatter/assignment.pdf, page 1>
-Package pdftex.def Info: frontmatter/assignment.pdf, page1 used on input line 9
-.
-(pdftex.def)             Requested size: 597.53374pt x 845.08348pt.
-File: frontmatter/assignment.pdf Graphic file (type pdf)
-
-<use frontmatter/assignment.pdf, page 1>
-Package pdftex.def Info: frontmatter/assignment.pdf, page1 used on input line 9
-.
-(pdftex.def)             Requested size: 597.53374pt x 845.08348pt.
-File: frontmatter/assignment.pdf Graphic file (type pdf)
-
-<use frontmatter/assignment.pdf, page 1>
-Package pdftex.def Info: frontmatter/assignment.pdf, page1 used on input line 9
-.
-(pdftex.def)             Requested size: 597.53374pt x 845.08348pt.
- [3
-
- <./frontmatter/assignment.pdf>]
-<frontmatter/zadanie.pdf, id=24, 597.23125pt x 845.1575pt>
-File: frontmatter/zadanie.pdf Graphic file (type pdf)
-
-<use frontmatter/zadanie.pdf>
-Package pdftex.def Info: frontmatter/zadanie.pdf used on input line 11.
-(pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
-File: frontmatter/zadanie.pdf Graphic file (type pdf)
- <use frontmatter/zadanie.pdf>
-Package pdftex.def Info: frontmatter/zadanie.pdf used on input line 11.
-(pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
-
-<frontmatter/zadanie.pdf, id=27, page=1, 597.23125pt x 845.1575pt>
-File: frontmatter/zadanie.pdf Graphic file (type pdf)
-
-<use frontmatter/zadanie.pdf, page 1>
-Package pdftex.def Info: frontmatter/zadanie.pdf, page1 used on input line 11.
-(pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
-File: frontmatter/zadanie.pdf Graphic file (type pdf)
- <use frontmatter/zadanie.pdf, page 1>
-Package pdftex.def Info: frontmatter/zadanie.pdf, page1 used on input line 11.
-(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
-File: frontmatter/zadanie.pdf Graphic file (type pdf)
-
-<use frontmatter/zadanie.pdf, page 1>
-Package pdftex.def Info: frontmatter/zadanie.pdf, page1 used on input line 11.
-(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
-File: frontmatter/zadanie.pdf Graphic file (type pdf)
- <use frontmatter/zadanie.pdf, page 1>
-Package pdftex.def Info: frontmatter/zadanie.pdf, page1 used on input line 11.
-(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
-File: frontmatter/zadanie.pdf Graphic file (type pdf)
-
-<use frontmatter/zadanie.pdf, page 1>
-Package pdftex.def Info: frontmatter/zadanie.pdf, page1 used on input line 11.
-(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
- [4 <./frontmatter/zadanie.pdf>]
-(./frontmatter/acknowledgement.tex) (./frontmatter/abstrakt.tex [5
-
-])
-Underfull \hbox (badness 10000) in paragraph at lines 2--20
-
- []
-
-(./frontmatter/abstract.tex [6
-
-])
-Underfull \hbox (badness 10000) in paragraph at lines 2--24
-
- []
-
-[7
-
-] (./main.toc)
-\tf@toc=\write3
-\openout3 = `main.toc'.
-
-) [8
-
-] (./mainmatter.tex (./mainmatter/introduction.tex)
-(./mainmatter/preliminaries.tex [1
-
-
-]
-Chapter 1.
-LaTeX Font Info:    Try loading font information for OMS+txr on input line 28.
-(/usr/share/texlive/texmf-dist/tex/latex/txfonts/omstxr.fd
-File: omstxr.fd 2000/12/15 v3.1
-)
-LaTeX Font Info:    Font shape `OMS/txr/m/n' in size <12> not available
-(Font)              Font shape `OMS/txsy/m/n' tried instead on input line 28.
-
-Overfull \hbox (16.9381pt too wide) in paragraph at lines 28--28
-[]\T1/txr/m/n/12 if $\OML/txmi/m/it/12 u \OMS/txsy/m/n/12 ^^Q \OML/txmi/m/it/12
- a[]a[]:::a[]$\T1/txr/m/n/12 , $\OML/txmi/m/it/12 v \OMS/txsy/m/n/12 ^^Q \OML/t
-xmi/m/it/12 b[]b[]:::b[]$\T1/txr/m/n/12 , then by $\OML/txmi/m/it/12 u:v$ \T1/t
-xr/m/n/12 or sim-ply $\OML/txmi/m/it/12 uv$ \T1/txr/m/n/12 we de-note a word $\
-OML/txmi/m/it/12 a[]a[]:::a[]b[]b[]:::b[]$\T1/txr/m/n/12 , 
- []
-
-[2
-
-] [3] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 149--149
-
- []
-
-[5] [6]) (./mainmatter/currentState.tex [7]
-Chapter 2.
-[8
-
-] [9]
-Overfull \hbox (18.97276pt too wide) in paragraph at lines 75--76
- [] \T1/txr/m/it/12 Proof. \T1/txr/m/n/12 Once again, we use the al-ter-na-tive
- def-i-ni-tion of the im-age of $\OML/txmi/m/it/12 L$\T1/txr/m/n/12 , $\OML/txm
-i/m/it/12 M\OT1/txr/m/n/12 (\OML/txmi/m/it/12 L\OT1/txr/m/n/12 ) = \OMS/txsy/m/
-n/12 f\OML/txmi/m/it/12 pr[]\OT1/txr/m/n/12 (\OML/txmi/m/it/12 pr[]\OT1/txr/m/n
-/12 (\OML/txmi/m/it/12 w\OT1/txr/m/n/12 ) \OMS/txsy/m/n/12 \
- []
-
-[10] [11] [12]) (./mainmatter/complexity.tex [13]
-Chapter 3.
-[14
-
-]
-Overfull \hbox (8.86626pt too wide) in paragraph at lines 37--37
- [] \T1/txr/bx/n/12 Lemma 11. \T1/txr/m/n/12 For a pair of lan-guages $\OML/txm
-i/m/it/12 L[]; L[]$\T1/txr/m/n/12 , the min-i-mal state com-plex-ity of an A-tr
-ansudcer
- []
-
-[15]
-Overfull \hbox (47.44875pt too wide) in paragraph at lines 76--77
-\T1/txr/m/n/12 duce an out-put of some greater length the com-pu-ta-tion must h
-ave a form $\OML/txmi/m/it/12 q[]; q[]; :::; q[]; :::; q[]; :::; q[]$\T1/txr/m/
-n/12 ,
- []
-
-[16]
-Overfull \hbox (3.0pt too wide) in paragraph at lines 93--93
-[]\T1/txr/m/n/12 . 
- []
-
-) (./mainmatter/advisors.tex [17]
-Chapter 4.
-[18
-
-] [19] [20] [21]
-Overfull \hbox (63.80942pt too wide) in paragraph at lines 130--131
-\T1/txr/m/n/12 transducer $\OML/txmi/m/it/12 T[] \OT1/txr/m/n/12 = (\OMS/txsy/m
-/n/12 f\OML/txmi/m/it/12 q[]; q[]; q[]\OMS/txsy/m/n/12 g\OML/txmi/m/it/12 ; \OM
-S/txsy/m/n/12 f\OML/txmi/m/it/12 a\OMS/txsy/m/n/12 g\OML/txmi/m/it/12 ; \OMS/tx
-sy/m/n/12 f\OML/txmi/m/it/12 a\OMS/txsy/m/n/12 g\OML/txmi/m/it/12 ; H; q[]; \OM
-S/txsy/m/n/12 f\OML/txmi/m/it/12 q[]\OMS/txsy/m/n/12 g\OT1/txr/m/n/12 )$\T1/txr
-/m/n/12 , where $\OML/txmi/m/it/12 H \OT1/txr/m/n/12 = \OMS/txsy/m/n/12 f\OT1/t
-xr/m/n/12 (\OML/txmi/m/it/12 q[]; a; a; q[]\OT1/txr/m/n/12 )\OML/txmi/m/it/12 ;
- \OT1/txr/m/n/12 (\OML/txmi/m/it/12 q[]; a; ^^O; q[]\OT1/txr/m/n/12 )\OML/txmi/
-m/it/12 ; \OT1/txr/m/n/12 (\OML/txmi/m/it/12 q[]; a; a; q[]\OT1/txr/m/n/12 )\OM
-S/txsy/m/n/12 g$\T1/txr/m/n/12 ;
- []
-
-) (./mainmatter/conclusion.tex [22])) (./main.bbl [23
-
-]) [24
-
-] (./main.aux
-(./frontmatter/cover.aux) (./frontmatter/title.aux)) ) 
+] [2] (./basic_results.aux) ) 
 Here is how much of TeX's memory you used:
- 6321 strings out of 494994
- 84235 string characters out of 6180201
- 161941 words of memory out of 5000000
- 9290 multiletter control sequences out of 15000+600000
- 73227 words of font info for 98 fonts, out of 8000000 for 9000
+ 6171 strings out of 494994
+ 81881 string characters out of 6180201
+ 157313 words of memory out of 5000000
+ 9221 multiletter control sequences out of 15000+600000
+ 29352 words of font info for 67 fonts, out of 8000000 for 9000
  24 hyphenation exceptions out of 8191
- 41i,18n,45p,749b,430s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf
--dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/rsfs/rsfs10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/
-rtxbsc.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxi.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/txfonts/rtxsc.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/txfonts/txsyc.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8
-a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (32 pages, 253479 bytes).
+ 38i,6n,39p,605b,176s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/bas
+e/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/u
+tmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on basic_results.pdf (2 pages, 50095 bytes).
 PDF statistics:
- 196 PDF objects out of 1000 (max. 8388607)
- 130 compressed objects within 2 object streams
+ 40 PDF objects out of 1000 (max. 8388607)
+ 28 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

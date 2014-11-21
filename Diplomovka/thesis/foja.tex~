@@ -28,7 +28,7 @@
 \def\CS{\L{\kern-0.5pt CS}}           % trieda kontextovych jazykov
 \def\ECS{\L{\kern-0.5pt ECS}}         % trieda rozsirenych kontextovych jazykov
 %\def\CF{\L{\kern-0.5pt CF}}           % trieda bezkontextovych jazykov
-\def\CF{\safemath{\calrsfs{L}_{CF} }}
+\def\CF{\safemath{\cal{L}_{CF} }}
 \def\R{\safemath{{\cal R}}}           % trieda regularnych jazykov
 
 % GRAMATIKY

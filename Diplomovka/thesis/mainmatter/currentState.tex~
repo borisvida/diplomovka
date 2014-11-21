@@ -83,130 +83,6 @@ Now, let $\mathcal{L'} $ be a (full) trio containing $\mathcal{L} $. Obviously, 
 \paragraph{}
 In fact, it was shown in \cite{gingrei:pAFL}, that $\mathcal{M}(L) $ $(\mathcal{\hat{M}}(L)) $ is the smallest (full) semi-AFL containing language L.
 
-\section{Existence of an A-transducer for a Pair of Languages}
-\paragraph{}
-Here we present few results regarding the question, when it is possible to transform a language $L_{1}$ to a language $L_{2}$.
-
-\subsection{Regular Languages}
-\paragraph{}
-The answer to aforementioned question, when dealing with regular languages, is very simple.
-
-\paragraph{}
-\cveta For every regular language $R$ and arbitrary language $L$ there exists an a-transducer $M$, such that $M(L) = R$.
-
-\paragraph{}
-\dokaz Let $A = (K, \Sigma, q_{0}, \delta, F)$ be a non-deterministic finite automaton, such that $L(A) = R$. Then $M=(K, \Sigma_{1}, \Sigma, H, q_{0}, F)$, where $H=\{ (q, \epsilon , a, \delta (q,a)) | q \in K, a \in \Sigma \} \cap \{ (q_{0}, a, \epsilon, q_{0}) | a \in \Sigma_{1} \} $. \square
-
-\subsection{Context-free Languages}
-\paragraph{}
-Contrary to the case of regular languages, it has showed itself, that the task to determine for two context-free languages $U$ and $V$, if $U \in \mathcal{M}(V)$, is not trivial to solve at all. Actually, it is quite easy to show, that $U \in \mathcal{M}(V)$, but to prove the reverse, i. e. $U \notin \mathcal{M}(V)$, is relatively difficult. For this reason, it is convenient to consider only a special subclass of $\CF $, called bounded languages.
-
-\paragraph{}
-\definicia A language is called \emph{bounded}, if $L \subseteq w_{1}^{*}w_{2}^{*}...w_{n}^{*}$ for some words $w_{1}, w_{2}, ..., w_{n}$.
-
-\paragraph{}
-Moreover, we consider only bounded languages, where $\forall i, j, 1 \leq i,j \leq n: |w_{i}| = 1 \wedge w_{i} \neq w_{j}$. 
-
-\paragraph{}
-Following theorems show some necessary and sufficient conditions for existence of an a-transduction between languages $U$ and $V$. These results were achieved with extensive use of the AFL theory, which is motivated by Lemma 9. Results quoted in this subsection come from \cite{Rovan:AFL}. Major part of these results are not accompanied with a proof, since they are listed only for illustration of properties of a-transducers and do not form the main aim of our thesis.
-
-\paragraph{}
-\oznacenie Let $n \geq 2$ and $f_{i}$ be a strictly increasing function (i. e. $x_{1} < x_{2} \Rightarrow f_{i}(x_{1}) < f_{i}(x_{2})$) from $\mathbb{N} $ to $\mathbb{N} $ for all $ 1 \leq i \leq n$. By \\
-\centerline{$\langle a_{1}^{f_{1}(x)}...a_{n}^{f_{n}(x)} \rangle $} \\
-we denote the set $\{ a_{1}^{f_{1}(x)}...a_{n}^{f_{n}(x)} | x \in \mathbb{N} \} $.
-
-\paragraph{}
-\oznacenie By $\mathcal{F}(L) $ $(\hat{\mathcal{F}} (L) )$ we denote the smallest (full) AFL containing $L$.
-
-\paragraph{}
-\clema Let $L_{1} = \langle b_{1}^{g_{1}(x)}...b_{n}^{g_{n}(x)} \rangle $ and $L_{2}$ be a nonempty language. $L_{1} \in \mathcal{F}(L_{2}) \Leftrightarrow L_{1} \in \mathcal{M}(L_{2})$ and $L_{1} \in \hat{\mathcal{F}}(L_{2}) \Leftrightarrow L_{1} \in \hat{\mathcal{M}}(L_{2})$.
-
-\paragraph{}
-\oznacenie By $\psi_{\langle a_{1},...,a_{n}\rangle }$ we denote a mapping from $a_{1}^{*}...a_{n}^{*}$ into $\mathbb{N}^{n}$ defined as follows: \\
-\centerline{$\psi_{\langle a_{1},...,a_{n}\rangle (w) } = (\# _{a_{1}}(w), ..., \# _{a_{n}(w)}) $.}
-
-\paragraph{}
-\oznacenie Let $c = (c_{1}, c_{2}, ..., c_{n})$ and $l = (l_{1}, l_{2}, ..., l_{n}) \in \mathbb{N}^{n}$ and let $L_{1} \subseteq a_{1}^{*}a_{2}^{*}...a_{n}^{*}$. Let
-\centerline{$\mathcal{K}(L, c, l) = \{ k_{1}...k_{n} | a_{1}^{c_{1}+k_{1}.l_{1}}...a_{n}^{c_{n}+k_{n}.l_{n}} \in L, \forall i: k_{i} \geq 0 \} $.}
-
-\paragraph{}
-\cveta Let $U \subseteq a_{1}^{*}...a_{n}^{*}$ and $V = \langle b_{1}^{g_{1}(x)}...b_{m}^{g_{m}(x)} \rangle $ [with $\epsilon \in U \Leftrightarrow \epsilon \in V$]. Then $V$ is in $\mathcal{F}(U) \Leftrightarrow $ \\
-\centerline{$V = \bigcup_{i=1}^{q} $ for some $q \geq 1$, each $V_{i}$ of the form} \\
-\centerline{$\psi_{\langle b_{1},...,b_{n}\rangle }^{-1} [ \{ ( d_{i1} + \sum_{j=z_{i1}}^{z_{i2} - 1} k_{j}p_{ij}, ..., d_{i1} + \sum_{j=z_{im}}^{z_{im+1} - 1} k_{j}p_{ij}) | (k_{1},...,k_{n}) \in \mathcal{K}(L, c, l) \} ]$, } \\
-where $c_{i}, l_{i} = (l_{i1}, ..., l_{in}), (p_{i1},...,p_{in}) \in \mathbb{N}^{n}$, all $l_{i,j} > 0, (d_{i1}, ..., d_{im}) \in \mathbb{N}^{m}$ and $(z_{i1}, ..., z_{im+1}) \in \mathbb{N}^{m+1}, 1=z_{i1} < ... < z_{im+1} = n+1$.
-
-\paragraph{}
-As one can see, this condition is quite difficult to put to use, when dealing with a concrete two languages. Fortunately, if both $U$ and $V$ are restricted to a form $\langle a_{1}^{f_{1}(x)}...a_{n}^{f_{n}(x)} \rangle $, some easier applicable conditions arise. In fact, we can slightly relax this restriction to following.
-
-\paragraph{}
-\oznacenie Let $p \in \mathbb{N}$, $n \geq 2$ and $f_{i}$ be a strictly increasing function \underline{for $x \geq p$} (i. e. $x_{1} < x_{2} \Rightarrow f_{i}(x_{1}) < f_{i}(x_{2})$) from $\mathbb{N} $ to $\mathbb{N} $ for all $ 1 \leq i \leq n$. By \\
-\centerline{$\langle a_{1}^{f_{1}(x)}...a_{n}^{f_{n}(x)} \rangle_{p} $} \\
-we denote the set $\{ a_{1}^{f_{1}(x)}...a_{n}^{f_{n}(x)} | x \in \mathbb{N} \} $.
-
-\paragraph{}
-Note, that $\langle a_{1}^{f_{1}(x)}...a_{n}^{f_{n}(x)} \rangle = \langle a_{1}^{f_{1}(x)}...a_{n}^{f_{n}(x)} \rangle_{0} $.
-
-\paragraph{}
-For $U$ and $V$ of this form, we present few necessary conditions and then some examples of their use.
-
-\paragraph{}
-\oznacenie The function $f_{i}, 1 \leq i \leq q$, is a \emph{largest element} of $\{ f_{s} | 1 \leq s \leq q \}$, if $\lim_{x\to \infty}\frac{f_{i}(x)}{f_{j}(x)}$ exists and is nonzero for all $j, 1 \leq j \leq q$.
-
-\paragraph{}
-\cveta Let $U = \langle a_{1}^{f_{1}(x)}...a_{n}^{f_{n}(x)} \rangle_{p_{1}} $ and $V = \langle b_{1}^{g_{1}(x)}...b_{m}^{g_{m}(x)} \rangle_{p_{2}} $, with $V \in \hat{\mathcal{F}}(U) $. Then there exists a set $Q \subseteq \{ 1, ..., n \} $ and integers $z_{1}, ..., z_{m+1}, 1=z_{1} < ... < z_{m+1} = n+1 $ with the following two properties.
-\begin{enumerate}
-\item $Q_{i} = \{ s | z_{i} \leq s < z_{i+1}, s \notin Q \} \neq \emptyset $ for all $i, 1 \leq i \leq m$.
-\item For all integers $i$ and $j$, $1 \leq i, j \leq m$, and for all positive real numbers $k$ and $l$ the following holds. Suppose there exist a largest element $f'_{i}$ of $\{ f_{s} | s \in Q_{i} \} $ and a largest element $f'_{j}$ of $\{ f_{s} | s \in Q_{j} \} $. Then \\
-\centerline{$\lim_{x \to \infty}\frac{(g_{i}(x))^{k}}{(g_{j}(x))^{l}} > 0 \Leftrightarrow \lim_{x \to \infty}\frac{(f_{i}(x))^{k}}{(f_{j}(x))^{l}} > 0$} \\
-if both limits exist.
-\end{enumerate} 
-
-\paragraph{}
-If $m = n$, there holds a corollary, which can be quite easily used to show, that $V \notin \hat{\mathcal{F}}(U)$.
-
-\paragraph{}
-\cdosledok Let $U = \langle a_{1}^{f_{1}(x)}...a_{n}^{f_{n}(x)} \rangle_{p_{1}} $ and $V = \langle b_{1}^{g_{1}(x)}...b_{n}^{g_{n}(x)} \rangle_{p_{2}} $, with $V \in \hat{\mathcal{F}}(U) $. Then for every pair of integers $i, j, 1\leq i, j \leq n$, and for all positive real numbers $k$ and $l$ \\
-\centerline{$\lim_{x \to \infty}\frac{(g_{i}(x))^{k}}{(g_{j}(x))^{l}} > 0 \Leftrightarrow \lim_{x \to \infty}\frac{(f_{i}(x))^{k}}{(f_{j}(x))^{l}} > 0$} \\
-if both limits exist.
-
-\paragraph{}
-\priklad Let $U = \langle a_{1}^{2^{3x}}a_{2}^{2^{2x}}a_{3}^{2^{x}} \rangle $ and $V = \langle b_{1}^{2^{4x}}b_{2}^{2^{3x}} \rangle $. Suppose $V \in \mathcal{F}(U)$. By theorem 11, $Q = \emptyset $, there are only two possible choices for $z_{1}, z_{2}$ and $z_{3}$:
-\begin{enumerate}
-\item $z_{1} = 1, z_{2} = 2 $ and $z_{3} = 4$. Then $f'_{1}(x) = 2^{3x}$ and $f'_{2}(x) = 2^{2x}$. For $k = 4, l = 3, i = 2$ and $j = 1$,\\
-\centerline{$\lim_{x \to \infty}\frac{(g_{i}(x))^{k}}{(g_{j}(x))^{l}} = \frac{(2^{3x})^{4}}{(2^{4x})^{3}} = 1$ and $\lim_{x \to \infty}\frac{(f'_{i}(x))^{k}}{(f'_{j}(x))^{l}} = \frac{(2^{2x})^{4}}{(2^{3x})^{3}} = 0$.}\\
-Thus Theorem 11 does not hold.
-\item $z_{1} = 1, z_{2} = 3 $ and $z_{3} = 4$. Then $f'_{1}(x) = 2^{3x}$ and $f'_{2}(x) = 2^{x}$. For $k = 4, l = 3, i = 2$ and $j = 1$,\\
-\centerline{$\lim_{x \to \infty}\frac{(g_{i}(x))^{k}}{(g_{j}(x))^{l}} = \frac{(2^{3x})^{4}}{(2^{4x})^{3}} = 1$ and $\lim_{x \to \infty}\frac{(f'_{i}(x))^{k}}{(f'_{j}(x))^{l}} = \frac{(2^{x})^{4}}{(2^{3x})^{3}} = 0$.}\\
-Thus Theorem 11 does not hold and therefore $V \notin \mathcal{F}(U)$.
-\end{enumerate}
-
-\paragraph{}
-As we have seen, Theorem 11 gave us an interesting result in form of example above, but since this condition is only necessary, but not sufficient, in some cases we need another conditions to show, that $V \notin \hat{\mathcal{F}}(U)$. Such a couple of languages is for example $U = \langle a^{(x+1)^{2}}b^{x^{2}}\rangle $ and $V = \langle a^{x^{2}}b^{x^{2}}\rangle $. In this case, following theorem works.
-
-\paragraph{}
-\cveta Let $U = \langle a_{1}^{f_{1}(x)}...a_{n}^{f_{n}(x)} \rangle_{p_{1}} $ and $V = \langle b_{1}^{g_{1}(x)}...b_{m}^{g_{m}(x)} \rangle_{p_{2}} $, with $V \in \hat{\mathcal{F}}(U) $. Then there exists a set $Q \subseteq \{ 1, ..., n \} $ and integers $z_{1}, ..., z_{m+1}, 1=z_{1} < ... < z_{m+1} = n+1 $ with the following two properties.
-\begin{enumerate}
-\item $Q_{i} = \{ s | z_{i} \leq s < z_{i+1}, s \notin Q \} \neq \emptyset $ for all $i, 1 \leq i \leq m$.
-\item Let $i \in \{ 1, .., m\} $ and real numbers $q_{1}, ..., q_{m}, l, l >0$, be such that
-\begin{enumerate}
-\item there exists a largest element $f'_{i}$ of $\{ f_{s} | s \in Q \} $,
-\item $\lim_{x\to \infty }\frac{\sum_{s=1}^{m}q_{s}g_{s}(x)}{(g_{i}(x))^{l}}$ exists, and
-\item $\lim_{x\to \infty }\frac{\sum_{s=1}^{n}r_{s}f_{s}(x)}{(f'_{i}(x))^{l}}$ exists for all real numbers $r_{s}$ which satisfy $sgn(r_{s}) = sgn(q_{j})$ for all $s \in Q_{j}, 1 \leq j \leq m$, and $r_{s} = 0$ for all $s \in Q$ ($sgn$ is a signum function).
-\end{enumerate}
-Then there exists real numbers $v_{1},...,v_{n}$ ($sgn(v_{s}) = sgn(q_{j})$ for all $s \in Q_{j}, 1 \leq j \leq m$, and $v_{s} = 0$ for $s\in Q$) for which \\
-\centerline{$\lim_{x\to \infty }\frac{\sum_{s=1}^{m}q_{s}g_{s}(x)}{(g_{i}(x))^{l}} = \lim_{x\to \infty }\frac{\sum_{s=1}^{n}v_{s}f_{s}(x)}{(f'_{i}(x))^{l}}$.}
-\end{enumerate} 
-
-\paragraph{}
-With help with this theorem, we can now present aforementioned example.
-
-\paragraph{}
-\priklad Using Theorem 12, $Q = \emptyset, z_{1} = 1, z_{2} = 2, z_{3} = 3$. Let $q_{1} = 1, q_{2} = -1, i = 2$ and $l = \frac{1}{2}$. Clearly, (a), (b) and (c) of 2 of Theorem 12 holds. However, \\
-\centerline{$\lim_{x\to \infty }\frac{g_{1}(x)-g_{2}(x)}{(g_{2}(x))^{1/2}} = \lim_{x\to \infty }\frac{x^{2}-x^{2}}{(x^{2})^{1/2}} = 0$} \\
-and \\
-\centerline{$\lim_{x\to \infty }\frac{v_{1}f_{1}(x)-v_{2}f_{2}(x)}{(f'_{2}(x))^{1/2}} = \lim_{x\to \infty }\frac{v_{1}(x+1)^{2}-v_{2}x^{2}}{(x^{2})^{1/2}} \neq 0$} \\
-for every choice of nonzero real $v_{1}$ and $v_{2}$. Therefore $V \notin \hat{\mathcal{F}}(U)$.
-
 \section{State Complexity of Finite State Devices}
 \paragraph{}
 The topic of descriptional complexity of finite state devices has been widely researched in connection with finite state automata. Some results have been introduced also for sequential transducers, but the complexity of a-transducers has been on the periphery of interest. For this reason, this section contains the achievements for simpler devices, which can be later useful when dealing with our main model, an a-transducer.
@@ -293,4 +169,9 @@ It was also shown, that this lower bound is tight, i. e. there is a sequential t
 
 \paragraph{}
 As mentioned before, we do not know, how can be this result applied to a couple of languages $L_{1}$ and $L_{2}$, if we do not have the exact sequential function transforming the former to the latter.
+
+\section{Decompositions of finite automata}
+
+\paragraph{}
+ToDo: results from Gazi about SB, ASB and advisors (necessary and sufficient conditions, maybe closure properties etc.).
 \paragraph{}

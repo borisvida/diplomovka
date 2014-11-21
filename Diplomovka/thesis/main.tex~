@@ -8,7 +8,9 @@
 \usepackage{txfonts} %Times New Roman
 \usepackage[T1]{fontenc}
 \usepackage[english,slovak]{babel}
-\usepackage{asmmath}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
 \linespread{1.3} %riadkovanie 1.5
 \input foja
 \begin{document}

@@ -39,6 +39,16 @@ T. Jiang and B. Ravikumar.
 M. Mohri.
 \newblock {\em Minimization Algorithms for Sequential Transducers}.
 \newblock Theor. Comput. Sci. 234, 1-2 (March 2000), 177-201.
+
+\bibitem{Gazi}
+P. Gaži.
+\newblock {\em Parallel Decompositions Of Finite Automata}.
+\newblock Master's thesis, Faculty of Mathematics, Physics and Informatics, Comenius University, Bratislava (2006).
+
+\bibitem{AFDL}
+W. J. Chandler. 
+\newblock {\em Abstract families of deterministic languages}. 
+\newblock Proceedings of the first annual ACM symposium on Theory of computing (STOC '69). ACM, New York, NY, USA (1969), 21-30. 
 \end{thebibliography}
 
 

@@ -1,0 +1,134 @@
+\chapter{Foreign advisors}
+\label{chap:advisors}
+
+\section{Description of the framework}
+\paragraph{}
+\definicia Let $T$ be an a-transducer and $L$ a language. Then $T^{-1}(L)$ is the set of all words such, that their images belong to $L$. Formally \\
+\centerline{$T^{-1}(L) = \{ w | T(w) \subseteq L \}$.}
+
+\paragraph{}
+Description of the framework: we have a decider $D$, which should construct a deterministic finite automaton for the language $L_{dec}$. Moreover, we have an advisor (oracle) $O$. Now, $O$ sends $D$ a dual information: an a-transducer $T$ and a regular language $L_{adv}$. This information forms a promise, that if $D$ transforms a correct input (that is, input from $L_{dec}$) using $T$, it will belong to $L_{adv}$. Now, $D$ has two possibilities:
+
+\begin{enumerate}
+\item it trashes the information from $O$ and constructs an automaton $A$ for $L_{dec}$ "from scratch"
+\item it creates a simpler automaton $A'$, such that $L[T^{-1}(L_{adv})](A') = L_{dec}$.
+\end{enumerate}
+
+Moreover, $L_{adv}$ has to be verifiable by a finite automaton $V$.
+
+\paragraph{}
+\definicia A language $L_{adv}$ with an a-transducer $T$ is an \emph{effective advice with regard to $L_{dec}$}, if there exists an automaton $A'$, such that $L_{dec} = L(A', L_{adv})$ and $\C{A'} + \C{T} + \C{L_{adv}} \leq	 \C{L_{dec}}$.
+
+\paragraph{}
+\cpriklad Let $L_{dec} = \{ a^{12k}| k \geq 0 \} $, $T$ be an one state a-transducer computing the identity and $L_{adv} = \{ a^{2k}| k \geq 0 \}$. $D$ can now construct a simpler finite automaton $A'$ for the language $L_{simple} = \{ a^{6k}| k \geq 0 \}$. Clearly, $\C{A'} + \C{T} + \C{L_{adv}} = 6 + 1 + 2 \leq 12 = \C{L_{dec}}$, which means, that $L_{adv}$ with $T$ is an effective advice with regard  to $L_{dec}$.
+
+\paragraph{}
+\cpriklad Let $L_{dec} = \{ a^{12k}| k \geq 0 \} $. Let $T= (\{q_0, q_1\}, \{a\}, \{a\}, H, q_0, \{q_0\})$, where $H = \{(q_0, a, a, q_1), (q_1, a, \epsilon, q_0)\}$ and $L_{adv} = \{ a^{2k}| k \geq 0 \}$. It is easy to see, that $T^{-1}(L_{adv}) = \{ a^{4k}| k \geq 0 \}$. $D$ can now construct a simpler finite automaton $A'$ for the language $L_{simple} = \{ a^{3k}| k \geq 0 \}$. Clearly, $\C{A'} + \C{T} + \C{L_{adv}} = 3 + 2 + 2 \leq 12 = \C{L_{dec}}$, which means, that $L_{adv}$ with $T$ is an effective advice with regard  to $L_{dec}$.
+
+\paragraph{}
+Two interesting questions arise. The first is, for given language $L$ and a-transducer $T$, how to get the language $T^{-1}(L)$? The answer was quite easy to find in previous two examples (and, in fact, for all languages in form $\{ (a^k)^+ \}$ and a-transducers, which just manipulates the number of symbols $a$).
+
+\color{red}ToDo: co s touto otazkou?\color{black}
+
+\paragraph{}
+Another question is in some sense the inverse perspective of this problem. We have a fixed language $L$ and we want to transform it to a language $L_{adv}$. Since we want to minimize the complexity of the advice, our question is, what is the minimal state complexity of an a-transducer $T$, such that $T(L) = L_{adv}$. We address this question in Chapter 3.
+
+\section{T-decomposable and T-undecomposable languages}
+
+\paragraph{}
+\cdefinicia The language $L$ is called \emph{T-decomposable}, if there is a language $L_{adv}$, which is an effective advice for $L$. Otherwise, we call $L$ \emph{T-undecomposable}.
+
+\paragraph{}
+Now we would like to compare our setting to the setting presented by \cite{Gazi} (see Section 2.3). To make the comparison more meaningful, we have strengthen the condition presented by Gazi in a following way:
+
+\paragraph{}
+\cdefinicia A language $L$ is called \emph{A-decomposable}, if there exists an advisor $L_1$ and an automaton $A$, such that $\C{L_1} + \C{A_1} < \C{L}$ and $L(A, L_1) = L$.
+
+\paragraph{}
+\cveta Every A-decomposable language is T-decomposable.
+
+\paragraph{}
+\dokaz Easy to see, using an A-transducer computing the identity. \square
+
+\paragraph{}
+However, the next theorem shows, that the reverse implication does not hold.
+
+\paragraph{}
+\cveta There are infinitely many T-decomposable languages, that are not A-decomposable.
+
+\paragraph{}
+\dokaz Such languages are for example $L_{x} = \{ u\$ xv | u,v \in \{ a,b\}^* \}$ for a fixed string $x \in \{ a,b\}^*, |x| \geq 14$ and even.
+
+\paragraph{}
+We prove this claim in two steps. First, we need to show, that $L_{x}$ is T-decomposable. It is easy to see, that  a DFA accepting $L_{x}$ needs at least $|x| + 1$ states, therefore $\C{L_x} = |x|+1$.
+
+\paragraph{}
+However, we can use an advice to simplify the accepting automaton as follows: our A-transducer $T$ will read the input word in the initial state with no output, until it finds the special marker $\$ $. Then, using another three states, it encodes pairs of symbols (i. e. sequences $aa, ab, ba, bb$) into new letters $c, d, e, f$, respectively. If there is just one symbol in the end, $T$ will read it and traverse into accepting state $q_F$ with no further transitions, otherwise it will make an $\epsilon $-transition into $q_{F}$. Note, that $T$ uses just five states.
+
+\paragraph{}
+Now, the advise language $L_{x,adv} = \{ x'v | x'$ is the aforementioned encoded form of $x$ into symbols $c,d,e,f \}$. Clearly, $|x'| = \frac{|x|}{2}$ and $\C{L_{x,adv}} = \frac{|x|}{2}+1$.
+
+\paragraph{}
+The decider $D$ needs construct just an automaton for $\{a,b,\$\}^*$, since the advice gives full information about $L_x$. Alltogether, we used $5 + \frac{|x|}{2}+1+1$ states, therefore for $|x| \geq 14$ is $L_{x,adv}$ with $T$ an effective advice with regard to $L_x$.
+
+\paragraph{}
+Our next goal is to show, that $L_x$ is not A-decomposable.
+
+ \color{red}[ToDo: toto treba premysliet... predpokladam, ze budem argumentovat poctom tried z Myhill-Neroda, ze spojenie ktorychkolvek dvoch tried tak, aby tam tretia nebola, by si vyzadovalo viac nez x stavov]\color{black}\\
+\square
+
+\paragraph{}
+\cdosledok There are infinitely many T-decomposable languages.
+
+\paragraph{}
+\cveta There are infinitely many T-undecomposable languages.
+
+\paragraph{}
+\dokaz Each of the languages $L_{n} = \{ w \in \{ a, b\}^* | \#_{a}(w) \mod p \equiv 0, p$ is the $n$-th prime$\}$ is T-undecomposable.
+
+\color{red}TODO: proof - probably using some alternation of pumping lemma, try to show, that the number of equivalence classes can't be reduced, since  $p$ is prime\color{black}\\
+\square
+
+\paragraph{}
+As we have seen, the classes of regular languages concerning T-decomposability are different as the classes of A-decomposable and A-undecomposable languages. In the next part of our thesis, we would like to investigate some properties of these classes.
+
+%------------------------------------------------------------------------------------
+\section{Closure properties}
+
+\paragraph{}
+When looking at a new class of languages, one of the first natural question, that arises, are its closure properties.  In this section, we want to examine the closure of T-decomposable and T-undecomposable languages under some basic operations and then under deterministic operations presented in \cite{AFDL}.
+
+\subsection{T-decomposable languages}
+\paragraph{}
+\cveta The class of T-decomposable languages is/is not closed under complement.
+
+\paragraph{}
+\dokaz \color{red}ToDo: zistit ako to je a dokazat\color{black}\\
+\square
+
+\paragraph{}
+\cveta The class of T-decomposable languages is not closed under 
+\begin{enumerate}
+\item (non-erasing) homomorphism,
+\item inverse homomorphism,
+\item Kleene star, Kleene plus,
+\item intersection,
+\item union.
+\end{enumerate}
+
+\paragraph{}
+\dokaz In this proof, we mainly use two types of T-undecomposable languages. First of them are languages of type $L_p = \{ a^k | k \mod p \equiv 0 \}$ for $p$ a prime number. The T-undecomposability of these languages is proved in previous Section. The second type is a language $L = \{ a \}^*$. This language is clearly undecomposable, since $\C{L} = 1$ and all three devices contained in our foreign advisor concept have non-zero number of states.
+
+\begin{enumerate}
+\item Let us take a language $L_1 = \{w|w \in \{ a,b\}^* \wedge \#_{a}(w) \mod 42 \equiv 0 \}$. Clearly, a language $L'_1 = \{w|w \in \{ a,b\}^* \wedge \#_{a}(w) \mod 14 \equiv 0 \}$ with an A-transducer $T_1$ computing the identity mapping is an effective advice for $L_1$.
+
+\paragraph{}
+Let us now consider a homomorphism $h: \{ a,b\}^* \to \{ a \}^*$, defined as $h(a) = a, h(b) = a$. Note, that $h$ is a non-erasing homomorphism. It easy to see, that $h(L_1) = \{ a \}^*$, however, as stated before, this language is T-undecomposable.
+
+\item Consider a language $L_2 = \{ a^26k | k \geq 1 \}$. The decomposition of this language can easily be derived from the decomposition of $L_1$ in previous part of the proof. The desired homomorphism is $h: \{a\}^* \to \{a\}^*$, where $h(a) = aa$. Now, $h^{-1}(L_2) = \{ a^13k | k \geq 1 \}$, which is T-undecomposable.
+
+\item The counterexample is a language $L_3 = \{ a^{9} \}$. Let us take a language $L'_3 = \{ a^{5} \}$; an A-transducer $T_3 = (\{q_0, q_1, q_2\}, \{a\}, \{a\}, H, q_0, \{q_1\})$, where $H = \{ (q_0, a, a, q_1), (q_1, a, \epsilon, q_2), (q_2, a, a, q_1) \}$; and an automaton $A_3 = \{q_0, \{a\}, \delta, q_0, \{q_0\} $, where $\delta(q_0, a) = q_0$. Clearly, $T_3^{-1}(L'_3) = L_3$ and $\C{L'_3} + \C{T} + \C{A_3} = 5 + 3 + 1 \leq 9 = \C{L_3}$, therefore $L_3$ is T-decomposable. Though, $(L_3)^+ = \{ a^9k | k \geq 1 \}$ and $(L_3)^* = \{ a^9k | k \geq 0 \}$ are T-undecomposable.
+
+\item
+\end{enumerate}
+\square

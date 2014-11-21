@@ -34,6 +34,16 @@ I. Glaister, J. Shallit.
 T. Jiang and B. Ravikumar. 
 \newblock {\em 1993. Minimal NFA problems are hard}. 
 \newblock SIAM J. Comput. 22, 6 (December 1993), 1117-1141.
+
+\bibitem{moh:min}
+M. Mohri.
+\newblock {\em Minimization Algorithms for Sequential Transducers}.
+\newblock Theor. Comput. Sci. 234, 1-2 (March 2000), 177-201.
+
+\bibitem{Gazi}
+P. Gaži.
+\newblock {\em Parallel Decompositions Of Finite Automata}.
+\newblock Master's thesis, Faculty of Mathematics, Physics and Informatics, Comenius University, Bratislava (2006).
 \end{thebibliography}
 
 

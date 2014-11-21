@@ -44,25 +44,24 @@
 \contentsline {paragraph}{}{6}
 \contentsline {paragraph}{}{6}
 \contentsline {paragraph}{}{6}
+\contentsline {section}{\numberline {1.3}Complexity, advisors and decomposition}{6}
 \contentsline {paragraph}{}{6}
-\contentsline {chapter}{\numberline {2}Current State of Research}{7}
-\contentsline {paragraph}{}{7}
-\contentsline {section}{\numberline {2.1}Basic Properties of A-transducers}{7}
-\contentsline {paragraph}{}{7}
-\contentsline {paragraph}{}{7}
+\contentsline {paragraph}{}{6}
+\contentsline {paragraph}{}{6}
+\contentsline {paragraph}{}{6}
 \contentsline {paragraph}{}{7}
 \contentsline {paragraph}{}{7}
 \contentsline {paragraph}{}{7}
 \contentsline {paragraph}{}{7}
+\contentsline {chapter}{\numberline {2}Current State of Research}{8}
+\contentsline {paragraph}{}{8}
+\contentsline {section}{\numberline {2.1}Basic Properties of A-transducers}{8}
 \contentsline {paragraph}{}{8}
 \contentsline {paragraph}{}{8}
 \contentsline {paragraph}{}{8}
 \contentsline {paragraph}{}{8}
 \contentsline {paragraph}{}{8}
 \contentsline {paragraph}{}{8}
-\contentsline {paragraph}{}{8}
-\contentsline {paragraph}{}{8}
-\contentsline {paragraph}{}{8}
 \contentsline {paragraph}{}{9}
 \contentsline {paragraph}{}{9}
 \contentsline {paragraph}{}{9}
@@ -71,13 +70,7 @@
 \contentsline {paragraph}{}{9}
 \contentsline {paragraph}{}{9}
 \contentsline {paragraph}{}{9}
-\contentsline {section}{\numberline {2.2}Existence of an A-transducer for a Pair of Languages}{9}
 \contentsline {paragraph}{}{9}
-\contentsline {subsection}{\numberline {2.2.1}Regular Languages}{9}
-\contentsline {paragraph}{}{9}
-\contentsline {paragraph}{}{10}
-\contentsline {paragraph}{}{10}
-\contentsline {subsection}{\numberline {2.2.2}Context-free Languages}{10}
 \contentsline {paragraph}{}{10}
 \contentsline {paragraph}{}{10}
 \contentsline {paragraph}{}{10}
@@ -85,9 +78,10 @@
 \contentsline {paragraph}{}{10}
 \contentsline {paragraph}{}{10}
 \contentsline {paragraph}{}{10}
-\contentsline {paragraph}{}{11}
-\contentsline {paragraph}{}{11}
-\contentsline {paragraph}{}{11}
+\contentsline {paragraph}{}{10}
+\contentsline {section}{\numberline {2.2}State Complexity of Finite State Devices}{10}
+\contentsline {paragraph}{}{10}
+\contentsline {subsection}{\numberline {2.2.1}Finite State Automata}{11}
 \contentsline {paragraph}{}{11}
 \contentsline {paragraph}{}{11}
 \contentsline {paragraph}{}{11}
@@ -99,23 +93,27 @@
 \contentsline {paragraph}{}{12}
 \contentsline {paragraph}{}{12}
 \contentsline {paragraph}{}{12}
+\contentsline {subsection}{\numberline {2.2.2}Sequential Transducers}{12}
+\contentsline {paragraph}{}{12}
 \contentsline {paragraph}{}{13}
 \contentsline {paragraph}{}{13}
-\contentsline {section}{\numberline {2.3}State Complexity of Finite State Devices}{13}
-\contentsline {paragraph}{}{13}
-\contentsline {subsection}{\numberline {2.3.1}Finite State Automata}{13}
 \contentsline {paragraph}{}{13}
 \contentsline {paragraph}{}{13}
+\contentsline {paragraph}{}{13}
+\contentsline {paragraph}{}{13}
+\contentsline {section}{\numberline {2.3}Decompositions of finite automata}{13}
+\contentsline {paragraph}{}{13}
+\contentsline {paragraph}{}{13}
+\contentsline {chapter}{\numberline {3}Complexity of A-transducers}{14}
 \contentsline {paragraph}{}{14}
+\contentsline {paragraph}{}{14}
+\contentsline {section}{\numberline {3.1}"Modular-counting" languages}{14}
 \contentsline {paragraph}{}{14}
 \contentsline {paragraph}{}{14}
 \contentsline {paragraph}{}{14}
 \contentsline {paragraph}{}{14}
 \contentsline {paragraph}{}{15}
 \contentsline {paragraph}{}{15}
-\contentsline {paragraph}{}{15}
-\contentsline {paragraph}{}{15}
-\contentsline {subsection}{\numberline {2.3.2}Sequential Transducers}{15}
 \contentsline {paragraph}{}{15}
 \contentsline {paragraph}{}{15}
 \contentsline {paragraph}{}{15}
@@ -124,5 +122,46 @@
 \contentsline {paragraph}{}{16}
 \contentsline {paragraph}{}{16}
 \contentsline {paragraph}{}{16}
-\contentsline {chapter}{Conclusion}{17}
 \contentsline {paragraph}{}{17}
+\contentsline {paragraph}{}{17}
+\contentsline {section}{\numberline {3.2}Common transformations}{17}
+\contentsline {paragraph}{}{17}
+\contentsline {paragraph}{}{17}
+\contentsline {paragraph}{}{17}
+\contentsline {chapter}{\numberline {4}Foreign advisors}{18}
+\contentsline {section}{\numberline {4.1}Description of the framework}{18}
+\contentsline {paragraph}{}{18}
+\contentsline {paragraph}{}{18}
+\contentsline {paragraph}{}{18}
+\contentsline {paragraph}{}{18}
+\contentsline {paragraph}{}{19}
+\contentsline {paragraph}{}{19}
+\contentsline {paragraph}{}{19}
+\contentsline {section}{\numberline {4.2}T-decomposable and T-undecomposable languages}{19}
+\contentsline {paragraph}{}{19}
+\contentsline {paragraph}{}{19}
+\contentsline {paragraph}{}{19}
+\contentsline {paragraph}{}{19}
+\contentsline {paragraph}{}{19}
+\contentsline {paragraph}{}{19}
+\contentsline {paragraph}{}{19}
+\contentsline {paragraph}{}{20}
+\contentsline {paragraph}{}{20}
+\contentsline {paragraph}{}{20}
+\contentsline {paragraph}{}{20}
+\contentsline {paragraph}{}{20}
+\contentsline {paragraph}{}{20}
+\contentsline {paragraph}{}{20}
+\contentsline {paragraph}{}{20}
+\contentsline {paragraph}{}{20}
+\contentsline {paragraph}{}{21}
+\contentsline {section}{\numberline {4.3}Closure properties}{21}
+\contentsline {paragraph}{}{21}
+\contentsline {subsection}{\numberline {4.3.1}T-decomposable languages}{21}
+\contentsline {paragraph}{}{21}
+\contentsline {paragraph}{}{21}
+\contentsline {paragraph}{}{21}
+\contentsline {paragraph}{}{21}
+\contentsline {paragraph}{}{22}
+\contentsline {chapter}{Conclusion}{23}
+\contentsline {paragraph}{}{23}
