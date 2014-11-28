@@ -157,11 +157,28 @@
 \contentsline {paragraph}{}{21}
 \contentsline {section}{\numberline {4.3}Closure properties}{21}
 \contentsline {paragraph}{}{21}
-\contentsline {subsection}{\numberline {4.3.1}T-decomposable languages}{21}
+\contentsline {subsection}{\numberline {4.3.1}T-undecomposable languages}{21}
 \contentsline {paragraph}{}{21}
 \contentsline {paragraph}{}{21}
 \contentsline {paragraph}{}{21}
 \contentsline {paragraph}{}{21}
 \contentsline {paragraph}{}{22}
-\contentsline {chapter}{Conclusion}{23}
+\contentsline {subsection}{\numberline {4.3.2}T-decomposable languages}{22}
+\contentsline {paragraph}{}{22}
+\contentsline {paragraph}{}{22}
+\contentsline {paragraph}{}{22}
 \contentsline {paragraph}{}{23}
+\contentsline {subsection}{\numberline {4.3.3}Deterministic operations}{23}
+\contentsline {paragraph}{}{23}
+\contentsline {paragraph}{}{24}
+\contentsline {paragraph}{}{24}
+\contentsline {paragraph}{}{24}
+\contentsline {paragraph}{}{24}
+\contentsline {paragraph}{}{24}
+\contentsline {paragraph}{}{24}
+\contentsline {paragraph}{}{24}
+\contentsline {paragraph}{}{24}
+\contentsline {paragraph}{}{24}
+\contentsline {paragraph}{}{25}
+\contentsline {chapter}{Conclusion}{26}
+\contentsline {paragraph}{}{26}
