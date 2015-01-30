@@ -4,7 +4,7 @@
 \paragraph{}
 In this chapter, we would like to present some known results regarding transformation devices in general and their complexity aspects.
 
-\section{Basic Properties of A-transducers}
+\section{Basic Properties of a-transducers}
 \paragraph{}
 This section contains few basic results from \cite{gin:AATPFL}.
 
@@ -12,70 +12,61 @@ This section contains few basic results from \cite{gin:AATPFL}.
 \clema $\R $ and $\CF $ are closed under a-transduction.
 
 \paragraph{}
-\dokaz Let $M$ be an A-transducer and $L$ a regular (context-free) language. We use the alternative definition of the of image $L$:\\
+\dokaz Let $M$ be an a-transducer and $L$ a regular (context-free) language. We use the alternative definition of the of image $L$:\\
 \centerline{$M(L) = \{ pr_{2}(pr_{1}^{-1}(w) \cap \Pi_{M}) | w \in L \}$} \\
-Since $\Pi_{M}$ is regular and both classes, of regular and of context-free languages are closed under intersection with a regular language, homomorphism and inverse homomorphism (\cite{hopcroft:fola}), they are also closed under a-transduction. \square
+Since $\Pi_{M}$ is regular and both classes, of regular and of context-free languages are closed under intersection with a regular language, homomorphism and inverse homomorphism (\cite{hopcroft:fola}), they are also closed under a-transduction. \qed
 
 \paragraph{}
-\cdosledok Since sequential transducers and generalized sequential machines are just special forms of an A-transducer, this lemma also holds for these devices.
+\cdosledok Since sequential transducers and generalized sequential machines are just special forms of an a-transducer, this lemma also holds for these devices.
 
 \paragraph{}
-In previous chapter, we have defined a special class of 1-bounded A-transducers. Following theorem shows, that this limitation forms a normal form.
+In previous chapter, we have defined a special class of 1-bounded a-transducers. Following theorem shows, that it is a normal form.
 
 \paragraph{}
-\clema Let $M_{1}$ be an arbitrary A-transducer. Then there exists a 1-bounded A-transducer $M_{2}$, such that $\forall L: M_{1}(L) = M_{2}(L)$.
+\clema Let $M_{1}$ be an arbitrary a-transducer. Then there exists a 1-bounded a-transducer $M_{2}$, such that $\forall L: M_{2}(L) = M_{1}(L)$.
 
 \paragraph{}
-\dokaz Let $(q, u, v, p) \in H_{1}, u \equiv a_{1}a_{2}...a_{m}, v \equiv b_{1}b_{2}...b_{n}$. Let $m\geq n$ (for $m < n$ the proof is very similar). $M_{2}$ will have states $q, q_{a_{1}}, q_{a_{2}}, ..., q_{a_{n-1}}, q_{a_{n}} \equiv p$ and transitions in form $(q_{a_{i}}, a_{i+1}, b_{i+1}, q_{a_{i+1}})$ for $1 \leq i<n$, resp. $(q_{a_{j}}, a_{j+1}, \epsilon, q_{a_{j+1}})$ for $n \leq j < m$. This will be done for every $h \in H$. It is easy to see, that the a-transduction by $M_{1}$ and $M_{2}$ is the same and therefore $\forall L: M_{1}(L) = M_{2}(L)$. \square
+\dokaz Let $(q, u, v, p) \in H_{1}, u \equiv a_{1}a_{2}...a_{m}, v \equiv b_{1}b_{2}...b_{n}$. Let $m\geq n$ (for $m < n$ the proof is very similar). $M_{2}$ will have states $q, q_{a_{1}}, q_{a_{2}}, ..., q_{a_{n-1}}, q_{a_{n}} \equiv p$ and transitions in form $(q_{a_{i}}, a_{i+1}, b_{i+1}, q_{a_{i+1}})$ for $1 \leq i<n$, resp. $(q_{a_{j}}, a_{j+1}, \epsilon, q_{a_{j+1}})$ for $n \leq j < m$. This will be done for every $h \in H$. It is easy to see, that the a-transduction by $M_{1}$ and $M_{2}$ is the same and therefore $\forall L: M_{1}(L) = M_{2}(L)$. \qed
 
 \paragraph{}
-As one can see, this construction can increase the number of states of an A-transducer by a constant multiple. Sometimes it is more convenient to consider only 1-bounded A-transducer, since its complexity can be easier compared with other computational models.
+As one can see, this construction can increase the number of states of an a-transducer by a constant multiple. Sometimes it is more convenient to consider only 1-bounded a-transducer, since its complexity can be easier compared with other computational models.
 
 \paragraph{}
-In the next section, we quote results regarding the question, when it is possible to transform one language to another using an A-transducer. The next theorem gives us another view of this problem using the theory of language families.
+\clema For every ($\epsilon $-free) homomorphism $h: \Sigma_{1}^{*} \rightarrow \Sigma_{2}^{*}$ there is an ($\epsilon $-free) a-transducer $M$, such that $\forall L: M(L) = h(L)$.
 
 \paragraph{}
-\clema For every two ($\epsilon $-free) A-transducers $M_{1}$ and $M_{2}$ there exists an ($\epsilon $-free) A-transducer $M_{3}$ such that $\forall L: M_{3}(L) = M_{2}(M_{1}(L))$.
-
-\paragraph{}
-\dokaz We show just the idea of the proof: We may assume that $M_{1}$ and $M_{2}$ are 1-bounded. $M_{3}$ simulates both of the A-transducers concurrently (so its internal state have the form $(q \times p)$), reads the input according to transition function of $M_{1}$ and writes the corresponding output of $M_{2}$, while the output of $M_{1}$ forms the input of $M_{2}$. It is easy to see, that $\forall L: M_{3}(L) = M_{2}(M_{1}(L))$. \square
-
-\paragraph{}
-\clema For every ($\epsilon $-free) homomorphism $h: \Sigma_{1}^{*} \rightarrow \Sigma_{2}^{*}$ there is an ($\epsilon $-free) A-transducer $M$, such that $\forall L: M(L) = h(L)$.
-
-\paragraph{}
-\dokaz The A-transducer $M=(K, \Sigma_{1}, \Sigma_{2}, H, q_{0}, F)$ will look as follows:
+\dokaz The a-transducer $M=(K, \Sigma_{1}, \Sigma_{2}, H, q_{0}, F)$ will look as follows:
 \begin{itemize}
 \item $K = F = \{ q \}$,
 \item $q_{0} = q$,
-\item $H = \{ (q, a, h(a), q) | a \in \Sigma_{1} \}$. \square
+\item $H = \{ (q, a, h(a), q) | a \in \Sigma_{1} \}$. \qed
 \end{itemize}
 
 \paragraph{}
-\clema For every homomorphism $h$ there is an A-transducer $M$, such that $\forall L: M(L) = h^{-1}(L)$.
+\clema For every homomorphism $h$ there is an a-transducer $M$, such that $\forall L: M(L) = h^{-1}(L)$.
 
 \paragraph{}
-\dokaz As in previous Lemma, except $H = \{ (q, h(a), a, q) | a \in \Sigma_{1} \}$. \square
+\dokaz As in previous Lemma, except $H = \{ (q, h(a), a, q) | a \in \Sigma_{1} \}$. \qed
 
 \paragraph{}
-\clema For every $R \in \R $, there exists an $\epsilon $-free A-transducer $M$, such that $M(L) = L \cap R$.
+\clema For every language $L$ and regular language $R$, there exists an $\epsilon $-free a-transducer $M$, such that $M(L) = L \cap R$.
 
 \paragraph{}
-\dokaz Let $A = (K, \Sigma, q_{0}, \delta, F)$ be a non-deterministic finite automaton, such that $L(A) = R$. Then $M=(K, \Sigma, \Sigma, H, q_{0}, F)$, where $H=\{ (q, a, a, \delta (q,a)) | q \in K, a \in \Sigma \} $. \square
+\dokaz Let $A = (K, \Sigma, q_{0}, \delta, F)$ be a non-deterministic finite automaton, such that $L(A) = R$. Then $M=(K, \Sigma, \Sigma, H, q_{0}, F)$, where $H=\{ (q, a, a, \delta (q,a)) | q \in K, a \in \Sigma \} $. \qed
 
 \paragraph{}
 \oznacenie For each family $\mathcal{L} $ of languages, \\
-\centerline{$\mathcal{M(L)} = \{ M(L) | L \in \mathcal{L}, M$ is an $\epsilon $-free A-transducer$\} $} \\
-\centerline{$\mathcal{\hat{M}(L)} = \{ M(L) | L \in \mathcal{L}, M$ is an arbitrary A-transducer$\} $}
+\centerline{$\mathcal{M(L)} = \{ M(L) | L \in \mathcal{L}, M$ is an $\epsilon $-free a-transducer$\} $} \\
+\centerline{$\mathcal{\hat{M}(L)} = \{ M(L) | L \in \mathcal{L}, M$ is an arbitrary a-transducer$\} $}
 
 \paragraph{}
 \cveta For each family $\mathcal{L} $ of languages, $\mathcal{M(L)} $ $(\mathcal{\hat{M}(L)}) $ is the smallest (full) trio containing $\mathcal{L} $.
 
 \paragraph{}
-\dokaz Once again, we use the alternative definition of the image of $L$, $M(L) = \{ pr_{2}(pr_{1}^{-1}(w) \cap \Pi_{M} | w \in L \}$. Considering previous lemmas, $\mathcal{M(L)} $ $(\mathcal{\hat{M}(L)}) $ is clearly a (full) trio (note, that if $M$ is $\epsilon $-free, $pr_{2}$ is also $\epsilon $-free).
+\dokaz Once again, we use the alternative definition of the image of $L$, $M(L) = \{pr_{2} \allowbreak (pr_{1}^{-1}(w) \cap \Pi_{M}) | w \in L \}$. Considering previous lemmas, $\mathcal{M(L)} $ $(\mathcal{\hat{M}(L)}) $ is clearly a (full) trio (note, that if $M$ is $\epsilon $-free, $pr_{2}$ is also $\epsilon $-free).
 
 \paragraph{}
-Now, let $\mathcal{L'} $ be a (full) trio containing $\mathcal{L} $. Obviously, $\mathcal{L'} $ also contains $\mathcal{M(L)} $ $(\mathcal{\hat{M}(L)}) $, since it has to be closed under ($\epsilon $-free) homomorphism, inverse homomorphism and intersection with a regular language. Therefore, $\mathcal{M(L)} $ $(\mathcal{\hat{M}(L)}) $ is the smallest (full) trio containing $\mathcal{L} $. \square
+Now, let $\mathcal{L'} $ be a (full) trio containing $\mathcal{L} $. Obviously, $\mathcal{L'} $ also contains $\mathcal{M(L)} $ $(\mathcal{\hat{M}(L)}) $, since it has to be closed under ($\epsilon $-free) homomorphism, inverse homomorphism and intersection with a regular language. Therefore, $\mathcal{M(L)} $ $(\mathcal{\hat{M}(L)}) $ is the smallest (full) trio containing $\mathcal{L} $. \qed
 
 \paragraph{}
 \oznacenie If $\mathcal{L}$ is a single language, we write $\mathcal{M}(L)$ instead of $\mathcal{M}(\{ L\} )$.
@@ -85,14 +76,14 @@ In fact, it was shown in \cite{gingrei:pAFL}, that $\mathcal{M}(L) $ $(\mathcal{
 
 \section{State Complexity of Finite State Devices}
 \paragraph{}
-The topic of descriptional complexity of finite state devices has been widely researched in connection with finite state automata. Some results have been introduced also for sequential transducers, but the complexity of A-transducers has been on the periphery of interest. For this reason, this section contains the achievements for simpler devices, which can be later useful when dealing with our main model, an A-transducer.
+The topic of descriptional complexity of finite state devices has been widely researched in connection with finite state automata. Some results have been introduced also for sequential transducers. This section contains the achievements for these simpler devices, which can be later useful when dealing with our main model, an a-transducer.
 
 \subsection{Finite State Automata}
 \paragraph{}
 We would like to occupy ourselves with the question, what is the lower bound of state count needed to accept a language $L$. Or, otherwise stated, what is the relation between the properties of a regular language and the minimal state size of its finite automaton?
 
 \paragraph{}
-For deterministic finite automaton, the answer was given by Nerode in \cite{Nerode:LAT}. We present his result in a slightly modified form, which suits better for our purposes.
+For deterministic finite automaton, the answer was given by Nerode in \cite{Nerode:LAT}. We present his result in a slightly modified form, which suits our purposes better.
 
 \paragraph{}
 \cveta Let $L$ be a regular language over alphabet $\Sigma $. Let $R_{L}$ be a relation on strings from $\Sigma ^{*}$ defined as follows: \\
@@ -105,7 +96,7 @@ Let $k$ be a number of equivalence classes of $R_{L}$. If $A$ is a deterministic
 Since $A$ is deterministic, it is easy to see, that $\forall z \in \Sigma ^{*}: xR'y \Leftrightarrow xzR'yz$. Moreover, the number of its equivalence classes is exactly the number of reachable states of $A$. Now, we will show, that the relation $R'$ is a refinement of $R_{L}$ (i. e. each equivalence class of $R'$ is contained in a equivalence class of $R_{L}$).
 
 \paragraph{}
-Assume $xR'y$. As stated before, also $xzR'yz$. That means, that $\delta (q_{0}, xz) \in F) \Leftrightarrow \delta (q_{0}, yz)$ and therefore $xR_{L}y$. It follows, that whole equivalence class of $R'$ containing $x$ (later noted as $[x]$) is a subclass of an equivalence class of $R_{L}$ and hence $R'$ has not less equivalence classes than $R_{L}$. \square
+Assume $xR'y$. As stated before, also $xzR'yz$. That means, that $\delta (q_{0}, xz) \in F) \Leftrightarrow \delta (q_{0}, yz)$ and therefore $xR_{L}y$. It follows, that whole equivalence class of $R'$ containing $x$ (later noted as $[x]$) is a subclass of an equivalence class of $R_{L}$ and hence $R'$ has not less equivalence classes than $R_{L}$. \qed
 
 \paragraph{}
 Important observation is, that this lower bound is tight, i. e. there really exists a DFA $A'$ accepting $L$ with $k$ states. We can construct is from relation $R_{L}$ as $A'=(K', \Sigma , \delta ', q'_{0}, F')$:
@@ -135,7 +126,7 @@ Then any non-deterministic finite automaton accepting $L$ has at least $n$ state
 Now it is sufficient to show, that all states $p_{i}$ are distinct. Indeed, if $p_{i} = p_{j}$, then $\delta (p_{i}, w_{i}) = \delta (p_{j}, w_{i})$. Especially, $\delta (p_{i}, w_{i}) \cap F \neq \emptyset \Leftrightarrow \delta (p_{j}, w_{i}) \cap F\neq \emptyset $. It follows, that $x_{j}w_{i} \in L$, which is contradiction with definition of $P$.
 
 \paragraph{}
-Since $|S| \geq n$, $A$ has at least $n$ states. \square
+Since $|S| \geq n$, $A$ has at least $n$ states. \qed
 
 \subsection{Sequential Transducers}
 The natural question arises, how can be these results extended if we add an output function, in other words, what is the lower bound for number of states of an (sequential, a-) transducer, which transforms a language $L_{1}$ to a language $L_{2}$? Unfortunately, we do not have a answer in such a general form yet. However, in the case of sequential transducers, in \cite{moh:min} was given an answer to a simplified question: what is the minimal number of states of a sequential transducers representing a sequential function?
@@ -162,16 +153,56 @@ $\forall (u, v) \in D(f) \times D(f): u R_{f} v \iff$ \\
 \paragraph{}
 \dokaz Let $M=(K, \Sigma_{1}, \Sigma_{2}, \delta, \sigma, q_{0}, F)$. Choosing $x = \sigma (q_{0}, u)$ and $y = \sigma (q_{0}, v)$, it is easy to see, that\\
 \centerline{$\forall (u,v) \in D(f) \times D(f), \delta (q_{0}, u) = \delta (q_{0}, v) \Rightarrow u R_{f} v$.}\\
-Moreover, $\delta (q_{0}, u) = \delta (q_{0}, v)$ also defines an equivalence relation on $D(f)$. As we can see, this relation is just a special case of $R_{f}$, which means, that its number of equivalence classes (ergo the number of states of $M$) is greater or equal to the number of equivalence classes of $R_{f}$. \square
+Moreover, $\delta (q_{0}, u) = \delta (q_{0}, v)$ also defines an equivalence relation on $D(f)$. As we can see, this relation is just a special case of $R_{f}$, which means, that its number of equivalence classes (ergo the number of states of $M$) is greater or equal to the number of equivalence classes of $R_{f}$. \qed
 
 \paragraph{}
-It was also shown, that this lower bound is tight, i. e. there is a sequential transducer realizing $f$ with $|K|$ equal to number of equivalence classes of $R_{f}$. However, we do not induct the proof of this claim, since it is quite technical and is not of vast relevance itself.
+It was also shown, that this lower bound is tight, i. e. there is a sequential transducer realizing $f$ with $|K|$ equal to number of equivalence classes of $R_{f}$. However, we do not induct the proof of this claim, since it is quite technical and is not of vast importance for the purpose of our thesis.
 
 \paragraph{}
-As mentioned before, we do not know, how can be this result applied to a couple of languages $L_{1}$ and $L_{2}$, if we do not have the exact sequential function transforming the former to the latter.
+As mentioned before, we do not know, how can be this result applied to a pair of languages $L_{1}$ and $L_{2}$, if we do not have the exact sequential function transforming the former to the latter.
 
 \section{Decompositions of finite automata}
 
 \paragraph{}
-ToDo: results from Gazi about SB, ASB and advisors (necessary and sufficient conditions, maybe closure properties etc.).
+We now show the relation between state behavior decompositions and advisors and the necessary and sufficient condition on SB- and ASB-decomposability, as presented in \cite{Gazi}.
+
+\paragraph{}
+\cveta Let $A$ be a deterministic finite automaton. If there exists a nontrivial ASB-decomoposition of $A$, then there exists a regular language $L$ and an automaton $A'$, such that $L(A) = L[L](A')$ and both $\C{L} < \C{A}$ and $\C{A'} < \C{A}$.
+
+\paragraph{}
+\dokaz We claim, that for any nontrivial decomposition of $A$ on $(A_1, A_2)$, $L=L(A_1)$ and $A'=A_2$. We show, that $L[L(A_1)](A_2)=L(A)$ in two containments:
+
+\begin{itemize}
+\item $L[L(A_1)](A_2)\subseteq L(A)$: Since $A_1 || A_2$ realizes the state and acceptance behavior of $A$, we know, that any word $w \in L(A)$ is accepted by $A_1 || A_2$. Moreover, the accepting computation of $A_1 || A_2$ can be decomposed into accepting computations of $A_1$ and $A_2$ (as we can see from the definition). Therefore $w \in L(A_1) = L$ and $w \in L(A_2)$, which implies $w \in L[L(A_1)](A_2)$.
+
+\item $L[L(A_1)](A_2)\supseteq L(A)$: The proof of this containment is similar, except we join the computations of $A_1$ and $A_2$ on a word $w \in L(A_1) \cap L(A_2)$ into the computation of $A_1 || A_2$, which gives us a corresponding accepting computation of $A$.
+\end{itemize} \qed
+
+To present the aforementioned condition, we first need som additional definitions.
+
+\paragraph{}
+\definicia A partition $\pi$ on a finite set $S$ is a set $\{S_1, S_2, ..., S_k\}$, such that $\forall i: S_i \neq \emptyset$ and $\bigcup_{i=1}^k S_i = S$.
+
+\paragraph{}
+\oznacenie We denote the trivial partition of $S=\{s_0, s_1,...,s_k\}$ into $\{s_0\},\{s_1\},...,\{s_k\}$ by $0$.
+
+\paragraph{}
+\definicia Let $A=(K, \Sigma, \delta, q_0, F)$ be a deterministic finite automaton. We say, that a partition $\pi$ of $K$ has a \emph{substitution property} (S. P.), if \\
+\centerline{$\forall p, q \in K: p \equiv_{\pi} \Rightarrow (\forall a\in \Sigma: \delta(p,a)\equiv \delta(q,a))$.}
+
+\paragraph{}
+\definicia For a given pair of partitions $\pi_1$ and $\pi_2$ of a set $S$, then $\pi_1 . \pi_2$ is a parition of $S$, such that $a \equiv_{\pi_1 . \pi_2} b \Leftrightarrow a \equiv_{\pi_1} b \wedge a \equiv_{\pi_2} b$.
+
+\paragraph{}
+\definicia Let $A = (K, \Sigma, \delta, q_0, F)$ be a deterministic finite automaton. We say, that the partitions $\pi_1=\{S_1, S_2, ..., S_k\}$ and $\pi_2=\{T_1,T_2,..., T_l\}$ on $K$ \emph{separate the final states} of $A$, if there are two sets of indices $i_1, ..., i_m$ and $j_1, ..., j_n$, such that $(S_{i_1} \cup ... \cup S_{i_m}) \cap (T_{j_1} \cup ... \cup T_{j_n}) = F$.
+
+\paragraph{}
+Now we finally can proceed to the necessary and sufficient condition on (A)SB-decomposability.
+
+\paragraph{}
+\cveta Let $A = (K, \Sigma, \delta, q_0,F)$ be a deterministic finite automaton. $A$ is SB-decomposable if and only if there are two nontrivial partitions $\pi_1, \pi_2$ of $K$ with substition property, such that $\pi_1 . \pi_2 = 0$. Moreover, if $\pi_1$ and $\pi_2$ separate the final states of $A$, this decomposition is an ASB-decomposition.
+
+\paragraph{}
+The proof of this claim can be found in \cite{Gazi}.
+
 \paragraph{}
