@@ -13,10 +13,10 @@ We now proceed to definitions associated to the central matter of our thesis, wh
 \definicia Let $L_{dec}$ be a regular language. A pair $(L_{adv}, M)$, where $L_{adv}$ is a regular language and $M$ an a-transducer is called an \emph{advice with regard to $L_{dec}$}, if there exists a deterministic finite automaton $A'$, such that $L_{dec} = L[M^{-1}(L_{adv})](A')$. Moreover, $(L_{adv}, M)$ is called \emph{effective}, if $\C{A'} + \C{M} + \C{L_{adv}} \leq	 \C{L_{dec}}$.
 
 \paragraph{}
-\cpriklad Let $L_{dec} = \{ a^{12k}| k \geq 0 \} $, $M$ be an one state a-transducer computing the identity and $L_{adv} = \{ a^{2k}| k \geq 0 \}$. $D$ can now construct a simpler finite automaton $A'$ for the language $L_{simple} = \{ a^{6k}| k \geq 0 \}$. Clearly, $\C{A'} + \C{M} + \C{L_{adv}} = 6 + 1 + 2 \leq 12 = \C{L_{dec}}$, which means, that $L_{adv}$ with $M$ is an effective advice with regard  to $L_{dec}$.
+\cpriklad Let $L_{dec} = \{ a^{12k}| k \geq 0 \} $, $M$ be one state a-transducer computing the identity and $L_{adv} = \{ a^{2k}| k \geq 0 \}$. $D$ can now construct a simpler finite automaton $A'$ for the language $L_{simple} = \{ a^{6k}| k \geq 0 \}$. Clearly, $\C{A'} + \C{M} + \C{L_{adv}} = 6 + 1 + 2 \leq 12 = \C{L_{dec}}$, which means, that $L_{adv}$ with $M$ is an effective advice with regard  to $L_{dec}$.
 
 \paragraph{}
-\cpriklad Let $L_{dec} = \{ a^{12k}| k \geq 0 \} $. Let $M= (\{q_0, q_1\}, \{a\}, \{a\}, H, q_0, \{q_0\})$, where $H = \{(q_0, a, a, q_1), (q_1, a, \epsilon, q_0)\}$ and $L_{adv} = \{ a^{2k}| k \geq 0 \}$. It is easy to see, that $M^{-1}(L_{adv}) = \{ a^{4k}| k \geq 0 \}$. $D$ can now construct a simpler finite automaton $A'$ for the language $L_{simple} = \{ a^{3k}| k \geq 0 \}$. Clearly, $\C{A'} + \C{M} + \C{L_{adv}} = 3 + 2 + 2 \leq 12 = \C{L_{dec}}$, which means, that $L_{adv}$ with $M$ is an effective advice with regard  to $L_{dec}$.
+\cpriklad Let $L_{dec} = \{ a^{12k}| k \geq 0 \} $. Let $M= (\{q_0, q_1\}, \{a\}, \{a\}, H, q_0, \{q_0\})$, where $H = \{(q_0, a, a, q_1), (q_1, a, \varepsilon, q_0)\}$ and $L_{adv} = \{ a^{2k}| k \geq 0 \}$. It is easy to see, that $M^{-1}(L_{adv}) = \{ a^{4k}| k \geq 0 \}$. $D$ can now construct a simpler finite automaton $A'$ for the language $L_{simple} = \{ a^{3k}| k \geq 0 \}$. Clearly, $\C{A'} + \C{M} + \C{L_{adv}} = 3 + 2 + 2 \leq 12 = \C{L_{dec}}$, which means, that $L_{adv}$ with $M$ is an effective advice with regard  to $L_{dec}$.
 
 \paragraph{}
 Two interesting questions arise. The first is, for given language $L$ and a-transducer $M$, how to get the language $M^{-1}(L)$? The answer was quite easy to find in previous two examples (and, in fact, for all languages in form $\{ (a^k)^+ \}$ and a-transducers, which just manipulates the number of symbols $a$). The answer in general is resolved by the following Lemma.
@@ -48,7 +48,7 @@ Another question is in some sense the inverse perspective of this problem. We ha
 \cdefinicia The language $L$ is called \emph{T-decomposable}, if there is a language $L_{adv}$, which is an effective advice for $L$. Otherwise, we call $L$ \emph{T-undecomposable}.
 
 \paragraph{}
-Now we would like to compare our setting to the setting presented by \cite{Gazi} (see Section 2.3). To make the comparison more meaningful, we have strengthen the condition presented by Gazi in a following way:
+Now we to compare our setting to the setting presented by \cite{Gazi} (see Section 2.3). To make the comparison more meaningful, we have to strengthen the condition presented by Gazi in a following way:
 
 \paragraph{}
 \cdefinicia A language $L$ is called \emph{A-decomposable}, if there exists an advisor $L_1$ and an automaton $A$, such that $\C{L_1} + \C{A_1} < \C{L}$ and $L(A, L_1) = L$.
@@ -83,7 +83,7 @@ We need to construct just an automaton for $\{a\}^*$, since the advice gives the
 \paragraph{}
 Our next goal is to show, that $L_n$ is not A-decomposable. As we have said before, a minimal DFA $A$ for $L_n$ has $n+1$ states and its states correspond to the equivalence classes of the relation defined by Myhill-Nerode theorem (see Section 2.2.1). These equivalence classes are:
 \begin{enumerate}
-\item $[c_0] = \{ \epsilon \}$,
+\item $[c_0] = \{ \varepsilon \}$,
 \item $[c_{i}] = \{ a^i \}$ for $1 \leq i \leq n$,
 \item $[c_{n+1}] = \{ a^k | k > n \}$.
 \end{enumerate}
@@ -107,10 +107,10 @@ The same argument can be used for $A'$. Assume, that it accepts also words $a^{n
 \dokaz Each of the languages $L_{p} = \{ (a^p)^* | p$ is a prime number $\}$ is T-undecomposable.
 
 \paragraph{}
-It is easy to see, that $\C{L_p} = p$. Let us fix a particular $p$ (the arguments will work for all prime numbers $p$, we fix it in order to simplify the notation). We want to decompose $L_p$ to get a simpler automaton $A'$. Let $L_{simple} = L(A')$. Moreover, we will be looking for an advisory language $L_{adv}$ and an a-transducer $M$. Let $M^{-1}(L_{adv}) = L_{trans}$.
+It is easy to see, that $\C{L_p} = p$. Let us fix a particular $p$ (the arguments will work for all prime numbers $p$, we fix it in order to simplify the notation). We want to decompose $L_p$ to get a simpler automaton $A'$. Let $L_{simple} = L(A')$. Moreover, we will be looking for an advisory language $L_{adv}$ and an a-transducer $M$. Let $L_{trans} = M^{-1}(L_{adv})$.
 
 \paragraph{}
-Now, we would like to present some constraints on aforementioned languages. From the definition of the framework, we know, that $L[L_{trans}](A') = L_p$ and therefore $L_p = L_{simple} \cap L_{trans}$. We claim, that $\C{L_{simple}} \geq p$ or $\C{L_{trans}} \geq p$. This can be proven using a series of arguments, which have been already used couple of times in our thesis - since both languages must contain $L_p$ as their subset, if both finite automata have fewer than $p$ states, their computation would run in a cycle of some lengths $k, l$. Then, both automata would accept some word extended by a suitable common multiple of $k$ and $l$ symbols $a$, which however does not belong to $L_p$.
+Now, we present some constraints on aforementioned languages. From the definition of the framework, we know, that $L[L_{trans}](A') = L_p$ and therefore $L_p = L_{simple} \cap L_{trans}$. We claim, that $\C{L_{simple}} \geq p$ or $\C{L_{trans}} \geq p$. This can be proven using a series of arguments, which have been already used couple of times in our thesis - since both languages must contain $L_p$ as their subset, if both finite automata have fewer than $p$ states, their computation would run in a cycle of some lengths $k, l$. Then, both automata would accept some word extended by a suitable common multiple of $k$ and $l$ symbols $a$, which however does not belong to $L_p$.
 
 \paragraph{}
 On the other side, since we claim, that $L_p$ is T-decomposable, it must hold, that $\C{L_{simple}} \allowbreak < p-1$ (together with another two devices, the total number of states is at most $p$). It follows, that $\C{L_{trans}} \geq p$. What do we know about the complexity of $L_{adv}$? For similar reasons as for $L_{simple}$, also for $L_{adv}$ it has to hold, that $\C{L_{adv}} < p-1$.
@@ -119,7 +119,7 @@ On the other side, since we claim, that $L_p$ is T-decomposable, it must hold, t
 That means, that in fact, we want to encode the language $L_{trans}$ into the language $L_{adv}$ with a smaller complexity using an a-transducer $M$. However, we not only need, that $M(L_{trans}) = L_{adv}$. Lemma 14 gives us another supplementary conditions on $M$. We want to find two dual a-transducers $M, M'$, such that $M(L_{adv}) = L_{trans}$, $M'(L_{trans}) = L_{adv}$ and both $\C{M} < p$ and $\C{M'} < p$. Besides, $M(L^c_{adv}) \cap L_{trans} = \emptyset$ and $M'(L^c_{trans}) \cap L_{adv} = \emptyset$ (this is just another notation of conditions from Lemma 14).
 
 \paragraph{}
-Now, let us consider an a-transducer $M'$ with aforementioned properties and the language $M'(L_{trans})$. We know, that $L_{trans}$ contains all words of the form $(a^p)^*$ and all this words have to be transduced by $M'$ to words from $L_{adv} (M'(L_{trans}))$. Since $M'$ has fewer than $p$ states, the computation of $M'$ on such words contains a cycle. Without loss of generality, take one of the accepting computations on $a^p$ and let the shortest cycle with output have length $c$ (if no cycle has an output, $M'(a^p) = M'(a^{p+c})$, which violates the condition in Lemma 14). Let the output of this cycle be $x \neq \epsilon$. Moreover, assume, that the word generated by this computation is $w$.
+Now, let us consider an a-transducer $M'$ with aforementioned properties and the language $M'(L_{trans})$. We know, that $L_{trans}$ contains all words of the form $(a^p)^*$ and all this words have to be transduced by $M'$ to words from $L_{adv} (M'(L_{trans}))$. Since $M'$ has fewer than $p$ states, the computation of $M'$ on such words contains a cycle. Without loss of generality, take one of the accepting computations on $a^p$ and let the shortest cycle with output have length $c$ (if no cycle has an output, $M'(a^p) = M'(a^{p+c})$, which violates the condition in Lemma 14). Let the output of this cycle be $x \neq \varepsilon$. Moreover, assume, that the word generated by this computation is $w$.
 
 \paragraph{}
 Now, we know, that $w \in L_{adv}$. $M'$ gives correct outputs on all words from $L_{trans}$, so also if we iterate the cycle few more times, we get to the same accepting state.  The substring $x$ can be anywhere in the word $w$, however, without loss of generality, we may assume, that it is in the end. Otherwise the arguments are the same, but with slithly more complex notation. So, we assume $w.(x^{k.p}) \in L_{adv}$ for any $k \geq 0$ (because $w.(x^{k.p}) \in M'(a^{p+k.p.c})$). Consider words of the form $u_i = a^{p+i.c}$ and $v_i = w.(x^i)$ for all $i > 0$. We know, that $v_i \in M'(u_i)$. Using the equivalence relation from Myhill-Nerode theorem (see Section 2), we show, that the number of equivalence classes of $L_{adv}$ is bigger than $p$, which contradicts our assumptions.
@@ -134,7 +134,7 @@ We will call a number $n$ "bad", if $v_k.(x^{n}) \notin L_{adv}$. We know, that 
 We need to examine one additional case - if $\forall i, p \leq i: v_i \in L_{adv}$. This means, that $\forall i, p\leq i: u_i = a^{p+i.c} \in L_{trans}$. Though, we have seen, that the automaton $A'$ for $L_{simple}$ has less than $p$ states and again, it runs in a cycle of length $d < p$ when accepting words from $L_{dec}$. Hence a word $a^{p+d.c} \in L_{simple}$. As we have seen, also $a^{p+d.c} \in L_{trans}$, but then $a^{p+d.c} \in L_p$, which is a contradiction, because both $b,c<p$ and $p$ is a prime number. \qed
 
 \paragraph{}
-As we have seen, the classes of regular languages concerning T-decomposability are different as the classes of A-decomposable and A-undecomposable languages. In the next part of our thesis, we would like to investigate some properties of these classes.
+As we have seen, the classes of regular languages concerning T-decomposability are different as the classes of A-decomposable and A-undecomposable languages. In the next part of our thesis, we investigate some properties of these classes.
 
 %------------------------------------------------------------------------------------
 \section{Closure properties}
@@ -160,10 +160,7 @@ In this part, we mainly use two types of T-undecomposable languages. First of th
 \paragraph{}
 \dokaz
 \begin{enumerate}
-\item Let us take a language $L = \{a^{10}\}^c$. As we have seen in previous Section, $L^c = \{a^{10}\}$ is T-decomposable. We will now prove the T-undecomposability of $L$. For the sake of contradiction, assume we can decompose $L$ into two languages, $L_{trans}$ and $L_{simple}$, while $L_{trans} = M(L_{adv})$ for some a-transducer $M$. We now use the well-known DeMorgan's law.
-\centerline{$ L = L_{trans} \cap L_{simple}$}
-\centerline{$ L^c = (L_{trans} \cap L_{simple})^c$}
-\centerline{$ \{a^{10}\} = L_{trans}^c \cup L_{simple}^c$}
+\item \color{red}najst schodny dokaz, posledne dva nevysli\color{black}
 
 \item Consider an undecomposable language $L_1 = \{ a^{13k} | k \geq 0 \}$ and a homomorphism $h:\{ a\}^* \to \{ a \}^*$, such that $h(a) = aa$. Clearly, $h(L_1) = \{ a^{26k} | k \geq 0 \}$ and this language can be decomposed in a following way: let us take an a-transducer $M_1$ computing the identity mapping and a language $L'_1 = \{ a^{2k} | k \geq 0 \}$. This two items form the desired effective advice for $L_1$, since we only have to chceck the language $\{ a^{13k} | k \geq 0 \}$.
 
@@ -175,8 +172,21 @@ Since this homomorphism is non-erasing, our class is not closed even under this 
 
 \item Consider two languages, $L_{41} = \{ a^{13k} | k \geq 1 \}$ and $L_{42} = \{ a^{2k} | k \geq 1 \}$. As stated before, both of these languages are T-undecomposable. However, $L_{41} \cap L_{42} = \{ a^{26k} | k \geq 1 \}$ is a T-decomposable language, as we have seen in the first part of this proof.
 
-\item \color{red}ToDo: no, bud deMorgan alebo nieco vymyslim\color{black}
+\item Let us take two languages, $L_{51} = \{ a^k | k \neq 0 (mod 5) \}$ and $L_{52} = \{ a^k | k \neq 0 (mod 7) \}$. The T-undecomposability of these languages can be shown in very similar way, which we have seen in Theorem 17. We show just the first part of the proof, since the rest follows the same pattern as in aforementioned result.
+
+\paragraph{}
+Assume, that $L_{51}$ is T-decomposable (the same train of thoughts can be used for $L_{52}$). This means, that we can decompose $L_{51}$ into two languages $L_{trans}$ and $L_{simple}$, such that $L_{trans} \cap L_{simple} = L_{51}$. As we see, $L_{51} \subseteq L_{simple}$. However, since the finite automaton for $L_{51}$ has fewer than $5$ states, it is easy to see, that $L_{simple} \supseteq \{a^*\}$ (otherwise at least one of the words $a, aa, aaa, aaaa$ would be rejected). It  follows, that $L_{trans} \cap \{ a^k | k = 0 (mod 5) \} = \emptyset$. As we  have said, the rest of the proof is almost identical to the proof of Theorem 15.
+
+\paragraph{}
+Now we claim, that the language $L_{53} = L_{51} \cup L_{52} = \{a^k|k\neq 0 (mod 35)\}$ is T-decomposable. Clearly, $\C{L_{53}} = 35$. Take the a-transducer $M_5$ from Image 1. It can be seen, that $M_5(a^{5k} = \{ b^k \}$ and $\forall k \neq 5: M_5(a^k) = \{ a^k \}$. Now, let $L_{adv} = \{ w \in \{a,b\}^* | \nexists i: w = b^i \wedge i = 0 (mod 7) \}$. Then, $L_{simple} = \{a\}^*$ and clearly, $(L_{adv},M_5)$ is an effective advice with regard to $L_{53}$.
+
+\begin{figure}
+\includegraphics[scale=0.5]{mainmatter/images/M_5.png}
+\caption{Image 1: A-transducer $M_5$}
+\end{figure}
+
 \end{enumerate}
+\qed
 
 \subsection{T-decomposable languages}
 
@@ -202,8 +212,7 @@ Let us now consider a homomorphism $h: \{ a,b\}^* \to \{ a \}^*$, defined as $h(
 
 \item Consider a language $L_2 = \{ a^{26k} | k \geq 1 \}$. The decomposition of this language was shown in the proof of previous theorem. The desired homomorphism is $h: \{a\}^* \to \{a\}^*$, where $h(a) = aa$. Now, $h^{-1}(L_2) = \{ a^{13k} | k \geq 1 \}$, which is T-undecomposable.
 
-\item
-The counterexample is a language $L_3 = \{ a^{9} \}$. Let us take a language $L'_3 = \{ a^{5} \}$; an a-transducer $M_3 = (\{q_0, q_1, q_2\}, \{a\}, \{a\}, H, q_0, \{q_1\})$, where $H = \{ (q_0, a, a, q_1), (q_1, a, \epsilon, q_2),\allowbreak (q_2, a, a, q_1) \}$; and an automaton $A_3 = \{q_0, \{a\}, \delta, q_0, \{q_0\} $, where $\delta(q_0, a) = q_0$. Clearly, $M_3^{-1}(L'_3) = L_3$ and $\C{L'_3} + \C{T} + \C{A_3} = 5 + 3 + 1 \leq 9 = \C{L_3}$, therefore $L_3$ is T-decomposable. Though, $(L_3)^+ = \{ a^{9k} | k \geq 1 \}$ and $(L_3)^* = \{ a^{9k} | k \geq 0 \}$ are T-undecomposable.
+\item The counterexample is a language $L_3 = \{ a^{9} \}$. Let us take a language $L'_3 = \{ a^{5} \}$; an a-transducer $M_3 = (\{q_0, q_1, q_2\}, \{a\}, \{a\}, H, q_0, \{q_1\})$, where $H = \{ (q_0, a, a, q_1), (q_1, a, \varepsilon, q_2),\allowbreak (q_2, a, a, q_1) \}$; and an automaton $A_3 = \{q_0, \{a\}, \delta, q_0, \{q_0\} $, where $\delta(q_0, a) = q_0$. Clearly, $M_3^{-1}(L'_3) = L_3$ and $\C{L'_3} + \C{T} + \C{A_3} = 5 + 3 + 1 \leq 9 = \C{L_3}$, therefore $L_3$ is T-decomposable. Though, $(L_3)^+ = \{ a^{9k} | k \geq 1 \}$ and $(L_3)^* = \{ a^{9k} | k \geq 0 \}$ are T-undecomposable.
 
 \item Let us take a look at two languages, $L_{41} = \{ a^{9k} | k \geq 1 \} \cup \{ a^{8k} | k \geq 1 \}$ and $L_{42} = \{ a^{9k} | k \geq 1 \} \cup \{ a^{12k} | k \geq 1 \}$. We show the decomposition of $L_{41}$, since that of $L_{42}$ is very similar.
 
@@ -211,7 +220,9 @@ Let $L'_{41} = \{ a^{9k} | k \geq 1 \} \cup \{ a^{2k} | k \geq 1 \}$ and $M_{41}
 
 However, if we take the language $L_4 = L_{41} \cap L_{42} = \{ a^{9k} | k \geq 1 \}$, we get a T-undecomposable language, therefore our class is not closed under intersection.
 
-\item \color{red}ToDo: union som chcel robit pomocou DeMorgana, ale uvidime, ked sa ukaze, ako to je s prienikom\color{black}
+\item In previous section we have seen, that languages $L_{61} = \{a^{10}\}$ and $L_{62}=\{a^{12}\}$ are T-decomposable. Now we show, that also their complements are T-decomposable. Let $M_6 =(\{q_0,q_1,q_2\}, \{a\},\{a,b\},H,q_0,\{q_0,q_2\})$, where $H = \{(q_0,a,\varepsilon,q_1),\allowbreak (q_1,a,b,q_0),\allowbreak (q_0,a,a,q_2)\}$. It can be easily seen, that $M(a^{2k}) = b^k$ and $M(a^{2k+1}) = b^ka$. Now, the effective advice for $L_{61}^c$ consits of $M$ and $L_{61,adv} = \{b^5\}^c$. Clearly, $\C{M} + \C{L_{61,adv}} + \C{\{a\}^*} = 3+7+1 \leq 12 = \C{L_{61}^c}$ and $L_{61}^c = M^{-1}(L_{61,adv}) \cap \{a\}^*$. The effective advice for $L_{62}^c$ can be constructed in the same way.
+
+However $L_{61}^c \cup L_{62}^c = \{a\}^*$ and since $\C{\{a\}^*} = 1$, this language is T-undecomposable.
 \end{enumerate} \qed
 
 \subsection{Deterministic operations}
@@ -219,7 +230,7 @@ However, if we take the language $L_4 = L_{41} \cap L_{42} = \{ a^{9k} | k \geq 
 As we have seen, the situation with closure propertie of T-decomposable languages is not very interesting. However, this changes, if we are considering the deterministic version of operations (Kleene star/plus, union).
 
 \paragraph{}
-\definicia Let $L \subseteq \Sigma^*$ be a language and $c \notin \Sigma$ a new symbol. Then, a \emph{marked Kleene star (plus)} of $L$ is a language $L.(cL)^* \cup \epsilon$ ($L.(cL)^*$). \color{red}[je takato definicia prilis zvrhla? lebo normalna robi trocha problemy s pridavanim pociatocneho stavu]\color{black}. We denote it as $L^{c*} (L^{c+})$.
+\definicia Let $L \subseteq \Sigma^*$ be a language and $c \notin \Sigma$ a new symbol. Then, a \emph{marked Kleene star (plus)} of $L$ is a language $\{ \varepsilon \} \cup L.(cL)^*$ ($L.(cL)^*$). \color{red}[je takato definicia prilis zvrhla? lebo normalna robi trocha problemy s pridavanim pociatocneho stavu]\color{black}. We denote it as $L^{c*} (L^{c+})$.
 
 \paragraph{}
 \definicia Let $L_1 \subseteq \Sigma_1^*$ and $L_2 \subseteq \Sigma_2^*$ be languages and $a \notin \Sigma_1$ and $b \notin \Sigma_2$ two new symbols. A \emph{marked union} of $L_1$ and $L_2$ is a language $aL_1 \cup bL_2$.
@@ -231,7 +242,7 @@ As we have seen, the situation with closure propertie of T-decomposable language
 \cveta The class of T-decomposable languages is closed under marked Kleene star/plus.
 
 \paragraph{}
-\dokaz Let $L$ be a T-decomposable language with an effective advice $(M, L_{adv})$. Suppose, that we use the advice and checks $L$ using an automaton $A_{simple}$. Now consider a language $L' = L^{c*}$. First, we will show, that $\C{L'} \geq \C{L}$.
+\dokaz Let $L$ be a T-decomposable language with an effective advice $(M, L_{adv})$. Suppose, that we use the advice and check $L$ using an automaton $A_{simple}$. Now consider a language $L' = L^{c*}$. First, we show, that $\C{L'} \geq \C{L}$.
 
 \paragraph{}
 Let $A' = (K', \Sigma \cup \{c\}, \delta', q'_0, F')$ be a minimal DFA, such that $L(A') = L'$. We claim, that $\forall q' \in F$, there is a transition in form of $\delta(q', c) = p'_{q'}$. Assume this is not the case and for a state $q''$, there is no such transition. Since $A'$ is minimal and $q''$ is accepting, there is an input $w \in L'$, such that the computation of $A'$ on $w$ ends in $q''$. Now, consider a word $w' \in L$ and an input $wcw' \in L'$. Since there is no $c$-transition from $q''$ and $A'$ is deterministic, $wcw'$ will not be accepted, which is a contradiction with the condition, that $L(A') = L'$.
@@ -243,7 +254,7 @@ For similar reasons, we claim, that for any of aforementioned states $p'_{q'}$, 
 Because of these reasons, we can construct an automaton for $L$ as follows: $A = (Q', \Sigma,\delta, \allowbreak p',  F')$, where $\delta = \delta' - \{$transitions on $c \}$. Clearly, as shown in the previous paragraph, $L(A) = L$ and therefore $\C{L'} \geq \C{L}$.
 
 \paragraph{}
-Now we would like to show the decomposition of $L'$. Let us take $L'_{adv} = L_{adv}^{c*}$ and we can get $M'$ from $M$ adding transitions $(p, c, c, q_0)$ for each $p \in F$ and $q_0$ the initial state. Now we claim, that the pair $(T', L'_{adv})$ forms an effective advice for $L'$. Clearly, $M'^{-1}(L'_{adv}) = (M^{-1}(L_{adv}))^{c*}$ (since the computation possibilities of the tranducer between markers $c$ is the  same as before) and therefore we only have to check the language $A_{simple}^{c*}$.
+Now we show the decomposition of $L'$. Let us take $L'_{adv} = L_{adv}^{c*}$ and we can get $M'$ from $M$ adding transitions $(p, c, c, q_0)$ for each $p \in F$ and $q_0$ the initial state. Now we claim, that the pair $(T', L'_{adv})$ forms an effective advice for $L'$. Clearly, $M'^{-1}(L'_{adv}) = (M^{-1}(L_{adv}))^{c*}$ (since the computation possibilities of the tranducer between markers $c$ is the  same as before) and therefore we only have to check the language $L(A_{simple})^{c*}$.
 
 \paragraph{}
 It remains to show that this advice really is effective. To do this, we claim, that for any regular language $R$, $\C{R^{c*}} \leq \C{R}$, since we can get an automaton for $R^{c*}$ by adding $c$-transitions from accepting states to the initial state to the minimal DFA for $R$. Moreover, clearly $\C{M'} = \C{M}$. Therefore, $\C{L^{c*}} \geq \C{L} \geq \C{L_{adv}} + \C{M} + \C{A_{simple}} \geq \C{L'_{adv}} + \C{M'} + \C{A'_{simple}}$ and therefore $\C{L^{c*}} \geq \C{L'_{adv}} + \C{M'} + \C{A'_{simple}}$, quod erat demonstrandum. \qed

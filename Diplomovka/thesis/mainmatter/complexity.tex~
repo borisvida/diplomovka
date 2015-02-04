@@ -11,14 +11,14 @@ However, at this time we do not have any universal way of proving the minimality
 As we know, for a regular language $R$, there always exists an a-transducer with $\C{R}$ states, which generates $R$ "from scratch", regardless of the input - we take the finite automaton for $R$ and alter its transition function from reading to generating symbols.
 
 \paragraph{}
-Formally, for an automaton $A = (K, \Sigma, \delta, q_0, F)$ we can construct an a-transducer $M = (K, \Sigma, \Sigma, H, q_0, F)$, where $H = \{ (p, \epsilon, a, q) | \delta (p, a) = q\} \cup \{ (q_0, a, \epsilon, q_0) | a \in \Sigma \} $. We can look at the computation of $A$ as a sequence of pairs $(q, a)$, where in each step, $A$ is in the state $q$ and reads symbol $a$. The a-transducer $M$ will work in the same way, except instead of reading symbol $a$, $M$ reads in each step $\epsilon$ and writes $a$ on the output. It is easy to see, that for any nonempty language $L$, $M(L) = R$.
+Formally, for an automaton $A = (K, \Sigma, \delta, q_0, F)$ we can construct an a-transducer $M = (K, \Sigma, \Sigma, H, q_0, F)$, where $H = \{ (p, \varepsilon, a, q) | \delta (p, a) = q\} \cup \{ (q_0, a, \varepsilon, q_0) | a \in \Sigma \} $. We can look at the computation of $A$ as a sequence of pairs $(q, a)$, where in each step, $A$ is in the state $q$ and reads symbol $a$. The a-transducer $M$ will work in the same way, except instead of reading symbol $a$, $M$ reads in each step $\varepsilon$ and writes $a$ on the output. It is easy to see, that for any nonempty language $L$, $M(L) = R$.
 
 
 %----------------------------------------------------------------------------
 \section{"Modular-counting" languages}
 
 \paragraph{}
-Under "modular counting" languages we mean languages in the form \\
+By "modular counting" languages we understand languages in the form \\
 \centerline{$L_k = \{ a^k | k \equiv 0 (mod k) \} $.}
 
 \paragraph{}
@@ -51,21 +51,21 @@ First we will show, that $\frac{l}{\gcd(k,l)}$ states suffice. We can construct 
 \begin{itemize}
 \item $K = \{ q_0, q_1,  ..., q_{\frac{l}{\gcd(k,l)}-1 }\}$
 \item $F = q_0$%q_{\frac{l}{\gcd(k,l)}-1 }$
-\item $H = \{(q_i, a, a, q_{i+1})| 0 \leq i < \frac{k}{\gcd(k,l)}-1 \} \cup \{(q_i, \epsilon, a, q_{i+1})| \frac{k}{\gcd(k,l)}-1 \leq i < \frac{l}{\gcd(k,l)}-2 \} \cup \{ (q_{\frac{l}{\gcd(k,l)}-1}, \epsilon, a, q_0) \}$.
+\item $H = \{(q_i, a, a, q_{i+1})| 0 \leq i < \frac{k}{\gcd(k,l)}-1 \} \cup \{(q_i, \varepsilon, a, q_{i+1})| \frac{k}{\gcd(k,l)}-1 \leq i < \frac{l}{\gcd(k,l)}-2 \} \cup \{ (q_{\frac{l}{\gcd(k,l)}-1}, \varepsilon, a, q_0) \}$.
 \end{itemize}
 
 \paragraph{}
 It is easy to see, that the number of iterations of this cycle on a correct input (from $L_k$) is divisible by $\gcd(k,l)$. Each iteration creates $\frac{l}{\gcd(k,l)}$ symbols $a$ on the output, therefore $M(L_k) = L_l$.
 
 \paragraph{}
-Now we need to prove, that this number really forms a lower bound for state count: suppose, that there is an a-transducer $M' = (K, \{a\}, \{a\}, H, q_0, F)$ with at most $\frac{l}{\gcd(k,l)} -1$ states. Similarly to the proof of part 1., we look for a cycle, in this case of the length $\frac{l}{\gcd(k,l)} - 1$ states. With very similar series of arguments, we can construct two inputs $x' \equiv x.a^{k.r}$ and $x'' \equiv x.a^{2k.r}$, which produce outputs $y' \equiv y.a^{k.s}$ and $y'' \equiv y.a^{2k.s}$, respectively. If both of these numbers were divisible by $l$, then also $k.s$ would be divisible by $l$. However, this is not possible, since $s < \frac{l}{\gcd(k,l)}$ and as stated in Section 1 \color{red}(probably)\color{black}, $\lcm(k,l) = \frac{k.l}{\gcd(k,l)}$.  
+Now we need to prove, that this number really forms a lower bound for state count: suppose, that there is an a-transducer $M' = (K, \{a\}, \{a\}, H, q_0, F)$ with at most $\frac{l}{\gcd(k,l)} -1$ states. Similarly to the proof of part 1., we look for a cycle, in this case of the length $\frac{l}{\gcd(k,l)} - 1$ states. With very similar series of arguments, we can construct two inputs $x' \equiv x.a^{k.r}$ and $x'' \equiv x.a^{2k.r}$, which produce outputs $y' \equiv y.a^{k.s}$ and $y'' \equiv y.a^{2k.s}$, respectively. If both of these numbers were divisible by $l$, then also $k.s$ would be divisible by $l$. However, this is not possible, since $s < \frac{l}{\gcd(k,l)}$ and as stated in Chapter 1 \color{red}(probably)\color{black}, $\lcm(k,l) = \frac{k.l}{\gcd(k,l)}$.  
 
 \item Just like in part 2., we show, that if $k > l \land k < l^2$, then $\frac{k}{\gcd(k,l)}$ states is enough. The corresponding a-transducer will look as follows: $M = (K, \{ a\}, \{ a\}, H, q_0, F)$, where 
 
 \begin{itemize}
 \item $K = \{ q_0, q_1,  ..., q_{\frac{k}{\gcd(k,l)}-1 }\}$
 \item $F = q_0$
-\item $H = \{(q_i, a, a, q_{i+1})| 0 \leq i < \frac{l}{\gcd(k,l)}-1 \} \cup \{(q_i, a, \epsilon, q_{i+1})| \frac{l}{\gcd(k,l)}-1 \leq i < \frac{k}{\gcd(k,l)}-2 \} \cup \{ (q_{\frac{k}{\gcd(k,l)}-1}, \epsilon, a, q_0) \}$.
+\item $H = \{(q_i, a, a, q_{i+1})| 0 \leq i < \frac{l}{\gcd(k,l)}-1 \} \cup \{(q_i, a, \varepsilon, q_{i+1})| \frac{l}{\gcd(k,l)}-1 \leq i < \frac{k}{\gcd(k,l)}-2 \} \cup \{ (q_{\frac{k}{\gcd(k,l)}-1}, \varepsilon, a, q_0) \}$.
 \end{itemize}
 \paragraph{}
 For similar reason as in part 2., it is clear, that $M(L_k) = L_l$.
@@ -81,9 +81,9 @@ We have assumed, that $k < l^2$, therefore we can also state, that $\frac{k}{\gc
 We claim, that in each iterarion of the cycle (i. e. in any of all possible cycles in its computation), $M'$ has to generate at least $\frac{l}{\gcd(k,l)}$ symbols $a$. Really, in the proof of the second part of our Lemma we have seen, that if the number $s$ - the number of output symbols generated in one iteration of the cycle - is smaller than $\frac{l}{gcd(k,l)}$, $M'(L_k) \cap L_l^c \neq \emptyset$, which leads to a contradiction.
 
 \paragraph{}
-Moreover, since $|Q'| < \frac{k}{\gcd(k,l)}$, we also know, that in one iteration of each cycle, $M'$ reads less than $\frac{k}{\gcd(k,l)}$ symbols. Now, the shortest nonempty word from $L_k$ (if $M'(\epsilon) \neq \emptyset$, it could be trivially proven, that $M'(L_k)$ contains also words not from $L_l$) is $a^k$. The total number of iterations of all cycles is hence more than $\frac{k}{\frac{k}{\gcd(k,l)}} = \gcd(k,l)$. However, as we have claimed, every cycle generates at least $\frac{l}{\gcd(k,l)}$ symbols. Then, the smallest output length $n > \gcd(k,l).\frac{l}{\gcd(k,l)} = l$, hence we have no way to generate word $a^l \in L_l$.
+Moreover, since $|Q'| < \frac{k}{\gcd(k,l)}$, we also know, that in one iteration of each cycle, $M'$ reads less than $\frac{k}{\gcd(k,l)}$ symbols. Now, the shortest nonempty word from $L_k$ (if $M'(\varepsilon) \neq \emptyset$, it could be trivially proven, that $M'(L_k)$ contains also words not from $L_l$) is $a^k$. The total number of iterations of all cycles is hence more than $\frac{k}{\frac{k}{\gcd(k,l)}} = \gcd(k,l)$. However, as we have claimed, every cycle generates at least $\frac{l}{\gcd(k,l)}$ symbols. Then, the smallest output length $n > \gcd(k,l).\frac{l}{\gcd(k,l)} = l$, hence we have no way to generate word $a^l \in L_l$.
 
-\item The correctness of the lower bound $l$ is clear from the construction based on its final automaton (see above). The impossibility of exinstence of a smaller a-transducer follows directly from previous part of Lemma - if $k \geq l^2$, then $l \leq \frac{k}{\gcd(k,l)}$.
+\item The correctness of the lower bound $l$ is clear from the construction based on its final automaton (see above). The impossibility of existence of a smaller a-transducer follows directly from previous part of Lemma - if $k \geq l^2$, then $l \leq \frac{k}{\gcd(k,l)}$.
 
 \end{enumerate} \qed
 

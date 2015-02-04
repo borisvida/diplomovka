@@ -1,0 +1,71 @@
+\ifx\mathdefined{} \endinput \fi
+\def\mathdefined{}
+\input slovak
+
+% FONTY
+\font\sc=cmr7                     % small caps
+\font\scr=rsfs10 % Ralph A. Smith's formal script
+% \font\sevenit=cmti6  sevensl
+\font\mbb=msbm10
+\font\mbbs=msbm10 at 7pt
+
+% POMOCNE MAKRA
+\def\safemath#1{\null\ifmmode #1 \else$#1$\fi}             % #1 bude urcite v matickom mode
+\def\overset#1#2{\mathrel{\mathop{\null #2}\limits^{#1}}}  % vytvori relaciu; #1 da nad #2
+\def\underset#1#2{\mathrel{\mathop{\null #2}\limits_{#1}}} % vytvori relaciu; #1 da pod #2
+
+% ZAKLADNE CISELNE MNOZINY
+\def\N{\hbox{\mbb N}}
+\def\Z{\hbox{\mbb Z}}
+\def\Q{\hbox{\mbb Q}}
+\def\R{\hbox{\mbb R}}
+\def\C{\hbox{\mbb C}}
+
+% SYMBOLY
+\def\es{{\safemath\emptyset}}               % prazdna mnozina
+\def\set#1|#2.{{\{\, #1 \mid #2 \,\}}}      % mnozina
+\def\eset#1.{{\{\, #1 \,\}}}                % mnozina (dana vymenovanim)
+\def\oo{{\safemath\infty}}                  % nekonecno
+\def\eps{{\safemath\varepsilon}}            % epsilon
+\def\dt{{\safemath\delta}}                  % delta
+\def\phi{{\safemath\varphi}}                % phi
+\def\square{\hbox{\rlap{$\sqcap$}$\sqcup$}} % stvorec (na koniec dokazu)
+
+% LOGIKA
+\def\then{\safemath{\mathrel{\Rightarrow}}}
+\def\Then{\safemath{\;\Longrightarrow\;}}
+\def\isdef{\overset{\Delta}=}
+\def\deff{\overset{\;\,\Delta}\iff}
+\def\qed{\ifmmode\eqno\square%
+         \else\qquad\penalty0\hbox{}\nobreak\hfill$\square$\fi}
+\def\uqed{\vskip-1.5\baselineskip\hfil$\square$\break}
+\def\impl#1{\if#1> \item{$\Rightarrow$:} \else \item{$\Leftarrow$:} \fi}
+\def\inkl#1{\if#1> \item{$\supseteq$:} \else \item{$\subseteq$:} \fi}
+\def\MI{\item{I.}}
+\def\MII{\item{II.}}
+\def\MMI{\itemitem{I.}}
+\def\MMII{\itemitem{II.}}
+
+% VETY
+\def\proclaim#1. #2\par {\medbreak \noindent {\bf #1.\quad }#2\par \ifdim \lastskip <\medskipamount \removelastskip \penalty 55\medskip \fi \noindent}
+
+\def\veta{\proclaim Veta. }
+\def\lema{\proclaim Lema. }
+\def\definicia{\proclaim Definícia. }
+\def\dosledok{\proclaim Dôsledok. }
+\def\dokaz{\noindent{Dôkaz.}\quad}
+\def\hypoteza{\proclaim Hypotéza. }
+\def\priklad{\proclaim Príklad. }
+
+\newcount\culohy \culohy=0
+\newcount\cvety  \cvety=0
+\newcount\cdosl  \cdosl=0
+\newcount\cdef   \cdef=0
+\newcount\chyp  \chyp=0
+\newcount\cex  \cex=0
+\def\cveta{\advance\cvety by 1\cdosl=0\proclaim Veta \number\cvety. }
+\def\clema{\advance\cvety by 1\cdosl=0\proclaim Lema \number\cvety. }
+\def\cdefinicia{\advance\cdef by 1\proclaim Definícia \number\cdef. }
+\def\cdosledok{\advance\cdosl by 1\proclaim Dôsledok \number\cvety.\number\cdosl. }
+\def\chypoteza{\advance\chyp by 1\proclaim Hypotéza \number\chyp. }
+\def\cpriklad{\advance\cex by 1\proclaim Príklad \number\cex. }

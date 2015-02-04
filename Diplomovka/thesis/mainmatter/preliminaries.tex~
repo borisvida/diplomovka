@@ -7,17 +7,17 @@ In this section, we present some basic notation and terminology used in our thes
 \section{Basic concepts and notation}
 
 \paragraph{}
-\oznacenie In our thesis we use the following notation: $\epsilon $ denotes an empty string, $|w|$ the length of a word $w$ ($|\epsilon |=0$), $|A|$ the number of elements of a finite set (or a finite language) $A$, $\# _{a}(w)$ the number of occurences of the symbol $a$ in the word $w$, $2^{A}$ the set of all subsets of $A$.
+\oznacenie In our thesis we use the following notation: $\varepsilon $ denotes an empty string, $|w|$ the length of a word $w$ ($|\varepsilon |=0$), $|A|$ the number of elements of a finite set (or a finite language) $A$, $\# _{a}(w)$ the number of occurences of the symbol $a$ in the word $w$, $2^{A}$ the set of all subsets of $A$.
 
 \paragraph{}
 \definicia A \emph{homomorphism} is a function $h: \Sigma_{1}^{*} \rightarrow \Sigma_{2}^{*}$, such that \\	
 \centerline{$\forall u, v \in \Sigma_1^*: h(uv) = h(u)h(v)$}
 
 \paragraph{}
-\oznacenie If $\forall w \neq \epsilon : h(w) \neq \epsilon $, we call $h$ an \emph{$\epsilon $-free homomorphism}. Usually, we denote an $\epsilon $-free homomorphism by $h_{\epsilon }$.
+\oznacenie If $\forall w \neq \varepsilon : h(w) \neq \varepsilon $, we call $h$ an \emph{$\varepsilon $-free homomorphism}. Usually, we denote an $\varepsilon $-free homomorphism by $h_{\varepsilon }$.
 
 \paragraph{}
-\definicia An \emph{inverse homomorphism} is a function $h^{-1}: \Sigma_{1}^{*} \rightarrow 2^{\Sigma_{2}^{*}}$, such that $h$ is a homomorphism and \\
+\definicia An \emph{inverse homomorphism} is a function $h^{-1}: \Sigma_{1}^{*} \rightarrow 2^{\Sigma_{2}^{*}}$, such that $h$ is a homomorphism, $h: \Sigma_2^* \rightarrow \Sigma_1^*$, and \\
 \centerline{$\forall u \in \Sigma_1^*: h^{-1}(u) = \{ v \in \Sigma_2^* | h(v) = u \} $}
 
 \paragraph{}
@@ -29,7 +29,7 @@ In this section, we present some basic notation and terminology used in our thes
 \end{enumerate}
 
 \paragraph{}
-\definicia A family of languages is called a \emph{(full) trio}, if it is closed under $\epsilon $-free (arbitrary) homomorphism, inverse homomorphism and intersection with a regular set.
+\definicia A family of languages is called a \emph{(full) trio}, if it is closed under $\varepsilon $-free (arbitrary) homomorphism, inverse homomorphism and intersection with regular sets.
 
 \paragraph{}
 \definicia A (full) trio is called a \emph{(full) semi-AFL}, if it is closed under union.
@@ -43,21 +43,21 @@ In this section, we present some basic notation and terminology used in our thes
 We shall now define some of the models mentioned in the Introduction. Although the central point of our interest is an a-transducer, we also introduce the definitions of other models, which will be used in the next chapters, because they can give us an insight of language transformations in general and many of the concepts used in results involving them can be put to use by examination of a-transducers.
 
 \paragraph{}
-Since all transformation models used in our thesis are, in fact, generalizations of an a-transducer, we define it first and then we only specify the differences between a-transducers and other models.
+Since all transformation models used in our thesis are, in fact, special cases of an a-transducer, we define it first and then we only specify the differences between a-transducers and other models.
 
 \paragraph{}
 \definicia An \emph{a-transducer} is a 6-tuple $M=(K, \Sigma_{1}, \Sigma_{2}, H, q_{0}, F)$, where
 \begin{itemize}
 \item $K$ is a finite set of states,
-\item $\Sigma_{1} $ and $\Sigma_{2} $ are the input and output alphabet, respectively,
+\item $\Sigma_{1} $ and $\Sigma_{2} $ are the input and output alphabets, respectively,
 \item $H \subseteq K \times \Sigma_{1}^{*} \times \Sigma_{2}^{*} \times K$ is the transition function, where $H$ is finite,
 \item $q_{0} \in K$ is the initial state,
 \item $F \subseteq K$ is a set of accepting states.
 \end{itemize}
-If $H \subseteq K \times \Sigma_{1}^{*} \times \Sigma_{2}^{+} \times K$, we call $M$ an \emph{$\epsilon $-free} a-transducer.
+If $H \subseteq K \times \Sigma_{1}^{*} \times \Sigma_{2}^{+} \times K$, we call $M$ an \emph{$\varepsilon $-free} a-transducer.
 
 \paragraph{}
-\definicia If $H \subseteq K \times \Sigma_{1} \cup \{ \epsilon \} \times \Sigma_{2} \cup \{ \epsilon \} \times K$, the corresponding a-transducer is called \emph{1-bounded}.
+\definicia If $H \subseteq K \times (\Sigma_{1} \cup \{ \varepsilon \}) \times (\Sigma_{2} \cup \{ \varepsilon \}) \times K$, the corresponding a-transducer is called \emph{1-bounded}.
 
 \paragraph{}
 \definicia A \emph{configuration} of an a-transducer is a triple $(q, u, v)$, where $q \in K$ is a current internal state, $u \in \Sigma_{1}^{*}$ is the remaining part of the input and $v$ is the already written output.
@@ -68,7 +68,7 @@ If $H \subseteq K \times \Sigma_{1}^{*} \times \Sigma_{2}^{+} \times K$, we call
 
 \paragraph{}
 \definicia An \emph{image} of a language $L$ by an a-transducer $M$ is a set \\
-\centerline{$M(L) = \{ w|\exists u \in L, q_{F} \in F; (q_{0}, u, \epsilon) \V (q_{F}, \epsilon, w) \} $}
+\centerline{$M(L) = \{ w|\exists u \in L, q_{F} \in F; (q_{0}, u, \varepsilon) \V (q_{F}, \varepsilon, w) \} $}
 
 \paragraph{}
 \definicia For $i=0,1,2,3, w \equiv (x_{0},x_{1},x_{2},x_{3}) \in H$, we define $pr_{i}(w) = x_{i}$ and call $pr_{i}$ the \emph{$i$-th projection} .
@@ -85,15 +85,15 @@ If $H \subseteq K \times \Sigma_{1}^{*} \times \Sigma_{2}^{+} \times K$, we call
 \oznacenie We denote a language of all computations of $M$ by $\Pi_{M}$. Note, that $\Pi_{M}$ is regular (\cite{gin:AATPFL}).
 
 \paragraph{}
-\definicia Alternatively, we can define an image of $L$ by an a-transducer $M$ as \\
+\definicia Alternatively, we can define an image of $L$ by an a-transducer $M$ by \\
 \centerline{$M(L) = \{ pr_{2}(pr_{1}^{-1}(w) \cap \Pi_{M} | w \in L \}$.}
 
 \paragraph{}
 \definicia An \emph{A-transduction} is a function $\Phi : \Sigma_{1}^{*} \rightarrow 2^{\Sigma_{2}^{*}}$ defined as follows: \\
-\centerline{$\forall x \in \Sigma_{1}^{*}: \Phi(x) = \{ M(x) \} $.}
+\centerline{$\forall x \in \Sigma_{1}^{*}: \Phi(x) = M(\{ x\}) $.}
 
 \paragraph{}
-We have described the core model of our thesis, namely an a-transducer, and now we define two similar, but simpler models.
+We have described the core model of our thesis, namely an a-transducer, and now we define two similar, but simpler models using the original notation (see e. g. \cite{moh:min}).
 
 \paragraph{}
 \definicia A \emph{sequential transducer} is a 7-tuple $M=(K, \Sigma_{1}, \Sigma_{2}, \delta, \sigma, q_{0}, F)$, where
@@ -104,14 +104,14 @@ We have described the core model of our thesis, namely an a-transducer, and now 
 \end{itemize}
 
 \paragraph{} 
-A sequential transducer can be seen as a "deterministic" 1-bounded a-transducer, which set $H$ fulfills following conditions:
+A sequential transducer can be seen as a "deterministic" 1-bounded a-transducer, in which the set $H$ fulfills following conditions:
 \begin{enumerate}
 \item for every pair $(q, a) \in K \times \Sigma_{1}$, there is exactly one element $h \in H$, such that $pr_{0}(h) = q$ and $pr_{1}(h) = a$,
-\item $\forall h \in H: pr_{1}(h) \neq \epsilon \wedge pr_{2}(h) \neq \epsilon $.
+\item $\forall h \in H: pr_{1}(h) \neq \varepsilon$.
 \end{enumerate}
 
 \paragraph{}
-\oznacenie By $\hat{\delta}$ and $\hat{\sigma}$ we denote an extension of $\delta $ ($\sigma $) on $K \times \Sigma_{1}^{*} $, defined recursively as \\
+\oznacenie By $\hat{\delta}$ and $\hat{\sigma}$ we denote an extension of $\delta $ ($\sigma $) to $K \times \Sigma_{1}^{*} $, defined recursively as follows: \\
 $\forall q \in K, w \in \Sigma_{1}^{*}, a \in \Sigma_{1}:$ \\
 \begin{itemize} 
 \item $\hat{\delta}(q, a) = \delta (q,a)$, $\hat{\delta}(q,wa) = \delta (\hat{\delta}(q, w), a)$,
@@ -126,10 +126,10 @@ We omit the definitions of a configuration, computational step and image related
 \centerline{$\forall w \in \Sigma_{1}^{*}$, s. t. $\hat{\delta}(q_{0}, w) \in F$: $f_{M}(w) = \hat{\sigma}(q_{0}, w)$.}
 
 \paragraph{}
-We conclude this section with a definition of one more model, which can be viewed as a generalization of a sequential transducers.
+We conclude this section by a definition of one more model, which can be viewed as a special case of a sequential transducers.
 
 \paragraph{}
-\definicia A \emph{generalized sequential machine (gsm)} is a 6-tuple $M=(K, \Sigma_{1}, \Sigma_{2}, \delta, \sigma, q_{0})$, where $K, \Sigma_{1}, \Sigma_{2}, \delta, \sigma, q_{0}$ are as in sequential transducer.
+\definicia A \emph{generalized sequential machine (gsm)} is a 6-tuple $M=(K, \Sigma_{1}, \Sigma_{2}, \delta, \sigma, q_{0})$, where $K, \Sigma_{1}, \Sigma_{2}, \delta, \sigma, q_{0}$ are as in sequential transducer case.
 
 \paragraph{}
 As one can see, a generalized sequential machine is a sequential transducer with $F \equiv K$ and therefore all other concepts are defined just like in a sequential transducer.
@@ -151,7 +151,7 @@ In this section we define the concept of advisors and decompositions.
 \definicia The \emph{state complexity} of a regular language $L$, denoted by $\C{L}$, is the state complexity of its minimal deterministic finite automaton. Formally \\
 \centerline{$\C{L} = min\{ \C{A}|L(A) = L\} $.}
 
-If $L$ is not regular, then $\C{L} = \infty $.
+If $L$ is not regular, we define $\C{L} = \infty $.
 
 \paragraph{}
 \definicia In a similar way, we can define the \emph{a-transducer state complexity} of a pair of languages $L_1, L_2$, denoted by $\C{L_1,L_2}$, as the state complexity of the minimal a-transducer, which translates language $L_1$ to $L_2$. Formally \\
@@ -159,11 +159,11 @@ If $L$ is not regular, then $\C{L} = \infty $.
 Note, that it is possible, that $\C{L_1,L_2} \neq \C{L_2,L_1}$ and it may happen, that $\C{L_1,L_2} \allowbreak  = \infty$ (if there is no a-transducer $M$, such that $M(L_1) = L_2$).
 
 \paragraph{}
-Now we would like to define the acceptation of a language with an advisor and some other concepts presented in \cite{Gazi}.
+Now we shall define the acceptance of a language with an advisor and some other concepts presented in \cite{Gazi}.
 
 \paragraph{}
 \definicia For a language $L_1$ and an automaton $A = (K, \Sigma, \delta, q_0, F)$, a \emph{language accepted by $A$ with advisor $L_1$} is the language \\
-\centerline{$L[L_1](A) =  \{ w \in L_1 | (q_0, w) \V_A (q, \epsilon), q \in F \}$.}\\
+\centerline{$L[L_1](A) =  \{ w \in L_1 | (q_0, w) \V_A (q, \varepsilon), q \in F \}$.}\\
 Another way for looking at this fact is, that $L[L_1](A) = L(A) \cap L_1$.
  
 \paragraph{}
@@ -188,6 +188,6 @@ If $\C{A_1} < \C{A}$ and $\C{A_2} < \C{A}$, the decomposition is called \emph{no
 
 \section{Group and number theory}
 \paragraph{}
-\color{red}ToDo: mozno definovat aspon zakladne pojmy z teorie grup, kedze ich neskor pouzivam a aj vysledok gcd(a,b).lcm(a,b)=a.ab\color{black}
+\color{red}ToDo: mozno definovat aspon zakladne pojmy z teorie grup, kedze ich neskor pouzivam a aj vysledok gcd(a,b).lcm(a,b)=a.b\color{black}
 
 \paragraph{}

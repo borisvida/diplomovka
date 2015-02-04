@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.5.7)  30 JAN 2015 10:27
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.5.7)  4 FEB 2015 13:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1109,11 +1109,10 @@ ucer
 [8
 
 ]
-Overfull \hbox (8.6823pt too wide) in paragraph at lines 53--53
+Overfull \hbox (9.05429pt too wide) in paragraph at lines 53--53
  [] \T1/txr/bx/n/12 Lemma 5. \T1/txr/m/n/12 For ev-ery lan-guage $\OML/txmi/m/i
 t/12 L$ \T1/txr/m/n/12 and reg-u-lar lan-guage $\OML/txmi/m/it/12 R$\T1/txr/m/n
-/12 , there ex-ists an $\OML/txmi/m/it/12 ^^O$\T1/txr/m/n/12 -free a-transducer
-
+/12 , there ex-ists an $\OML/txmi/m/it/12 "$\T1/txr/m/n/12 -free a-transducer
  []
 
 [9] [10] [11] [12] [13]
@@ -1158,23 +1157,14 @@ Overfull \hbox (4.34853pt too wide) in paragraph at lines 116--117
 1/txr/m/n/12 (\OML/txmi/m/it/12 L[]\OT1/txr/m/n/12 )
  []
 
-[23] [24]
-Overfull \hbox (29.3747pt too wide) in paragraph at lines 163--167
-[]
- []
+[23] [24] [25] <mainmatter/images/M_5.png, id=160, 803.0pt x 602.25pt>
+File: mainmatter/images/M_5.png Graphic file (type png)
 
-
-Overfull \hbox (29.3747pt too wide) in paragraph at lines 163--167
-[]
- []
-
-
-Overfull \hbox (29.3747pt too wide) in paragraph at lines 163--167
-[] 
- []
-
-[25] [26]
-Overfull \hbox (1.97754pt too wide) in paragraph at lines 206--207
+<use mainmatter/images/M_5.png>
+Package pdftex.def Info: mainmatter/images/M_5.png used on input line 184.
+(pdftex.def)             Requested size: 401.49902pt x 301.12425pt.
+ [26]
+Overfull \hbox (2.34953pt too wide) in paragraph at lines 214--215
 \T1/txr/m/n/12 transducer $\OML/txmi/m/it/12 M[] \OT1/txr/m/n/12 = (\OMS/txsy/m
 /n/12 f\OML/txmi/m/it/12 q[]; q[]; q[]\OMS/txsy/m/n/12 g\OML/txmi/m/it/12 ; \OM
 S/txsy/m/n/12 f\OML/txmi/m/it/12 a\OMS/txsy/m/n/12 g\OML/txmi/m/it/12 ; \OMS/tx
@@ -1182,12 +1172,12 @@ sy/m/n/12 f\OML/txmi/m/it/12 a\OMS/txsy/m/n/12 g\OML/txmi/m/it/12 ; H; q[]; \OM
 S/txsy/m/n/12 f\OML/txmi/m/it/12 q[]\OMS/txsy/m/n/12 g\OT1/txr/m/n/12 )$\T1/txr
 /m/n/12 , where $\OML/txmi/m/it/12 H \OT1/txr/m/n/12 = \OMS/txsy/m/n/12 f\OT1/t
 xr/m/n/12 (\OML/txmi/m/it/12 q[]; a; a; q[]\OT1/txr/m/n/12 )\OML/txmi/m/it/12 ;
- \OT1/txr/m/n/12 (\OML/txmi/m/it/12 q[]; a; ^^O; q[]\OT1/txr/m/n/12 )\OML/txmi/
-m/it/12 ;
+ \OT1/txr/m/n/12 (\OML/txmi/m/it/12 q[]; a; "; q[]\OT1/txr/m/n/12 )\OML/txmi/m/
+it/12 ;
  []
 
-
-Overfull \hbox (13.35661pt too wide) in paragraph at lines 212--213
+[27 <./mainmatter/images/M_5.png>]
+Overfull \hbox (13.35661pt too wide) in paragraph at lines 220--221
 []\T1/txr/m/n/12 However, if we take the lan-guage $\OML/txmi/m/it/12 L[] \OT1/
 txr/m/n/12 = \OML/txmi/m/it/12 L[] \OMS/txsy/m/n/12 \ \OML/txmi/m/it/12 L[] \OT
 1/txr/m/n/12 = \OMS/txsy/m/n/12 f\OML/txmi/m/it/12 a[]\OMS/txsy/m/n/12 j\OML/tx
@@ -1195,38 +1185,38 @@ mi/m/it/12 k \OMS/txsy/m/n/12 ^^U \OT1/txr/m/n/12 1\OMS/txsy/m/n/12 g$\T1/txr/m
 /n/12 , we get a T-undecomposable
  []
 
-[27]) [28] (./mainmatter/conclusion.tex [29])) (./main.bbl [30
+[28]) (./mainmatter/conclusion.tex [29])) (./main.bbl [30
 
 ]) [31
 
-]
-(./main.aux (./frontmatter/cover.aux) (./frontmatter/title.aux)) ) 
+] (./main.aux
+(./frontmatter/cover.aux) (./frontmatter/title.aux)) ) 
 Here is how much of TeX's memory you used:
- 6322 strings out of 494994
- 84233 string characters out of 6180201
+ 6329 strings out of 494994
+ 84381 string characters out of 6180201
  161955 words of memory out of 5000000
- 9291 multiletter control sequences out of 15000+600000
+ 9295 multiletter control sequences out of 15000+600000
  73227 words of font info for 98 fonts, out of 8000000 for 9000
  24 hyphenation exceptions out of 8191
  41i,18n,45p,948b,430s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/t
-exlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/rsfs/rsfs10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/txfonts/rtxbsc.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts
-/rtxi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/txfonts/rtxsc.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/txfonts/txex.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/txfonts/txsyc.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf
--dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (39 pages, 283070 bytes).
+{/usr/share/texlive/texmf
+-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/rsfs/rsfs10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/r
+txbsc.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxi.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/txfonts/rtxsc.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/txfonts/txex.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/tx
+syc.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (39 pages, 303116 bytes).
 PDF statistics:
- 228 PDF objects out of 1000 (max. 8388607)
- 153 compressed objects within 2 object streams
+ 231 PDF objects out of 1000 (max. 8388607)
+ 154 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

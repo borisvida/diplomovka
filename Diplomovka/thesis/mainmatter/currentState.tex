@@ -2,7 +2,7 @@
 \label{chap:currentState}
 
 \paragraph{}
-In this chapter, we would like to present some known results regarding transformation devices in general and their complexity aspects.
+In this chapter, we present some known results regarding transformation devices in general and their complexity aspects.
 
 \section{Basic Properties of a-transducers}
 \paragraph{}
@@ -20,19 +20,19 @@ Since $\Pi_{M}$ is regular and both classes, of regular and of context-free lang
 \cdosledok Since sequential transducers and generalized sequential machines are just special forms of an a-transducer, this lemma also holds for these devices.
 
 \paragraph{}
-In previous chapter, we have defined a special class of 1-bounded a-transducers. Following theorem shows, that it is a normal form.
+In previous chapter, we have defined a special class of 1-bounded a-transducers. The following theorem shows, that this is a normal form for a-transducer mappings.
 
 \paragraph{}
 \clema Let $M_{1}$ be an arbitrary a-transducer. Then there exists a 1-bounded a-transducer $M_{2}$, such that $\forall L: M_{2}(L) = M_{1}(L)$.
 
 \paragraph{}
-\dokaz Let $(q, u, v, p) \in H_{1}, u \equiv a_{1}a_{2}...a_{m}, v \equiv b_{1}b_{2}...b_{n}$. Let $m\geq n$ (for $m < n$ the proof is very similar). $M_{2}$ will have states $q, q_{a_{1}}, q_{a_{2}}, ..., q_{a_{n-1}}, q_{a_{n}} \equiv p$ and transitions in form $(q_{a_{i}}, a_{i+1}, b_{i+1}, q_{a_{i+1}})$ for $1 \leq i<n$, resp. $(q_{a_{j}}, a_{j+1}, \epsilon, q_{a_{j+1}})$ for $n \leq j < m$. This will be done for every $h \in H$. It is easy to see, that the a-transduction by $M_{1}$ and $M_{2}$ is the same and therefore $\forall L: M_{1}(L) = M_{2}(L)$. \qed
+\dokaz Let $(q, u, v, p) \in H_{1}, u \equiv a_{1}a_{2}...a_{m}, v \equiv b_{1}b_{2}...b_{n}$. Let $m\geq n$ (for $m < n$ the proof is very similar). $M_{2}$ will have states $q, q_{a_{1}}, q_{a_{2}}, ..., q_{a_{n-1}}, q_{a_{n}} \equiv p$ and transitions in form $(q_{a_{i}}, a_{i+1}, b_{i+1}, q_{a_{i+1}})$ for $1 \leq i<n$, resp. $(q_{a_{j}}, a_{j+1}, \varepsilon, q_{a_{j+1}})$ for $n \leq j < m$. This will be done for every $h \in H$. It is easy to see, that the a-transduction by $M_{1}$ and $M_{2}$ is the same and therefore $\forall L: M_{2}(L) = M_{1}(L)$. \qed
 
 \paragraph{}
 As one can see, this construction can increase the number of states of an a-transducer by a constant multiple. Sometimes it is more convenient to consider only 1-bounded a-transducer, since its complexity can be easier compared with other computational models.
 
 \paragraph{}
-\clema For every ($\epsilon $-free) homomorphism $h: \Sigma_{1}^{*} \rightarrow \Sigma_{2}^{*}$ there is an ($\epsilon $-free) a-transducer $M$, such that $\forall L: M(L) = h(L)$.
+\clema For every ($\varepsilon $-free) homomorphism $h: \Sigma_{1}^{*} \rightarrow \Sigma_{2}^{*}$ there is an ($\varepsilon $-free) a-transducer $M$, such that $\forall L: M(L) = h(L)$.
 
 \paragraph{}
 \dokaz The a-transducer $M=(K, \Sigma_{1}, \Sigma_{2}, H, q_{0}, F)$ will look as follows:
@@ -49,24 +49,24 @@ As one can see, this construction can increase the number of states of an a-tran
 \dokaz As in previous Lemma, except $H = \{ (q, h(a), a, q) | a \in \Sigma_{1} \}$. \qed
 
 \paragraph{}
-\clema For every language $L$ and regular language $R$, there exists an $\epsilon $-free a-transducer $M$, such that $M(L) = L \cap R$.
+\clema For every language $L$ and regular language $R$, there exists an $\varepsilon $-free a-transducer $M$, such that $M(L) = L \cap R$.
 
 \paragraph{}
 \dokaz Let $A = (K, \Sigma, q_{0}, \delta, F)$ be a non-deterministic finite automaton, such that $L(A) = R$. Then $M=(K, \Sigma, \Sigma, H, q_{0}, F)$, where $H=\{ (q, a, a, \delta (q,a)) | q \in K, a \in \Sigma \} $. \qed
 
 \paragraph{}
 \oznacenie For each family $\mathcal{L} $ of languages, \\
-\centerline{$\mathcal{M(L)} = \{ M(L) | L \in \mathcal{L}, M$ is an $\epsilon $-free a-transducer$\} $} \\
+\centerline{$\mathcal{M(L)} = \{ M(L) | L \in \mathcal{L}, M$ is an $\varepsilon $-free a-transducer$\} $} \\
 \centerline{$\mathcal{\hat{M}(L)} = \{ M(L) | L \in \mathcal{L}, M$ is an arbitrary a-transducer$\} $}
 
 \paragraph{}
 \cveta For each family $\mathcal{L} $ of languages, $\mathcal{M(L)} $ $(\mathcal{\hat{M}(L)}) $ is the smallest (full) trio containing $\mathcal{L} $.
 
 \paragraph{}
-\dokaz Once again, we use the alternative definition of the image of $L$, $M(L) = \{pr_{2} \allowbreak (pr_{1}^{-1}(w) \cap \Pi_{M}) | w \in L \}$. Considering previous lemmas, $\mathcal{M(L)} $ $(\mathcal{\hat{M}(L)}) $ is clearly a (full) trio (note, that if $M$ is $\epsilon $-free, $pr_{2}$ is also $\epsilon $-free).
+\dokaz Once again, we use the alternative definition of the image of $L$, $M(L) = \{pr_{2} \allowbreak (pr_{1}^{-1}(w) \cap \Pi_{M}) | w \in L \}$. Considering previous lemmas, $\mathcal{M(L)} $ $(\mathcal{\hat{M}(L)}) $ is clearly a (full) trio (note, that if $M$ is $\varepsilon $-free, $pr_{2}$ is also $\varepsilon $-free).
 
 \paragraph{}
-Now, let $\mathcal{L'} $ be a (full) trio containing $\mathcal{L} $. Obviously, $\mathcal{L'} $ also contains $\mathcal{M(L)} $ $(\mathcal{\hat{M}(L)}) $, since it has to be closed under ($\epsilon $-free) homomorphism, inverse homomorphism and intersection with a regular language. Therefore, $\mathcal{M(L)} $ $(\mathcal{\hat{M}(L)}) $ is the smallest (full) trio containing $\mathcal{L} $. \qed
+Now, let $\mathcal{L'} $ be a (full) trio containing $\mathcal{L} $. Obviously, $\mathcal{L'} $ also contains $\mathcal{M(L)} $ $(\mathcal{\hat{M}(L)}) $, since it has to be closed under ($\varepsilon $-free) homomorphism, inverse homomorphism and intersection with a regular language. Therefore, $\mathcal{M(L)} $ $(\mathcal{\hat{M}(L)}) $ is the smallest (full) trio containing $\mathcal{L} $. \qed
 
 \paragraph{}
 \oznacenie If $\mathcal{L}$ is a single language, we write $\mathcal{M}(L)$ instead of $\mathcal{M}(\{ L\} )$.
@@ -80,13 +80,13 @@ The topic of descriptional complexity of finite state devices has been widely re
 
 \subsection{Finite State Automata}
 \paragraph{}
-We would like to occupy ourselves with the question, what is the lower bound of state count needed to accept a language $L$. Or, otherwise stated, what is the relation between the properties of a regular language and the minimal state size of its finite automaton?
+We would like to occupy ourselves with the question, how to find $\C{L}$ for a regular language $L$. Or, otherwise stated, what is the relation between the properties of a regular language and the minimal state count of its finite automaton?
 
 \paragraph{}
-For deterministic finite automaton, the answer was given by Nerode in \cite{Nerode:LAT}. We present his result in a slightly modified form, which suits our purposes better.
+For deterministic finite automata, the answer was given by Nerode in \cite{Nerode:LAT}. We present his result in a slightly modified form, which suits our purposes better.
 
 \paragraph{}
-\cveta Let $L$ be a regular language over alphabet $\Sigma $. Let $R_{L}$ be a relation on strings from $\Sigma ^{*}$ defined as follows: \\
+\cveta Let $L$ be a regular language over an alphabet $\Sigma $. Let $R_{L}$ be a relation on strings from $\Sigma ^{*}$ defined as follows: \\
 \centerline{$xR_{L}y \Leftrightarrow \forall z \in \Sigma ^{*}: xz \in L \leftrightarrow yz\in L$.}\\
 Let $k$ be a number of equivalence classes of $R_{L}$. If $A$ is a deterministic finite automaton accepting $L$, then $A$ has at least $k$ states.
 
@@ -99,17 +99,17 @@ Since $A$ is deterministic, it is easy to see, that $\forall z \in \Sigma ^{*}: 
 Assume $xR'y$. As stated before, also $xzR'yz$. That means, that $\delta (q_{0}, xz) \in F) \Leftrightarrow \delta (q_{0}, yz)$ and therefore $xR_{L}y$. It follows, that whole equivalence class of $R'$ containing $x$ (later noted as $[x]$) is a subclass of an equivalence class of $R_{L}$ and hence $R'$ has not less equivalence classes than $R_{L}$. \qed
 
 \paragraph{}
-Important observation is, that this lower bound is tight, i. e. there really exists a DFA $A'$ accepting $L$ with $k$ states. We can construct is from relation $R_{L}$ as $A'=(K', \Sigma , \delta ', q'_{0}, F')$:
+Important observation is, that this lower bound is tight, i. e. there really exists a DFA $A'$ accepting $L$ with $k$ states. We can construct it from relation $R_{L}$ as $A'=(K', \Sigma , \delta ', q'_{0}, F')$:
 \begin{itemize}
 \item $K'$ is the set of equivalence classes of $R_{L}$, 
 \item $\delta ([x], a) = [xa]$,
-\item $q'_{0} = [\epsilon ]$,
+\item $q'_{0} = [\varepsilon ]$,
 \item $F' = \{ [z] | z \in L \}$.
 \end{itemize}
-It is easy to see, that this $L(A') = L$ and $A'$ has exactly $k$ states.
+It is easy to see, that $L(A') = L$ and $A'$ has exactly $k$ states.
 
 \paragraph{}
-Similar result was achieved for non-deterministic automata. However, its lower bound is not always tight (i. e. sometimes the minimal number of states of NFA is even bigger) and moreover, it is not practically computable, since the problem, if there is a NFA with $\leq k$ states equivalent to a given DFA is $PSPACE$-complete (\cite{rav:minNFA}). Following theorem was introduced in \cite{gla:low}.
+Similar result was achieved for non-deterministic automata. However, its lower bound is not always tight (i. e. sometimes the minimal number of states of NFA is even bigger) and moreover, it is not practically computable, since the problem, if there is a NFA with $\leq k$ states equivalent to a given DFA is $PSPACE$-complete (\cite{rav:minNFA}). The following theorem was introduced in \cite{gla:low}.
 
 \paragraph{}
 \cveta Let $L \subseteq \Sigma ^{*}$ be a regular language and suppose there exists a set of pairs $P=\{ (x_{i}, w_{i}): 1 \leq i \leq n\} $ such that
@@ -129,7 +129,7 @@ Now it is sufficient to show, that all states $p_{i}$ are distinct. Indeed, if $
 Since $|S| \geq n$, $A$ has at least $n$ states. \qed
 
 \subsection{Sequential Transducers}
-The natural question arises, how can be these results extended if we add an output function, in other words, what is the lower bound for number of states of an (sequential, a-) transducer, which transforms a language $L_{1}$ to a language $L_{2}$? Unfortunately, we do not have a answer in such a general form yet. However, in the case of sequential transducers, in \cite{moh:min} was given an answer to a simplified question: what is the minimal number of states of a sequential transducers representing a sequential function?
+The natural question arises, how can be these results extended if we add an output function, in other words, what is the lower bound for the number of states of a (sequential, a-) transducer, which transforms a language $L_{1}$ to a language $L_{2}$? Unfortunately, we do not have a answer in such a general form yet. However, in the case of sequential transducers, in \cite{moh:min} was given an answer to a simplified question: what is the minimal number of states of a sequential transducer representing a sequential function?
 
 \paragraph{}
 \oznacenie If $f$ is a sequential function (see Chapter 1), we denote
@@ -156,10 +156,10 @@ $\forall (u, v) \in D(f) \times D(f): u R_{f} v \iff$ \\
 Moreover, $\delta (q_{0}, u) = \delta (q_{0}, v)$ also defines an equivalence relation on $D(f)$. As we can see, this relation is just a special case of $R_{f}$, which means, that its number of equivalence classes (ergo the number of states of $M$) is greater or equal to the number of equivalence classes of $R_{f}$. \qed
 
 \paragraph{}
-It was also shown, that this lower bound is tight, i. e. there is a sequential transducer realizing $f$ with $|K|$ equal to number of equivalence classes of $R_{f}$. However, we do not induct the proof of this claim, since it is quite technical and is not of vast importance for the purpose of our thesis.
+It was also shown, that this lower bound is tight, i. e. there is a sequential transducer realizing $f$ with $|K|$ equal to number of equivalence classes of $R_{f}$. However, we do not present the proof of this claim, since it is quite technical and is not of vast importance for the purpose of our thesis.
 
 \paragraph{}
-As mentioned before, we do not know, how can be this result applied to a pair of languages $L_{1}$ and $L_{2}$, if we do not have the exact sequential function transforming the former to the latter.
+As mentioned before, we do not know, how to apply this result to a pair of languages $L_{1}$ and $L_{2}$, if we do not have the exact sequential function transforming the former to the latter.
 
 \section{Decompositions of finite automata}
 
