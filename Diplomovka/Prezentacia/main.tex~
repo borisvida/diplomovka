@@ -87,6 +87,10 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 
+\uselanguage{Slovak}
+\languagepath{Slovak}
+\deftranslation[to=Slovak]{Definition}{Definícia}
+
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
@@ -100,7 +104,7 @@ Katedra informatiky, FMFI UK \\
 \medskip
 \textit{Prof. RNDr. Branislav Rovan, PhD.}
 }
-\date{10. februára 2015}
+\date{\footnotesize{Na Angelu 2015}}
 
 \begin{document}
 
@@ -126,7 +130,7 @@ Katedra informatiky, FMFI UK \\
 \item zjednodušovanie výpočtov (orákulum, paralelizácia)
 \item čo ak je informácia v inom formáte, ako problém?
 \item zložitosť a-prekladačov
-\item triedy rozložiteľných a nerozložiteľných jazykov a ich vlastnosti
+\item rozložiteľné a nerozložiteľné jazykov a ich vlastnosti
 \item porovnanie s predošlými výsledkami (bez možnosti transformácie)
 \end{itemize}
 
@@ -141,17 +145,24 @@ Katedra informatiky, FMFI UK \\
 
 \begin{itemize}
 \item rozhodujeme, či vstup $w$ patrí do (regulárneho) jazyka $L_{dec}$
-\item T-rada: a-prekladač $M$ a (regulárny) jazyk $L_{adv}$
-\item sľub, že $M(w) \subseteq L_{adv}$
+\item rada: a-prekladač (sekvenčný prekladač) $M$ a (regulárny) jazyk $L_{adv}$
+\item sľub, na vstupe máme len slová, ktorých obrazy sú v $L_{adv}$
 \item predošlé výsledky bez $M$ - priamo informácia, že vstup patrí do $L_{adv}$
+\item problém s nedeterminizmom
 \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Popis koncepcie}
 
 \begin{definition}
-Pre a-prekladač $M$ a jazyk $L$, $M^{-1}(L)$ je množina všetkých slov takých, že ich obrazy pomocou $M$ sú podmnožinou $L$.
+Pre a-prekladač $M$ a jazyk $L$, $M_{\forall}^{-1}(L)$ je množina všetkých slov takých, že všetky ich obrazy pomocou $M$ patria do $L$.\\
+Pre a-prekladač $M$ a jazyk $L$, $M_{\exists}^{-1}(L)$ je množina všetkých slov takých, že aspoň jeden z ich obrazov pomocou $M$ patrí do $L$.\\
+Pre sekvenčný prekladač $M$ a jazyk $L$, $M_D^{-1}(L)$ je množina všetkých slov takých, že (jediný) obraz pomocou $M$ patrí do $L$.
 \end{definition}
 
 \begin{itemize}
-\item $M^{-1}$ sa dá simulovať duálnym a-prekladačom, navyše prídavné podmienky na vstupy mimo $L_{adv}$
+\item $M_{\forall}^{-1}$ sa dá simulovať duálnym a-prekladačom, po úprave aj $M_{\exists}^{-1}$
 \end{itemize}
 
 \end{frame}
@@ -164,7 +175,13 @@ Pre jazyk $L_1$ a DKA $A = (K, \Sigma, \delta, q_0, F)$, $L[L_1](A) = L(A) \cap 
 \end{definition}
 
 \begin{definition}
-Dvojica $(M, L_{adv})$ je \emph{efektívna T-rada pre $L_{dec}$}, ak existuje DKA $A_{simple}$ taký, že $L_{dec} = L[M^{-1}(L_{adv})](A_{simple})$ a $\mathcal{C}_{state}(A_{simple}) + \mathcal{C}_{state}(M) + \mathcal{C}_{state}(L_{adv}) \leq \mathcal{C}_{state}(L_{dec})$.
+Nech $p \in \{\forall, \exists, D\}$. Dvojica $(M, L_{adv})$ je \emph{efektívna $p$-rada pre $L_{dec}$}, ak existuje DKA $A_{simple}$ taký, že $L_{dec} = L[M_p^{-1}(L_{adv})](A_{simple})$ a $\mathcal{C}_{state}(A_{simple}) + \mathcal{C}_{state}(M) + \mathcal{C}_{state}(L_{adv}) \leq \mathcal{C}_{state}(L_{dec})$.
+\end{definition}
+
+\begin{definition}
+$M_{\forall}^{-1}(L) = \{ w | M(w) \neq \emptyset \wedge M(w) \subseteq L \}$\\
+$M_{\exists}^{-1}(L) = \{ w | M(w) \cap L \neq \emptyset\}$\\
+$M_{D}^{-1}(L) = \{ w | M(w) \in L \}$
 \end{definition}
 
 \end{frame}
@@ -194,45 +211,34 @@ Transformácie jazykov tvaru $L_{k} = \{ a^n| n = 0 (mod k)\} $
 \end{frame}
 
 \begin{frame}
-\frametitle{Porovnanie rozložiteľných a T-rozložiteľných jazykov}
+\frametitle{Porovnanie $A$-rozložiteľných a $\{NT_{\forall}, NT_{\exists}, T\}$-rozložiteľných jazykov}
 
 \begin{itemize}
-\item porovnanie s koncepciou bez a-prekladača - vznikajú iné triedy - jednoprvkové jazyky
+\item $\mathscr{L}_{A} \subsetneq \mathscr{L}_{T}$ - napr. $\{a^{12}\}$
 \item[]
-\item T-rozložiteľné - napr. $\{ a^{12k} | k \geq 0 \}$
+\item $\mathscr{L}_{T} \subsetneq \mathscr{L}_{NT_{\forall}}, \mathscr{L}_{T} \subsetneq \mathscr{L}_{NT_{\exists}}$
 \item[]
-\item T-nerozložiteľné - napr. $\{ a^{7k} | k \geq 0 \}, a^*$
+\item $\mathscr{L}_{NT_{\forall}} \not \subseteq \mathscr{L}_{NT_{\exists}}$ - napr. $\{ a^{7k} | k \geq 0 \}^c$
+\item[]
+\item $\mathscr{L}_{NT_{\exists}} \not \subseteq \mathscr{L}_{NT_{\forall}}$ - napr. $\{ a^{7k} | k \geq 0 \}$
+\item[]
+\item $\mathscr{L}_{NT_{\forall}} \subsetneq \R, \mathscr{L}_{NT_{\exists}} \subsetneq \R$ - napr. $\{a\}^*$
+\item[]
+\item $\mathscr{L}_{T} \underset{\ ?}{\subset} \mathscr{L}_{NT_{\forall}} \cap \mathscr{L}_{NT_{\exists}}$
 \end{itemize}
 
 \end{frame}
-
-\begin{frame}
-\frametitle{Uzáverové vlastnosti}
-\begin{itemize}
-\item uzáverové vlastnosti
-\item deterministické operácie
-\end{itemize}
-\begin{table}
-\begin{tabular}{l | c | c | c | c | c | c | c}
-Trieda & $^c$ & $h_{\epsilon}$ & $h^{-1}$ & $\cup$ & $\cap$ & $+,*$ & $m+,m*$ \\
-\hline
-T-rozložiteľné & ? & n & n & n & n & n & a\\ 
-T-nerozložiteľné & ? & n & ? & n & n & ? & ?
-\end{tabular}
-\caption{Uzáverové vlastnosti}
-\end{table}
-
-\end{frame}
-
 %------------------------------------------------
 \section{Možné smery ďalšieho výskumu}
 \begin{frame}
 \frametitle{Možné smery ďalšieho výskumu}
 
 \begin{itemize}
+\item uzáverové vlastnosti (mnohé už hotové, ale treba pretriediť podľa definície)
+\item[]
 \item triedy problémov s rovnakou pomocnou informáciou/rovnakým prekladom
 \item[]
-\item nutné/postačujúce podmienky na T-rozložiteľnosť
+\item nutné/postačujúce podmienky na rozložiteľnosť
 \item[]
 \item zložitosť a-prekladačov
 \end{itemize}

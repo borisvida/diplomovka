@@ -124,7 +124,7 @@ Katedra informatiky, FMFI UK \\
 \begin{itemize}
 \item prídavná informácia
 \item zjednodušovanie výpočtov (orákulum, paralelizácia)
-\item čo ak je informácia v nepoužiteľnom formáte?
+\item čo ak je informácia v inom formáte, ako problém?
 \item zložitosť a-prekladačov
 \item triedy rozložiteľných a nerozložiteľných jazykov a ich vlastnosti
 \item porovnanie s predošlými výsledkami (bez možnosti transformácie)
@@ -141,7 +141,7 @@ Katedra informatiky, FMFI UK \\
 
 \begin{itemize}
 \item rozhodujeme, či vstup $w$ patrí do (regulárneho) jazyka $L_{dec}$
-\item rada: a-prekladač $M$ a (regulárny) jazyk $L_{adv}$
+\item T-rada: a-prekladač $M$ a (regulárny) jazyk $L_{adv}$
 \item sľub, že $M(w) \subseteq L_{adv}$
 \item predošlé výsledky bez $M$ - priamo informácia, že vstup patrí do $L_{adv}$
 \end{itemize}
@@ -164,7 +164,7 @@ Pre jazyk $L_1$ a DKA $A = (K, \Sigma, \delta, q_0, F)$, $L[L_1](A) = L(A) \cap 
 \end{definition}
 
 \begin{definition}
-Dvojica $(L_{adv},M)$ je \emph{efektívna T-rada pre $L_{dec}$}, ak existuje DKA $A_{simple}$ taký, že $L_{dec} = L[M^{-1}(L_{adv})](A_{simple})$ a $\mathcal{C}_{state}(A_{simple}) + \mathcal{C}_{state}(M) + \mathcal{C}_{state}(L_{adv}) \leq \mathcal{C}_{state}(L_{dec})$.
+Dvojica $(M, L_{adv})$ je \emph{efektívna T-rada pre $L_{dec}$}, ak existuje DKA $A_{simple}$ taký, že $L_{dec} = L[M^{-1}(L_{adv})](A_{simple})$ a $\mathcal{C}_{state}(A_{simple}) + \mathcal{C}_{state}(M) + \mathcal{C}_{state}(L_{adv}) \leq \mathcal{C}_{state}(L_{dec})$.
 \end{definition}
 
 \end{frame}
@@ -216,8 +216,8 @@ Transformácie jazykov tvaru $L_{k} = \{ a^n| n = 0 (mod k)\} $
 \begin{tabular}{l | c | c | c | c | c | c | c}
 Trieda & $^c$ & $h_{\epsilon}$ & $h^{-1}$ & $\cup$ & $\cap$ & $+,*$ & $m+,m*$ \\
 \hline
-rozložiteľné & ? & n & n & n & n & n & a\\ 
-nerozložiteľné & ? & n & ? & n & n & ? & ?
+T-rozložiteľné & ? & n & n & n & n & n & a\\ 
+T-nerozložiteľné & ? & n & ? & n & n & ? & ?
 \end{tabular}
 \caption{Uzáverové vlastnosti}
 \end{table}
@@ -232,7 +232,7 @@ nerozložiteľné & ? & n & ? & n & n & ? & ?
 \begin{itemize}
 \item triedy problémov s rovnakou pomocnou informáciou/rovnakým prekladom
 \item[]
-\item nutné/postačujúce podmienky na rozložiteľnosť
+\item nutné/postačujúce podmienky na T-rozložiteľnosť
 \item[]
 \item zložitosť a-prekladačov
 \end{itemize}

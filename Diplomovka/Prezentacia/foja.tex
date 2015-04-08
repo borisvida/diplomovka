@@ -27,13 +27,12 @@
 \def\rec{\L{rec}}                     % trieda rekurzivnych jazykov
 \def\CS{\L{\kern-0.5pt CS}}           % trieda kontextovych jazykov
 \def\ECS{\L{\kern-0.5pt ECS}}         % trieda rozsirenych kontextovych jazykov
-%\def\CF{\L{\kern-0.5pt CF}}           % trieda bezkontextovych jazykov
-\def\CF{\safemath{\cal{L}_{CF} }}
+\def\CF{\L{\kern-0.5pt CF}}           % trieda bezkontextovych jazykov
 \def\R{\safemath{{\cal R}}}           % trieda regularnych jazykov
 
 % GRAMATIKY
 \let\LRA=\Longrightarrow
-\let\KO=\vdash            % krok odvodenia
+\let\KO=\Rightarrow                     % krok odvodenia
 \def\KOG#1{\underset{#1}{\LRA}}         % krok odvodenia v gramatike
 
 \def\NKO#1{\KO^{#1}}                    % N krokov odvodenia
@@ -46,7 +45,7 @@
 %\newbox\vop\setbox\vop=\hbox{$\vdash^\ast$}
 %\def\Vop#1{\mathop{\hbox to \wd\vop {$#1$\hfil}}}
 \let\KV=\vdash                            % krok vypoctu
-\def\zKV{\vdash\mkern12.5mu}               % krok vypoctu
+\def\zKV{\vdash\mkern8.5mu}               % krok vypoctu
 \def\KVA#1{\underset{#1}{\vdash}}         % krok vypoctu automatu
 
 \def\NKV#1{\vdash^{#1}}                   % N krokov vypoctu
@@ -83,7 +82,3 @@
 \def\stLBA{\defTA\null}  \def\sbLBA#1{\defTA{_{#1}}}   \def\prTA{\defTA'}
  \def\stTA{\defTA\null}   \def\sbTA#1{\defTA{_{#1}}}   \def\prTA{\defTA'}
 
-
-\def\C#1{\mathscr{C}_{state}(#1)}
-\def\D#1{\mathscr{D}_{#1}}
-\def\U#1{\mathscr{U}_{#1}}

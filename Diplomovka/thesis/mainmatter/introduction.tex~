@@ -1,10 +1,25 @@
 \chapter*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}  
 \paragraph{}
-A number of models for realization of language transformations were introduced in the past fifty years. Most of them can be described as an extension of a finite automaton, which has been augmented by an output tape. Such models are, e. g., Moore and Mealy machines, sequential transducers, general sequential machines, a-transducers, etc.
+The main task of our thesis is to examine the use of transformation in solving problems with supplementary information. The concept of supplementary information is very well-known from the theory of Turing machines, where it is used in the form of oracles - the Turing machine uses this oracle for solving a smaller or bigger part of its task. This way, the computation can be simplified (in terms of time complexity, space complexity etc.).
 
 \paragraph{}
-In our thesis, we would like to investigate some complexity properties of these transformation models, with emphasis on a-transducers. 
+Similarly, we can also look at the field of distributed or parallel computations as using a supplementary information - the main program receives the outcome of individual sub-computations from other procesors (threads, etc.) and uses this in combination with own knowledge to solve the desired problem. Again, we do this in order to reduce the resources (mostly time) needed for finding of the solution.
+
+\paragraph{}
+In the last years, there was some effort to generalize this concept on simpler models, such as deterministic finite automata (\cite{Gazi}). However, these results relied on the fact, that the supplementary information was in the same format as the input of the solved problem. In aforementioned case of Turing machines and oracles, we know, that this is not always the case (e. g. when using oracles solving different NP-hard problems, we often have to convert our task to an instance of that NP-hard problem).
+
+\paragraph{}
+In the first chapter of our thesis we present some basic definitions and notations further used in our thesis.
+
+\paragraph{}
+The second chapter contains known results concerning transformation models, state complexity and the aforementioned work in area of solving problems with supplementary informations on deterministic finite automata.
+
+\paragraph{}
+In the third chapter we examine the state complexity of a-transducers and we bring own results regarding a special class of languages, which will be further used in our thesis. 
+
+\paragraph{}
+In the last chapter of our thesis we propose a framework for studying the possibility to transform the instance of a problem to match the format of the advice information. We study the classes of languages concering the possibility to simplify their complexity using the supplementary information. Moreover, we compare our results to those achieved for supplementary information without the use of transformation.
 
 \paragraph{}
 We assume, that the reader is familiar with the basic concepts of formal languages. If this is not the case, we recommend to obtain this understanding from \cite{hopcroft:fola}.

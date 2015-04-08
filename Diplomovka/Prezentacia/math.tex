@@ -49,15 +49,13 @@
 % VETY
 \def\proclaim#1. #2\par {\medbreak \noindent {\bf #1.\quad }#2\par \ifdim \lastskip <\medskipamount \removelastskip \penalty 55\medskip \fi \noindent}
 
-\def\veta{\proclaim Theorem. }
-\def\lema{\proclaim Lemma. }
-\def\definicia{\proclaim Definition. }
-\def\dosledok{\proclaim Corollary. }
-\def\dokaz{\noindent{\it Proof.}\quad}
-\def\hypoteza{\proclaim Conjecture. }
-\def\priklad{\proclaim Example. }
-\def\oznacenie{\proclaim Notation. }
-\def\poznamka{\proclaim Note. }
+\def\veta{\proclaim Veta. }
+\def\lema{\proclaim Lema. }
+\def\definicia{\proclaim Definícia. }
+\def\dosledok{\proclaim Dôsledok. }
+\def\dokaz{\noindent{Dôkaz.}\quad}
+\def\hypoteza{\proclaim Hypotéza. }
+\def\priklad{\proclaim Príklad. }
 
 \newcount\culohy \culohy=0
 \newcount\cvety  \cvety=0
@@ -65,9 +63,9 @@
 \newcount\cdef   \cdef=0
 \newcount\chyp  \chyp=0
 \newcount\cex  \cex=0
-\def\cveta{\advance\cvety by 1\cdosl=0\proclaim Theorem \number\cvety. }
-\def\clema{\advance\cvety by 1\cdosl=0\proclaim Lemma \number\cvety. }
-\def\cdefinicia{\advance\cdef by 1\proclaim Definition \number\cdef. }
-\def\cdosledok{\advance\cdosl by 1\proclaim Corollary \number\cvety.\number\cdosl. }
-\def\chypoteza{\advance\chyp by 1\proclaim Conjecture \number\chyp. }
-\def\cpriklad{\advance\cex by 1\proclaim Example \number\cex. }
+\def\cveta{\advance\cvety by 1\cdosl=0\proclaim Veta \number\cvety. }
+\def\clema{\advance\cvety by 1\cdosl=0\proclaim Lema \number\cvety. }
+\def\cdefinicia{\advance\cdef by 1\proclaim Definícia \number\cdef. }
+\def\cdosledok{\advance\cdosl by 1\proclaim Dôsledok \number\cvety.\number\cdosl. }
+\def\chypoteza{\advance\chyp by 1\proclaim Hypotéza \number\chyp. }
+\def\cpriklad{\advance\cex by 1\proclaim Príklad \number\cex. }

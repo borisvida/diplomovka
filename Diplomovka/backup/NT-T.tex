@@ -1,0 +1,27 @@
+\paragraph{}
+\cveta There are infinitely many languages, that are $T$-undecomposable, but $NT_{\exists}$- and $NT_{\forall}$-decomposable.
+
+\paragraph{}
+\dokaz Each of the languages $L_{p,r} = \{a^k|k \neq 0\ (mod\  p)\ \vee k \neq 0\ (mod\  r)\}$, where $p,r$ are primes and $p,r \geq 3$, is $T$-undecomposable, but $NT_{\exists}$- and $NT_{\forall}$-decomposable.
+
+\paragraph{}
+We first present the $NT_{\forall}$ and $NT_{\exists}$ decompositon of $L_{p,r}$. The effective advice is $(L_{p,r,adv},M)$, where $M$ is an a-transducer from the Figure 4.2 and $L_{p,r,adv} = \{a\}^*$. Clearly, $M(a^{5k}) = b^k$, and for $l \neq 5k$, $M(a^l) = a^l$, therefore $M^{-1}_{\forall}(L_{n,adv}) = M^{-1}_{\exists}(L_{n,adv}) = L_n$. Moreover $\C{M} = 10$, $\C{L_{n,adv}} = n+2$ and $\C{A} = 1$, where $A$ is the automaton accepting language $a^*$ (clearly, since $L_n = M^{-1}_{\forall}(L_{n,adv}) = M^{-1}_{\exists}(L_{n,adv})$, so $L[M^{-1}_{\forall}(L_{n,adv})](A) = L[M^{-1}_{\exists}(L_{n,adv})](A) = L_n$), while $\C{L_n} = 5.n$. 
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{mainmatter/images/nondet.png}
+\caption{a-transducer $M$}
+\end{figure}
+
+\paragraph{}
+We now prove the $T$-undecomposability of $L_n$ by contradiction. Assume, that there is a pair $(L'_{n,adv},M'_n)$, which forms an effective $T$-advice for $L_n$. Moreover, let $A'_n$ be an automaton, such that with this effective $T$-advice it accepts $L_n$. Let $L'_n = L(A'_n)$. Let us now look at the properties of $L'_n$.
+
+\paragraph{}
+We know, that $\C{L'_n} < 5.n$. Moreover, $L'_n$ has to contain all words from $L_n$. We claim, that all states of $A'_n$ are acceptable, therefore $L'_n = \{a\}^*$. Assume this is not the case. Then, since $\C{A'_n} < 5.n$, there is a word $a^k, k < 5.n$, such that the computation of $A'$ on this word ends in a nonaccepting state. This means, that $a^k \notin L'_n$ and $L_n \not \subseteq L'_n$. Furthermore, we claim, that $M^{'-1}_{n;D}(L'_{n,adv}) \cap \{a\}^* = L_n$. If $M^{'-1}_{n;D}(L'_{n,adv})$ contains a word in form of $a^k, k = 0 (mod 5.n)$, our $T$-advice is not correct (since, as we have seen, $L'_n$ contains this word, too).
+
+\paragraph{}
+Similar train of thoughts can now be used for the sequential transducer $M'_n$. We know, that $\C{M'_n} < 5.n$. Now, assume that there is a non-accepting state of $M'_n$. Again, there is a word $a^k \in L_n$, such that its computation on $M'_n$ is not accepting, but then $a_k \notin M_{n;D}^{'-1}(L'_{n,adv})$. As we have shown, $M_{n;D}^{'-1}(L'_{n,adv}) \cap \{a\}^* = L_n$, so all states $M'_n$ are accepting.
+
+\paragraph{}
+Since $M_{n;D}^{'-1}(L'_{n,adv}) \cap \{a\}^* = L_n$, we know, that $M_{n;D}^{'-1}(L'_{n,adv})$ has at least $5.n$ equivalence classes from Myhill-Nerode theorem. However, $\C{L'_{n,adv}} < 5.n$. Furthermore, since $M'_n$ has less than $5.n$ states, it contains a cycle, such that this cycle transforms $a^s$ to a string $x$, where both $s < 5.n$ and $|x| < 5.n$. Without loss of generality, assume that this cycle starts (and ends) in a state $q$. From the group theory we know, that $\Z_{5n}$ is a cyclic group \color{red}tu je niekde chyba, nie kazde i je generator\color{black}, where every $i \neq 0$ is a generator. This leads us to a claim, that for every equivalence class of $L_n$, there is a word from this class, which computation on $M'_n$ ends in $q$. From Dirichlets principle it follows, that there are two words $a^k$, $a^l$, such that the computation of both $a^k$ and $a^l$ ends in $q$, $[a^k]_{L_n} \neq [a^l]_{L_n}$ (words from different equivalence classes of $L_n$) and $[M'_n(a^k)]_{L'_{n,adv}} = [M'_n(a^l)]_{L'_{n,adv}}$. Now, since $[a^k]_{L_n} \neq [a^l]_{L_n}$, there is a number $r$, such that $a^{k+s*r} \in L_n \wedge a^{l+s*r} \notin L_n$. However, since $[M'_n(a^k)]_{L'_{n,adv}} = [M'_n(a^l)]_{L'_{n,adv}}$, also $[M'_n(a^{k+s})]_{L'_{n,adv}} = [M'_n(a^{l+s})]_{L'_{n,adv}}$, which violates the condition from Lemma 15 and leads to a contradiction. \qed 
+

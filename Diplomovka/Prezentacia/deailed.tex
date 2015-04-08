@@ -1,0 +1,354 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass[slovak]{beamer}
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\input foja
+
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{translator}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{comment}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Mnohohlavové automaty]{Mnohohlavové automaty}
+
+\author{Boris Vida} 
+\institute[FMFI UK]
+{
+Katedra informatiky, FMFI UK \\
+\medskip
+\textit{Prof. RNDr. Pavol Ďuriš, CsC.}
+}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+\begin{frame}
+\frametitle{Obsah}
+\tableofcontents
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+\section{Motivácia a ciele}
+
+\begin{frame}
+\frametitle{Motivácia}
+
+\begin{itemize}
+\item zložitosť formálnych jazykov - jedna z centrálnych oblastí teoretickej informatiky
+\item narastajúci záujem o paralelné modely
+\item mnohohlavové konečné automaty - prirodzené rozšírenie konečných automatov
+\item súvis so známymi triedami - iný pohľad na otvorené problémy
+\item rôzne obmedzenia - slepé hlavy, bezstavové automaty...
+\item dátovo nezávislé automaty
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Ciele}
+
+\begin{itemize}
+\item vytvoriť prehľad známych výsledkov v oblasti mnohohlavových konečných automatov
+\item pre niektoré z týchto výsledkov vypracovať alternatívny dôkaz
+\item porovnať výpočtovú silu niektorých podtried
+\item zameranie na dátovo nezávislé automaty
+\end{itemize}
+
+\end{frame}
+
+%----------------------------------------- end of section -----------------------------------------
+
+\section{Mnohohlavové automaty}
+
+\subsection{Definícia}
+
+\begin{frame}
+\frametitle{Definícia - mnohohlavový konečný automat \cite{hkm}}
+
+\begin{definition}
+\emph{Mnohohlavový konečný automat} je šestica $A = (Q, \Sigma \cup \{ \vertcent , \$ \} , k, \delta , s_{0}, F)$, kde 
+\begin{enumerate}
+\item $Q$ je konečná stavová množina,
+\item $\Sigma $\ je vstupná abeceda; $\vertcent , \$ \notin \Sigma $ je ľavá, resp. pravá zarážka 
+\item $k$ je počet hláv,
+\item $\delta$ je čiastočná prechodová funkcia $\delta : Q \times (\Sigma \cup \{ \vertcent , \$ \} )^k\to 2^{Q \times \{ -1, 0, 1\} ^k}$
+\item $s_{0} \in \Sigma $ je počiatočný stav,
+\item $F \subset Q$ is množina akceptačných stavov.
+\end{enumerate}
+\end{definition}
+
+\begin{itemize}
+\item počet hláv
+\item determinizmus vs. nedeterminizmus
+\item 1-smerné vs. 2-smerné
+\end{itemize}
+
+\end{frame}
+
+% ---------------------------------------------- end of subsection ---------------------------------------------------
+\subsection{Výpočtová sila}
+
+\begin{frame}
+\frametitle{Mnohohlavové automaty a logaritmický priestor}
+
+\cveta
+$\textbf{L} = \bigcup_{k \in \N } \mathcal{L} (2DFA(k)); \textbf{NL} = \bigcup_{k \in \N } \mathcal{L} (2NFA(k)) $ \\
+\emph{Dôkaz.} \\
+\begin{enumerate}
+\item $\textbf{L} \supseteq \bigcup_{k \in \N } \mathcal{L} (2DFA(k)) $ \\
+\begin{itemize}
+\item použijeme viacpáskový automat
+\item polohy hláv máme zapísané na jednotlivých páskach
+\item Turingov stroj si postupne do stavu zozbiera čítané symboly
+\item zmení stav a inkrementuje/dekrementuje príslušné pásky
+\item akceptuje rovnako ako mnohohlavový automat
+\end{itemize}
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Mnohohlavové automaty a logaritmický priestor}
+
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item $\textbf{L} \subseteq \bigcup_{k \in \N } \mathcal{L} (2DFA(k)) $ \\
+\begin{itemize}
+\item myšlienka podobná simulácii Turingovho stroja na dvoch zásobníkoch
+\item max. číslo zapísané na páske je $m^{n}$ (m je veľkosť pracovnej abecedy TS)
+\item hlavy používame ako koeficienty polynómu $\sum_{j=0}^{k_1} r_{j}*m^{j}$, ktorý uchováva hodnotu "čísla" zapísaného vľavo, resp. vpravo od hlavy na pracovnej páske TS ($r_{j}$ označuje polohu $j$-tej hlavy, ${k_1}$ je približne polovica počtu hláv)
+\item symbol pod hlavou TS sa uchováva v stave
+\item čítanie zodpovedá deleniu so zvyškom, prepis pripočítavaniu/odpočítavaniu
+\end{itemize}
+\end{enumerate}
+
+Otvorený problém $\textbf{L}$ vs $\textbf{NL}$.
+\end{frame}
+
+
+% ---------------------------------------------- end of subsection ---------------------------------------------------
+
+\subsection{Poddtriedy}
+
+\begin{frame}
+\frametitle{Podtriedy mnohohlavových konečných automatov}
+
+\begin{itemize}
+\item deterministické a nedeterministické (ostrá inklúzia pre jednosmerné, pre dvojsmerné otvorený problém)
+\item jedno- a dvojsmerné (zrkadlový jazyk)
+\item podľa počtu hláv (ostré inklúzie, pre dvojsmerné automaty svedčia unárne jazyky) \cite{yr}
+\item dátovo nezávislé
+\item uniforminé a neuniformné
+\item ďalšie modely - slepé, zametajúce, bezstavové automaty...
+\end{itemize}
+\end{frame}
+
+%=============================================== end of section ====================================================
+
+\section{Dátovo nezávislé mnohohlavové automaty}
+
+\subsection{Definícia}
+
+\begin{frame}
+\frametitle{Definícia a základné vlastnosti - dátovo nezávislé}
+
+\begin{definition}
+Mnohohlavový automat nazývame \emph{dátovo nezávislý}, ak pozícia $i$-tej čítacej hlavy po $k$ krokoch výpočtu na vstupnom slove $w$ závisí len od $i$, $\left| w \right|$ a $k$. 
+\end{definition}
+\begin{itemize}
+\item ekvivalentné s $NC^{1}$ \cite{mh}
+\item patria sem všetky unárne jazyky z L
+\item nedeterminizmus nepomáha
+\item jedno- a dvojsmerné (zrkadlový jazyk)
+\item počet hláv (pre dvojsmerné svedčia unárne jazyky, pre jednosmerné otvorený problém)
+\item najlepší výsledok - $\mathcal{L} (1DiDFA(\sqrt{2}.k)) \subsetneq \mathcal{L} (1DiDFA(2k+2))$ pre $k \geq 1$ \cite{dur}
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\subsection{Otázky zložitosti}
+\begin{comment}
+\begin{frame}
+\frametitle{Otázky zložitosti}
+\cveta
+$\mathcal{L} (1DFA(2)) - \bigcup_{k \in \N } \mathcal{L} (1DiDFA(k)) \neq \emptyset$ \\
+\emph{Dôkaz.} \\*
+\begin{itemize}
+\item technika dôkazu z \cite{yr}
+\item použijeme jazyk $L = \{ w\#^{+}w\#^{+} | w \in \{ a, b \}^{*}, k \geq 1 \}$
+\item zrejme patrí do $\mathcal{L} (1DFA(2))$
+\item nech existuje $1DiDFA(k)$, ktorý akceptuje $L$
+\item rozdelíme vstup na bloky - musia byť snímané paralelne
+\item ukážeme, že pri dostatočne dlhých vstupoch existuje dvojica blokov, ktoré ani raz počas výpočtu nie sú snímané paralelne
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Otázky zložitosti}
+\begin{itemize}
+\item využijeme podmnožinu $L_{h} = \{ w \# ^{i.p} w \# ^{j.p} | w \in \{ a, b \} ^{h.p} \wedge i + j = 2.h \}$, kde $h=4.k^{2}+1$ a $p$ je konštanta dostatočne veľká vzhľadom na počet stavov automatu
+\item teda vstup pozostáva z  $4.h$ blokov
+\item pre blok $u_{s}$ máme $i+j = 2.h$ možností, kde sa môže nachádzať korešpondujúci blok $u_{s'}$
+\item pre $h$ rôznych hodnôt $s$ je to teda $h.2.h$ možností
+\item jedna dvojica hláv vie pokryť iba $8.h - 1$ dvojíc $(u_{s}, u_{s'})$
+\item $\binom{k}{2}$ dvojíc hláv pokráva menej než $k^{2}.8.h$ dvojíc
+\item podľa voľby $h$ teda naozaj nepokrytá dvojica blokov existuje, označme $(x_{t}, x_{t'})$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Otázky zložitosti}
+\begin{itemize}
+\item slová z $L_{h}$ rozdelíme do tried podľa stavu, v ktorom sa automat nachádza pri začatí čítania bloku $x_{t'}$
+\item jazyk je "hustý", veľa slov v jednej triede, vieme zmiešať dva vstupy na taký, ktorý nepatrí do jazyka
+\end{itemize}
+Pre dvojsmerné automaty by vyriešenie tejto otázky dalo odpoveď na vzťah tried $\textbf{NC} ^{1}$ a $\textbf{L}$ (resp. $\textbf{NL}$).
+\end{frame}
+\end{comment}
+
+\begin{frame}
+\frametitle{Otázky zložitosti}
+\cveta
+$\mathcal{L} (1DFA(2)) - \bigcup_{k \in \N } \mathcal{L} (1DiDFA(k)) \neq \emptyset$ \\
+\emph{Dôkaz.} \\*
+\begin{itemize}
+\item použijeme jazyk $L = \{ w\#^{+}w\#^{+} | w \in \{ a, b \}^{*}, k \geq 1 \}$
+\item zrejme patrí do $\mathcal{L} (1DFA(2))$
+\item nech existuje $1DiDFA(k)$, ktorý akceptuje $L$
+\item rozdelíme vstup na bloky - musia byť snímané paralelne
+\item pri dostatočne dlhých vstupoch existuje dvojica blokov, ktoré ani raz počas výpočtu nie sú snímané paralelne
+\item vieme skombinovať dva vstupy na taký, ktorý nepatrí do jazyka a je akceptovaný našim automatom - spor
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Otázky zložitosti}
+Označme konečný automat s jednou obyčajnou a jednou slepou hlavou ako $\mathcal{L} (1DPBFA(2))$.
+\cveta
+$\mathcal{L} (1DPBFA(2)) - \mathcal{L} (1DiDFA(2)) \neq \es$.
+\end{frame}
+
+%------------------------------------------------
+\section*{Literatúra}
+
+\begin{frame}
+\frametitle{Literatúra}
+\footnotesize{
+\begin{thebibliography}{99}
+\bibitem[1]{hkm} Markus Holzer, Martin Kutrib, Andreas Malcher (2010)
+\newblock Complexity of multi-head finite automata: Origins and directions
+\newblock \emph{Theoretical Computer Science} 412(2011), 83-96.
+
+\bibitem[2]{mh} Markus Holzer (2002)
+\newblock Multi-head finite automata: data-independent versus data-dependent computations
+\newblock \emph{Theoretical Computer Science} 286(2002), 97-116.
+
+\bibitem[3]{yr} Andrew C. Yao, Ronald L. Rivest (1978)
+\newblock k+1 heads are better than k
+\newblock \emph{Journal of the ACM} 25(2), 337-340.
+
+\bibitem[4]{dur} P. Ďuriš. (2012)
+\newblock A note on the hierarchy of one-way data-independent multi-head finite automata
+\newblock In \emph{Proceedings of Electronic Colloquium on Computational Complexity} (ECCC), (2012) 92-92
+\end{thebibliography}
+}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\Huge{\centerline{Ďakujem za pozornosť}}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\end{document} 

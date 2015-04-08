@@ -1,0 +1,6 @@
+\beamer@endinputifotherversion {3.24pt}
+\select@language {slovak}
+\beamer@sectionintoc {1}{Motiv\IeC {\'a}cia a ciele}{3}{0}{1}
+\beamer@sectionintoc {2}{Defin\IeC {\'\i }cia}{4}{0}{2}
+\beamer@sectionintoc {3}{Dosiahnut\IeC {\'e} v\IeC {\'y}sledky}{7}{0}{3}
+\beamer@sectionintoc {4}{Mo\IeC {\v z}n\IeC {\'e} smery \IeC {\v d}al\IeC {\v s}ieho v\IeC {\'y}skumu}{9}{0}{4}

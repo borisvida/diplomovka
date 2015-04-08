@@ -1,27 +1,24 @@
-\chapter{Indirect advice}
+\chapter{Foreign advisors}
 \label{chap:advisors}
 
-\section{Description of the Framework}
+\section{Description of the framework}
 \paragraph{}
-We now proceed to definitions associated to the central matter of our thesis, which is the framework for using transformation in problem solving with advisory information. We enrich the framework studied in \cite{Gazi} by allowing the advice to be on some transformation of the input. We shall consider three particular cases. The first two cases shall be based on general a-transducers and the third case shall be based on deterministic sequential transducers. The results of this chapter provide the comparison of these cases.
+We now proceed to definitions associated to the central matter of our thesis, which is the framework for using transformation in provelm solving with advisory information. We provide three slightly different definitions, which will later be compared in their properties. They differ in the used transformation concept. The first two frameworks use a general and widely used model of (nondeterministic) a-transducer, while the third one relies on (deterministic) sequential transducers.
 
 \paragraph{}
-\oznacenie Let $M$ be an a-transducer and $L$ be a language. Then $M_{\forall}^{-1}(L)$ is the set of all words, such that all their images belong to $L$. Formally \\
+\cdefinicia Let $M$ be an a-transducer and $L$ a language. Then $M_{\forall}^{-1}(L)$ is the set of all words, such that all their images belong to $L$. Formally \\
 \centerline{$M_{\forall}^{-1}(L) = \{ w | M(w) \neq \emptyset \wedge M(w) \subseteq L \}$.}
 
 \paragraph{}
-\oznacenie Let $M$ be an a-transducer and $L$ be a language. Then $M_{\exists}^{-1}(L)$ is the set of words $w$, such that there is at least one image of $w$ belonging to $L$. Formally \\
+\cdefinicia Let $M$ be an a-transducer and $L$ a language. Then $M_{\exists}^{-1}(L)$ is the set of words $w$, such that there is at least one image of $w$ belonging to $L$. Formally \\
 \centerline{$M_{\exists}^{-1}(L) = \{ w | M(w) \cap L \neq \emptyset\}$.}
 
 
 \paragraph{}
-\cpriklad Let $M = (\{q_0,q_1\}, \{a\},\{b\},H,q_0,\{q_0,q_1\})$ be an a-transducer, where $H = \{(q_0,a,b,q_1),(q_1,\varepsilon,b,q_0)\}$. Moreover, let $L = \{b^2\}^*$. Every word $a^k \in \{a\}^+$ has two images: $M(a^k) = \{b^{2k-1},b^{2k}\}$ and $M(\varepsilon) = \{\varepsilon\}$. Therefore, $M_{\exists}^{-1}(L) = \{a\}^*$,  while $M_{\forall}^{-1}(L) = \{\varepsilon\}$. 
+\cpriklad Let $M = (\{q_0,q_1\}, \{a\},\{b\},H,q_0,\{q_0,q_1\})$ be an a-transducer, where $H = \{(q_0,a,b,q_1),(q_1,\varepsilon,b,q_0)\}$. Moreover, let $L = \{b^2\}^*$. Every word from $a^k \in \{a\}^+$ has two images: $M(a^k) = \{b^{2k-1},b^{2k}\}$ and $M(\varepsilon) = \{\varepsilon\}$. Therefore, $M_{\forall}^{-1}(L) = \{a\}^*$,  while $M_{\exists}^{-1}(L) = \{\varepsilon\}$. 
 
 \paragraph{}
-\cdefinicia Let $L_{dec}$ be a regular language. Let $\Psi \in \{\forall,\exists\}$. A pair $(L_{adv}, M)$, where $L_{adv}$ is a regular language and $M$ an a-transducer is called an \emph{indirect advice}. The indirect advice is called and $NT_{\Psi}$-advice for a regular language $L_{dec}$ and an finite automaton $A$ if there exists a deterministic finite automaton $A'$, such that $L_{dec} = L[M_{\Psi}^{-1}(L_{adv})](A')$. Moreover, $(L_{adv}, M)$ is called \emph{effective}, if $\C{A'} + \C{M} + \C{L_{adv}} \leq	 \C{L_{dec}}$.
-
-\paragraph{}
-\oznacenie We remind, that $L[M_{\Psi}^{-1}(L_{adv})](A') = L(A') \cap M_{\Psi}^{-1}(L_{adv})$.
+\cdefinicia Let $L_{dec}$ be a regular language. Let $q \in \{\forall,\exists\}$. A pair $(L_{adv}, M)$, where $L_{adv}$ is a regular language and $M$ an a-transducer is called an \emph{$NT_{q}$-advice with regard to $L_{dec}$}, if there exists a deterministic finite automaton $A'$, such that $L_{dec} = L[M_{q}^{-1}(L_{adv})](A')$. Moreover, $(L_{adv}, M)$ is called \emph{effective}, if $\C{A'} + \C{M} + \C{L_{adv}} \leq	 \C{L_{dec}}$.
 
 \paragraph{}
 \cpriklad Let $L_{dec} = \{ a^{12k}| k \geq 0 \} $. Let $M= (\{q_0, q_1\}, \{a\}, \{a\}, H, q_0, \{q_0\})$, where $H = \{(q_0, a, a, q_1), (q_1, a, \varepsilon, q_0)\}$ and $L_{adv} = \{ a^{2k}| k \geq 0 \}$. $M$ shortens every word from $a^*$ to half of its length, so it is easy to see, that $M_{\forall}^{-1}(L_{adv}) = M_{\exists}^{-1}(L_{adv}) = \{ a^{4k}| k \geq 0 \}$. We now construct a simpler finite automaton $A'$ for the language $L_{simple} = \{ a^{3k}| k \geq 0 \}$. Clearly, $\C{A'} + \C{M} + \C{L_{adv}} = 3 + 2 + 2 \leq 12 = \C{L_{dec}}$ and $L[M^{-1}_{\forall}L_{adv}](A') = L[M^{-1}_{\exists}L_{adv}](A') = L_{dec}$ which means, that $L_{adv}$ with $M$ is an effective $NT_{\forall}$- and $NT_{\exists}$-advice with regard  to $L_{dec}$.
@@ -36,25 +33,25 @@ We now proceed to definitions associated to the central matter of our thesis, wh
 \end{figure}
 
 \paragraph{}
-In the last example, the whole advice was in some sense contained in the transformation and the efficiency was achived just through the nondeterminism of a-transducer. We would like to prevent such misuse of nondeterminism, so the saving of state count would mirror the actual possibility to disassemble the problem into some smaller subproblems, such that their results combined yield the solution of the task.
+In the last example, the whole advice was in some sense contained in the transformation and the efficiency was achived just through the nondeterminism of a-transducer. We would like to prevent such a misuse of the nondeterminism, so the saving of state count would mirror the actual possibility to dismember the problem to some smaller subproblems, such that their results combined yield the solution of the whole task.
 
 \paragraph{}
-At first sight on the previous example it seems, that the problem lays in the fact, that $M$ does not have to generate the whole language $L_{adv}$. One possible solution is to add a condition, that the filtering of words not from $L_{dec}$ should not happen only in $M$, but also in $L_{dec}$ (and since the complexity of $L_{dec}$ is the state count of its minimal deterministic automaton, the nondeterminism could not be misused). Formally, a pair $(L_{adv}, M)$ is a ($NT_{\forall}$-) $NT_{\exists}$-advice with regard  to $L_{dec}$, if it fulfills the condition from the original definitions and moreover, we demand, that $L_{adv} \subseteq M(\Sigma_{L_{dec}}^*)$.
+At first sight on the previous example it seems, that the problem lays in the fact, that $M$ does not have to generate the whole language $L_{adv}$. The one possible solutions is to add a condition, that the filtering of words not from $L_{dec}$ should not happen only in $M$, but also in $L_{dec}$ (and since the complexity of $L_{dec}$ is the state count of its minimal deterministic automaton, the nondeterminism could not be misused). Formally, a pair $(L_{adv}, M)$ is a ($NT_{\forall}$-) $NT_{\exists}$-advice with regard  to $L_{dec}$, if it fulfills the condition from the original definitions and moreover, we demand, that $L_{adv} \subseteq M(\Sigma_{L_{dec}}^*)$.
 
 \paragraph{}
-However, if we alter the a-transducer $M$, so that each traversal of the form $(q_i,a,a,q_j)$ will be altered to $(q_i,a,\varepsilon,q_j)$, we can take $L_{dec} = \{\varepsilon\}$. Again, $M^{-1}_{\exists}(L_{adv}) = M^{-1}_{\forall}(L_{adv}) = L_{dec}$ and the complexity of the advice has increased by $1$ (since $\C{\{\epsilon\}} = 2$), so $(L_{adv},M)$ still is an effective advice for $L_{dec}$. However, our problem with the misuse of nondeterminism is still apparent. Adding this simple condition did not help at all.
+However, if we alter the a-transducer $M$, so that each travelsal of form $(q_i,a,a,q_j)$ will be altered to $(q_i,a,\varepsilon,q_j)$, we can take $L_{dec} = \{\varepsilon\}$. Again, $M^{-1}_{\exists}(L_{adv}) = M^{-1}_{\forall}(L_{adv}) = L_{dec}$ and the complexity of the advice has increased by $1$ (since $\C{\{\epsilon\}} = 2$), so $(L_{adv},M)$ still is an effective advice for $L_{dec}$. However, our problem with the misuse of nondeterminism is still apparent. Adding this simple condition did not help at all.
 
 \paragraph{}
-For aforementioned reason, we present the third possible definition of our framework, where the transformation model is not an a-transducer, but a (deterministic) sequential transducer. However, unlike by a-transducer, one-bounded sequential transducers are not a normal form of sequential transducers. It is easy to see, that with this restriction, we cannot generate an output word, which is longer than the input. However, this shortcoming can be easily solved by a little modification in the definition:
+For aforementioned reason, we present the third possible definition of our framework, where the transformation model is not an a-transducer, but a (deterministic) sequential transducer. However, unlike by a-transducer, one-bounded sequential transducers are not a normal form of sequential transducers. It is easy to see, that with this restriction, the we cannot generate an output word, which is longer than the input. However, this shortcoming can be easily solved by a little alternation in a definition:
 \begin{itemize}
-\item $\delta$ is a partial transition function, that maps $K \times (\Sigma_{1} \cup \{\varepsilon\}) \rightarrow K$,
-\item $\sigma$ is a partial output function, that maps $K \times (\Sigma_{1} \cup \{\varepsilon\}) \rightarrow \Sigma_{2}$,
+\item $\delta$ is a partial transition function, that maps $K \times \Sigma_{1} \cup \{\varepsilon\} \rightarrow K$,
+\item $\sigma$ is a partial output function, that maps $K \times \Sigma_{1} \cup \{\varepsilon\} \rightarrow \Sigma_{2}$,
 \item however, the $\epsilon$-transition and $\epsilon$-output in a state $q \in K$ are possible only if $q \in F$ (this transition has to be mandatory) there are no other transitions and outputs in this state, and
 \item since $\delta$ and $\sigma$ are partial functions, we demand, that for $a \in \Sigma_1 \cup \{\varepsilon\}$ and $q \in K$, $\delta(q,a)$ is defined, if and only if $\sigma(q,a)$ is defined.
 \end{itemize}
 
 \paragraph{}
-It can be easily shown, that this modified definition is a normal form of sequential transducers, however, we do not include the proof in our thesis.
+It can be easily shown, that this altered definition is a normal form of sequential transducers, however, we do not include the proof in our thesis.
 
 \paragraph{}
 \cdefinicia Let $M$ be a sequential transducer and $L$ a language. Then $M_{D}^{-1}(L)$ is the set of all words, such that their images belong to $L$. Formally \\
@@ -67,7 +64,7 @@ It can be easily shown, that this modified definition is a normal form of sequen
 \cpriklad We can see, that the a-transducer $M$ from Example 2 has neither $\varepsilon$-transitions, nor multiple transitions from one state on one symbol. Moreover, the transition function is complete (the set $H$ contains an element for every combination of source state and input symbol), so the corresponding sequential transducer $M_D$ and its transition function $\delta$ and output function $\sigma$ can be easily constructed. Therefore, the pair $(L_{adv},M)$ from Example 2 is an effective $M_{D}$-advice with regard to $L_{dec}$.
 
 \paragraph{}
-\poznamka We shall often use this view of a sequential transducer - as a special case of an a-transducer. When it will be suitable, we shall identify a sequential transducer with an a-transducer in which set $H$ fulfills the aforementioned conditions (no $\varepsilon$-transitions and for each combination of state and input symbol precisely one element in $H$) without the formal definition of its $\delta$ and $\sigma$ functions. We state their construction here.
+\poznamka We will often use this view of a sequential transducer - as a special case of an a-transducer. When it will be suitable, we will identify a sequential transducer with an a-transducer, which set $H$ fulfills the aforementioned conditions (no $\varepsilon$-transitions and for each combination of state and input symbol precisely one element in $H$) without the formal definition of its $\delta$ and $\sigma$ functions. We state their construction here.
 
 \centerline{$\forall h \in H: \delta(pr_0(h),pr_1(h)) = pr_3(h)$}
 \centerline{$\forall h \in H: \sigma(pr_0(h),pr_1(h)) = pr_2(h)$}
@@ -76,10 +73,10 @@ It can be easily shown, that this modified definition is a normal form of sequen
 The correctness of the definition of these function follows from the "determinism" of $H$.
 
 \paragraph{}
-We have defined three alternative ways to look at the use of transformation in solving problems with advisory information, which differ in the definition of the language $M^{-1}(L)$. This brings up the following question: for a given language $L$ and an a-transducer $M$, how to get the languages $M_{\forall}^{-1}(L)$, $M_{\exists}^{-1}(L)$ and $M_{D}^{-1}(L)$? The answer was quite easy to find in previous two examples (and, in fact, for all languages in the form $\{ (a^k)^* \}$ and transducers, which just manipulate the number of symbols $a$). We now search for the answer in general.
+We have defined three alternative ways to look at the use of transformation in solving problems with advisory information, which differ in the definition of the language $M^{-1}(L)$. This brings up the following question: for a given language $L$ and an a-transducer $M$, how to get the languages $M_{\forall}^{-1}(L)$, $M_{\exists}^{-1}(L)$ and $M_{D}^{-1}(L)$? The answer was quite easy to find in previous two examples (and, in fact, for all languages in form $\{ (a^k)^* \}$ and transducers, which just manipulate the number of symbols $a$). We now look at the answer in general.
 
 \paragraph{}
-\clema Let $M = (K, \Sigma_1, \Sigma_2, H, q_0, F)$ be an a-transducer and $L$ be a language. Moreover, let $L' = M_{\exists}^{-1}(L)$. Then $\forall w \in L'^c: M(w) = \emptyset \vee M(w) \subseteq L^c$. The mapping $M_{\exists}^{-1}$ can be simulated by an a-transducer $M'$ dual to $M$, such that $M'(L) = L'$, where $\C{M'} = \C{M}$.
+\clema Let $M = (K, \Sigma_1, \Sigma_2, H, q_0, F)$ be an a-transducer and $L$ a language. Moreover, let $L' = M_{\exists}^{-1}(L)$. Then $\forall w \in L'^c: M(w) = \emptyset \vee M(w) \subseteq L^c$. The mapping $M_{\exists}^{-1}$ can be simulated by an a-transducer $M'$ dual to $M$, such that $M'(L) = L'$, where $\C{M'} = \C{M}$.
 
 \paragraph{}
 \dokaz The first part is quite easy to see, since by definition, $M_{\exists}^{-1}(L)$ contains all words, such that at least one of their images by a-transducer $M$ belongs to $L$. If for a word $v \in L'^c$ there is a word $u$, such that $u \in M(v)$ and $u \notin L^c$, then $u \in L$ and by definition, $v \in L'$, which leads to a contradiction.
@@ -96,29 +93,29 @@ Clearly, $\C{M} = \C{M'}$. It remains to show, that $M'$ simulates $M_{\exists}^
 \end{itemize} \qed
 
 \paragraph{}
-Very similar result can be stated for the setting with a sequential transducer. For a sequential transducer $M$ and a language $L$, $M_{D}^{-1}(L) = M_{\exists}^{-1}(L)$, since every word $w \in M^{-1}_{D}(L)$ has exactly one image $M(w) \in L$. This means, that we can find $L$ using the same dual a-transducer $M'$. Note, that this dual machine is not necessarily a sequential transducer, because the mapping by $M$ is not necessarily injective (and even if it is, the functions $\delta$ and $\sigma$ do not say anything about uniqeness of the combination of output symbol and resulting state). However, the determinism of the sequential transducer allows us to state some additional claims.
+Very similar result can be stated for the setting with a sequential transducer. For a sequential transducer $M$ and a language $L$, $M_{D}^{-1}(L) = M_{\exists}^{-1}(L)$, since every word $w \in M^{-1}_{D}(L)$ has exactly one image $M(w) \in L$. This means, that we can find $L$ using the same dual a-transducer $M'$. Note, that this dual machine does not necessarily be a sequential transducer, because the mapping by $M$ is not necessarily injective (and even if it is, the functions $\delta$ and $\sigma$ do not say anything about uniqeness of the combination of output symbol and resulting state). However, the determinism of the sequential transducer allows us to state some additional claims.
 
 \paragraph{}
-\clema Let $M = (K, \Sigma_1, \Sigma_2, \delta, \sigma, q_0, F)$ be a sequential transducer and $L$ be a language. Moreover, let $L' = M_{D}^{-1}(L)$. Then, $M(L') \subseteq L$ and $\forall w \in L'^c: M(w) = \emptyset \vee M(w) \in L^c$. The mapping $M_D^{-1}$ can be simulated by an a-transducer $M'$ dual to the sequential transducer $M$, such that $M'(L) = L'$ and $\forall w \in L^c: M'(w) = \emptyset \vee M'(w) \subseteq L'^c$. Moreover, $\C{M'} = \C{M}$.
+\clema Let $M = (K, \Sigma_1, \Sigma_2, \delta, \sigma, q_0, F)$ be a sequential transducer and $L$ a language. Moreover, let $L' = M_{D}^{-1}(L)$. Then, $M(L') \subseteq L$ and $\forall w \in L'^c: M(w) = \emptyset \vee M(w) \in L^c$. The mapping $M_D^{-1}$ can be simulated by an a-transducer $M'$ dual to the sequential transducer $M$, such that $M'(L) = L'$ and $\forall w \in L^c: M'(w) = \emptyset \vee M'(w) \subseteq L'^c$. Moreover, $\C{M'} = \C{M}$.
 
 \paragraph{}
-\dokaz We prove just those parts of our Lemma, which are different from the claims in the previous one. In the first part, we state, that $M(L') \subseteq L$. This claim follows directly from the fact, that every word $w \in L'$ has only one image $M(w)$ and by definition, this image belongs to $L$ (otherwise $w \notin L'$). Moreover, since the image of a word $w$ by a sequential transducer is a word, instead of a set, the condition on words from $L'^c$ changes accordingly.
+\dokaz We prove just that parts of our Lemma, which are different from the claims in the previous one. In the first part, we state, that $M(L') \subseteq L$. This claim follows directly from the fact, that every word $w \in L'$ has only one image $M(w)$ and by definition, this image belongs to $L$ (otherwise $w \notin L'$). Moreover, since the image of a word $w$ by a sequential transducer is a word, instead of a set, the condition on words from $L'^c$ changes accordingly.
 
 \paragraph{}
 We provide the formal construction of the a-transducer $M'$, since we construct it from the sequential transducer $M$. Again, $M' = (K,\Sigma_1,\Sigma_2,H,q_0,F)$, where \\
 \centerline{$H = \{q,a,\sigma(a),\delta(q) | \forall q \in K, a \in \Sigma_1 \}$.}
 
 \paragraph{}
-The proof of the claim, that $M'(L) = L'$, is very similar to the proof of previous Lemma. We provide the arguments for the last part of Lemma, i. e. $\forall w \in L^c: M'(w) = \emptyset \vee M'(w) \subseteq L'^c$: Assume there is a word $w \in L^c$, such that $M'(w) = u \wedge u \in L'$. From the previous part of Lemma it follows, that $u \in M'(L)$. However, then $w = M(u) \subseteq L$, which leads to a contradiction. \qed
+The proof of the claim, that $M'(L) = L'$, is very similar to the proof of previous Lemma. We provide the arguments for the last part of Lemma, i. e. $\forall w \in L^c: M'(w) = \emptyset \vee M'(w) \subseteq L'^c$: Assume there is a word $w \in L^c$, such that $M'(w) = u \wedge u \in L'$. From previous part of Lemma it follows, that $u \in M'(L)$. However, then $w = M(u) \subseteq L$, which leads to a contradiction. \qed
 
 \paragraph{}
-We have seen, that finding the sets $M_{\exists}^{-1}(L)$ and $M_D^{-1}(L)$ for a given language $L$ and a-transducer $M$ is quite easy using a dual a-transducer $M'$. However, the situation with $M_{\forall}^{-1}$ is not that simple. The main problem is, that if some word $w \in \Sigma_{L'}^*$ has an image in $L$, it can also have other images in $L^c$, therefore $w \notin L'$. However, if we used a dual a-transducer $M'$ from the previous Lemmas on $L$, the word $w$ will be constructed, since $w \in M'(L)$. We now present the solution to this issue.
+We have seen, that finding the sets $M_{\exists}^{-1}(L)$ and $M_D^{-1}(L)$ for a given language $L$ and transducer $M$ is quite easy using a dual a-transducer $M'$. However, the situation with $M_{\forall}^{-1}$ is not that simple. The main problem is, that if some word $w \in \Sigma_{L'}^*$ has an image $L$, it can also have other images in $L^c$, therefore $w \notin L'$. However, if we used a dual a-transducer $M'$ from previous Lemmas on $L$, the word $w$ will be constructed, since $w \in M'(L)$. We now present the solution to this issue.
 
 \paragraph{}
-\clema Let $M = (K, \Sigma_1, \Sigma_2, H, q_0, F)$ be an a-transducer and $L$ be a language. Moreover, let $L' = M_{\forall}^{-1}(L)$. Then, $M(L') \subseteq L$. The mapping $M_{\forall}^{-1}$ can be simulated by an a-transducer $M'$ dual to the sequential transducer $M$, such that $L' = M'(L) - M'(L^c)$ and $\forall w \in L^c: M'(w) = \emptyset \vee M'(w) \subseteq L'^c$. Moreover, $\C{M'} = \C{M}$.
+\clema Let $M = (K, \Sigma_1, \Sigma_2, H, q_0, F)$ be an a-transducer and $L$ a language. Moreover, let $L' = M_{\forall}^{-1}(L)$. Then, $M(L') \subseteq L$. The mapping $M_{\forall}^{-1}$ can be simulated by an a-transducer $M'$ dual to the sequential transducer $M$, such that $L' = M'(L) - M'(L^c)$ and $\forall w \in L^c: M'(w) = \emptyset \vee M'(w) \subseteq L'^c$. Moreover, $\C{M'} = \C{M}$.
 
 \paragraph{}
-\dokaz The first part ($M(L') \subseteq L$) follows from the definition. If a word $w$ belongs to $L'$, all of its images by $M$ are in $L$, therefore whole of $M(w) \subseteq L$ and furthermore $M(L') \subseteq L$.
+\dokaz The first part ($M(L') \subseteq L$) follows from the definition. If a word $w$ belongs to $L'$, all of its images by $M$ are in $L$, therefore whole $M(w) \subseteq L$ and furthermore $M(L') \subseteq L$.
 
 \paragraph{}
 Now we prove the second claim in three steps, using the same construction of the dual a-transducer $M'$ as before.
@@ -131,12 +128,12 @@ Now we prove the second claim in three steps, using the same construction of the
 \end{itemize} \qed
 
 \paragraph{}
-We conclude this section by a note, which will later be useful for comparing our three settings to each other. This claim follows directly from the fact, that a sequential transducer is a special case of an a-transducer and the definition of $M^{-1}_{D}$ fulfills the definitions for both $M_{\forall}^{-1}$ and $M_{\exists}^{-1}$.
+We conclude this section with a note, which will later be useful by comparing our three settings to each other. This its claim follows directly from the fact, that a sequential transducer is a special case of an a-transducer and the definition of $M^{-1}_{D}$ fulfills the definitions for both $M_{\forall}^{-1}$ and $M_{\exists}^{-1}$.
 
 \paragraph{}
 \poznamka Every (effective) $T$-advice is also a $NT_{\forall}$-advice. Every (effective) $T$-advice is a $NT_{\exists}$-advice.
 
-\section{Decomposable and Undecomposable Languages}
+\section{Decomposable and undecomposable languages}
 
 \paragraph{}
 In the previous section, we have defined the notion of an effective advice. Now we present another related concept, namely the $T$-, $NT_{\forall}-$ and $NT_{\exists}$ decomposability of regular languages.
@@ -145,7 +142,7 @@ In the previous section, we have defined the notion of an effective advice. Now 
 \cdefinicia The language $L$ is called \emph{$T$-decomposable}, if there is a sequential transducer $M$ and a regular language $L_{adv}$, such that $(L_{adv}, M)$ is an effective $T$-advice for $L$. Otherwise, we call $L$ \emph{$T$-undecomposable}.
 
 \paragraph{}
-\cdefinicia Let $\Psi \in \{\exists,\forall\}$. The language $L$ is called \emph{$NT_{\Psi}$-decomposable}, if there is an a-transducer $M$ and a regular language $L_{adv}$, such that $(L_{adv}, M)$ is an effective $NT_{\Psi}$-advice for $L$. Otherwise, we call $L$ \emph{$NT_{\Psi}$-undecomposable}.
+\cdefinicia Let $q \in \{\exists,\forall\}$. The language $L$ is called \emph{$NT_{q}$-decomposable}, if there is an a-transducer $M$ and a regular language $L_{adv}$, such that $(L_{adv}, M)$ is an effective $NT_q$-advice for $L$. Otherwise, we call $L$ \emph{$NT_q$-undecomposable}.
 
 \paragraph{}
 \clema Every $T$-decomposable language is $NT_{\forall}$- and $NT_{\exists}$-decomposable. Every $NT_{\forall}$- and $NT_{\exists}$-undecomposable language is $T$-undecomposable.
@@ -154,7 +151,7 @@ In the previous section, we have defined the notion of an effective advice. Now 
 \dokaz Follows directly from the final remark in the previous section. \qed
 
 \paragraph{}
-Later we shall see, that the reverse implication does not hold. We now compare our settings to the setting presented by \cite{Gazi} (see Section 2.3). To make the comparison more meaningful, we have to strengthen the condition presented by Gazi in a following way:
+Later we will see, that the reverse implication does not hold. We now compare our settings to the setting presented by \cite{Gazi} (see Section 2.3). To make the comparison more meaningful, we have to strengthen the condition presented by Gazi in a following way:
 
 \paragraph{}
 \cdefinicia A language $L$ is called \emph{$A$-decomposable}, if there exists an advisor $L_1$ and an automaton $A$, such that $\C{L_1} + \C{A_1} < \C{L}$ and $L[L_1](A) = L$.
@@ -299,7 +296,7 @@ It remains to show, that for $p \geq 11$, $L_p^c$ is $NT_{\forall}$-decomposable
 Moreover, the language $\{a\}^*$ is clearly regular, but since $\C{\{a\}^*} = 1$, we cannot decompose it into three models (a regular language, an a-transducer and a DFA), since each of them has at least one state. Therefore $\{a\}^* \notin \D{NT_{\forall}} \cup \D{NT_{\exists}}$. \qed
 
 \paragraph{}
-Previous theorems can be summarized in following hierarchy: \\
+Previous theorem can be summarized in following hierarchy: \\
 
 \centerline{$\D{A} \subsetneq \D{T}$ \stackanchor{\raisebox{-8px}{\begin{turn}{45}$\subsetneq $ \end{turn}} $\D{NT_{\forall}}$ \begin{turn}{315}$\subsetneq $\end{turn}}{\raisebox{10px}{\begin{turn}{315}$\subsetneq $ \end{turn}} $ \D{NT_{\exists}}$\begin{turn}{45}$\subsetneq $ \end{turn} }$ \R$}
 
@@ -307,7 +304,7 @@ Previous theorems can be summarized in following hierarchy: \\
 As we have seen, the classes of regular languages concerning $T$-decomposability are different as the classes of A-decomposable and A-undecomposable languages. In the next part of our thesis, we investigate some properties of these classes.
 
 %------------------------------------------------------------------------------------
-\section{Closure Properties}
+\section{Closure properties}
 
 \paragraph{}
 When looking at a new class of languages, one of the first natural question, that arises, are its closure properties. In this section, we examine the closure of $T$-decomposable and $T$-undecomposable languages under some basic operations.
@@ -319,39 +316,7 @@ In this part, we mainly use two types of $T$-undecomposable languages. First of 
 \paragraph{}
 \cveta The class of $T$-undecomposable languages is not closed under 
 \begin{enumerate}
-\item (non-erasing) homomorphism,
-\item intersection,
-\item union.
-\end{enumerate}
-
-\paragraph{}
-\dokaz
-\begin{enumerate}
-
-\item Consider an undecomposable language $L_1 = \{ a^{13k} | k \geq 0 \}$ and a homomorphism $h:\{ a\}^* \to \{ a \}^*$, such that $h(a) = aa$. Clearly, $h(L_1) = \{ a^{26k} | k \geq 0 \}$ and this language can be decomposed in a following way: let us take a sequential transducer $M_1$ computing the identity mapping and a language $L'_1 = \{ a^{2k} | k \geq 0 \}$. This two items form the desired effective $T$-advice for $L_1$, since we only have for DFA $A$, such that $L(A) = \{ a^{13k} | k \geq 0 \}$, $L[M_{1,D}^{-1}(L'_1)](A) = L_1$.
-
-Since this homomorphism is non-erasing, our class is not closed even under this kind of mapping.
-
-\item Consider two languages, $L_{21} = \{ a^{13k} | k \geq 1 \}$ and $L_{22} = \{ a^{2k} | k \geq 1 \}$. As stated before, both of these languages are $T$-undecomposable. However, $L_{21} \cap L_{22} = \{ a^{26k} | k \geq 1 \}$ is a $T$-decomposable language, as we have seen in the first part of this proof.
-
-\item Let us take two languages, $L_{31} = \{ a^k | k \neq 0 \pmod{5} \}$ and $L_{52} = \{ a^k | k \neq 0 \pmod{7} \}$. The $T$-undecomposability of these languages was shown in Theorem 21.
-
-\begin{figure}[h!]
-\centering
-\includegraphics[scale=0.5]{mainmatter/images/M'_5.png}
-\caption{Sequential transducer $M_3$}
-\end{figure}
-
-\paragraph{}
-Now we claim, that the language $L_{33} = L_{31} \cup L_{32} = \{a^k|k\neq 0 \pmod{35}\}$ is $T$-decomposable. Clearly, $\C{L_{53}} = 35$. Take the sequential transducer $M_3$ from Figure 4.2. It can be seen, that the image of a word $a^{k}$ is a word from $\{a,b\}^*$ with the same length and if and only if $5 \mid k$, the last symbol of this output is $b$. Now, let $L_{adv} = \{a,b\}^* \setminus  (\{a,b\}^{7k-1}.\{b\})$. Clearly, $M_{3;D}^{-1}(L_{adv}) = L_{33}$. Then, $L_{simple} = \{a\}^*$ and clearly, $(L_{adv},M_3)$ is an effective $T$-advice with regard to $L_{33}$.
-
-\end{enumerate} \qed
-
-\subsection{$T$-decomposable languages}
-
-\paragraph{}
-\cveta The class of $T$-decomposable languages is not closed under 
-\begin{enumerate}
+\item complement,
 \item (non-erasing) homomorphism,
 \item inverse homomorphism,
 \item Kleene star, Kleene plus,
@@ -362,6 +327,49 @@ Now we claim, that the language $L_{33} = L_{31} \cup L_{32} = \{a^k|k\neq 0 \pm
 \paragraph{}
 \dokaz
 \begin{enumerate}
+\item \color{red}najst schodny dokaz, posledne dva nevysli\color{black}
+
+\item Consider an undecomposable language $L_1 = \{ a^{13k} | k \geq 0 \}$ and a homomorphism $h:\{ a\}^* \to \{ a \}^*$, such that $h(a) = aa$. Clearly, $h(L_1) = \{ a^{26k} | k \geq 0 \}$ and this language can be decomposed in a following way: let us take a sequential transducer $M_1$ computing the identity mapping and a language $L'_1 = \{ a^{2k} | k \geq 0 \}$. This two items form the desired effective $T$-advice for $L_1$, since we only have for DFA $A$, such that $L(A) = \{ a^{13k} | k \geq 0 \}$, $L[M_{1,D}^{-1}(L'_1)](A) = L_1$.
+
+Since this homomorphism is non-erasing, our class is not closed even under this kind of mapping.
+
+\item \color{red}ToDo: najst nejaky schopny protipriklad\color{black}
+
+\item \color{red}ToDo: dobra otazka, mozno nakoniec aj bude - ak ma jazyk  tvar $L^*$, potom asi musi byt v automate prechod akceptacny -> pociatocny a tu to vieme roztrhnut a potom ak sa dal zjednodusit ten cely, tak sa musi dat aj ten maly. lenze, tazko povedat, mozno sa ten jazyk tak nejak moze zvrhnut, ze sa to zrazu bude dat rozkladat. zistit!\color{black}
+
+\item Consider two languages, $L_{41} = \{ a^{13k} | k \geq 1 \}$ and $L_{42} = \{ a^{2k} | k \geq 1 \}$. As stated before, both of these languages are $T$-undecomposable. However, $L_{41} \cap L_{42} = \{ a^{26k} | k \geq 1 \}$ is a $T$-decomposable language, as we have seen in the first part of this proof.
+
+\item Let us take two languages, $L_{51} = \{ a^k | k \neq 0 \pmod{5} \}$ and $L_{52} = \{ a^k | k \neq 0 \pmod{7} \}$. The $T$-undecomposability of these languages was shown in Theorem 21.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{mainmatter/images/M'_5.png}
+\caption{Sequential transducer $M_5$}
+\end{figure}
+
+\paragraph{}
+Now we claim, that the language $L_{53} = L_{51} \cup L_{52} = \{a^k|k\neq 0 \pmod{35}\}$ is $T$-decomposable. Clearly, $\C{L_{53}} = 35$. Take the sequential transducer $M_5$ from Figure 4.2. It can be seen, that the image of a word $a^{k}$ is a word from $\{a,b\}^*$ with the same length and if and only if $5 \mid k$, the last symbol of this output is $b$. Now, let $L_{adv} = \{a,b\}^* \setminus  (\{a,b\}^{7k-1}.\{b\})$. Clearly, $M_{5;D}^{-1}(L_{adv}) = L_{53}$. Then, $L_{simple} = \{a\}^*$ and clearly, $(L_{adv},M_5)$ is an effective $T$-advice with regard to $L_{53}$.
+
+\end{enumerate} \qed
+
+\subsection{$T$-decomposable languages}
+
+\paragraph{}
+\cveta The class of $T$-decomposable languages is not closed under 
+\begin{enumerate}
+\item complement,
+\item (non-erasing) homomorphism,
+\item inverse homomorphism,
+\item Kleene star, Kleene plus,
+\item intersection,
+\item union.
+\end{enumerate}
+
+\paragraph{}
+\dokaz
+\begin{enumerate}
+\item This claim follows directly from previous Theorem. \color{red}zatial previous theorem nie je\color{black}
+
 \item Let us take a language $L_1 = \{w|w \in \{ a,b\}^* \wedge \#_{a}(w) \equiv 0 \pmod{42} \}$. Clearly, a language $L'_1 = \{w|w \in \{ a,b\}^* \wedge \#_{a}(w) \equiv 0 \pmod{14} \}$ with a sequential transducer $M_1$ computing the identity mapping is an effective advice for $L_1$.
 
 Let us now consider a homomorphism $h: \{ a,b\}^* \to \{ a \}^*$, defined as $h(a) = a, h(b) = a$. Note, that $h$ is a non-erasing homomorphism. It easy to see, that $h(L_1) = \{ a \}^*$, however, as stated before, this language is $T$-undecomposable.
@@ -380,7 +388,7 @@ Let $L'_{41} = \{ a\}^* \cup \{ b^{3k} | k \geq 1 \}$ and $M_{41}$ compute the i
 
 However, if we take the language $L_4 = L_{41} \cap L_{42} = \{ a\}^*$, we get a $T$-undecomposable language, therefore our class is not closed under intersection.
 
-\item In previous section we have seen, that languages $L_{51} = \{a^{10}\}$ and $L_{52}=\{a^{12}\}$ are $T$-decomposable. Now we show, that also their complements are $T$-decomposable. Let $M_5 =(\{q_0,q_1,q_2\}, \{a\},\{a,b\},H,q_0,\{q_0,q_2\})$, where $H = \{(q_0,a,\varepsilon,q_1),\allowbreak (q_1,a,b,q_0),\allowbreak (q_0,a,a,q_2)\}$. It can be easily seen, that $M_5(a^{2k}) = b^k$ and $M_5(a^{2k+1}) = b^ka$. Now, the effective advice for $L_{51}^c$ consits of $M_5$ and $L_{51,adv} = \{b^5\}^c$. Clearly, $\C{M_5} + \C{L_{51,adv}} + \C{\{a\}^*} = 3+7+1 \leq 12 = \C{L_{51}^c}$ and $L_{51}^c = M_5^{-1}(L_{51,adv}) \cap \{a\}^*$. The effective advice for $L_{52}^c$ can be constructed in the same way.
+\item In previous section we have seen, that languages $L_{61} = \{a^{10}\}$ and $L_{62}=\{a^{12}\}$ are $T$-decomposable. Now we show, that also their complements are $T$-decomposable. Let $M_6 =(\{q_0,q_1,q_2\}, \{a\},\{a,b\},H,q_0,\{q_0,q_2\})$, where $H = \{(q_0,a,\varepsilon,q_1),\allowbreak (q_1,a,b,q_0),\allowbreak (q_0,a,a,q_2)\}$. It can be easily seen, that $M(a^{2k}) = b^k$ and $M(a^{2k+1}) = b^ka$. Now, the effective advice for $L_{61}^c$ consits of $M$ and $L_{61,adv} = \{b^5\}^c$. Clearly, $\C{M} + \C{L_{61,adv}} + \C{\{a\}^*} = 3+7+1 \leq 12 = \C{L_{61}^c}$ and $L_{61}^c = M^{-1}(L_{61,adv}) \cap \{a\}^*$. The effective advice for $L_{62}^c$ can be constructed in the same way.
 
-However $L_{51}^c \cup L_{52}^c = \{a\}^*$ and since $\C{\{a\}^*} = 1$, this language is $T$-undecomposable.
+However $L_{61}^c \cup L_{62}^c = \{a\}^*$ and since $\C{\{a\}^*} = 1$, this language is $T$-undecomposable.
 \end{enumerate} \qed

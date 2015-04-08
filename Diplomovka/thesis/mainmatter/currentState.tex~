@@ -80,7 +80,7 @@ The topic of descriptional complexity of finite state devices has been widely re
 
 \subsection{Finite State Automata}
 \paragraph{}
-We would like to occupy ourselves with the question, how to find $\C{L}$ for a regular language $L$. Or, otherwise stated, what is the relation between the properties of a regular language and the minimal state count of its finite automaton?
+We occupy ourselves with the question, how to find $\C{L}$ for a regular language $L$. Or, otherwise stated, what is the relation between the properties of a regular language and the state count of its minimal finite automaton?
 
 \paragraph{}
 For deterministic finite automata, the answer was given by Nerode in \cite{Nerode:LAT}. We present his result in a slightly modified form, which suits our purposes better.
@@ -96,7 +96,7 @@ Let $k$ be a number of equivalence classes of $R_{L}$. If $A$ is a deterministic
 Since $A$ is deterministic, it is easy to see, that $\forall z \in \Sigma ^{*}: xR'y \Leftrightarrow xzR'yz$. Moreover, the number of its equivalence classes is exactly the number of reachable states of $A$. Now, we will show, that the relation $R'$ is a refinement of $R_{L}$ (i. e. each equivalence class of $R'$ is contained in a equivalence class of $R_{L}$).
 
 \paragraph{}
-Assume $xR'y$. As stated before, also $xzR'yz$. That means, that $\delta (q_{0}, xz) \in F) \Leftrightarrow \delta (q_{0}, yz)$ and therefore $xR_{L}y$. It follows, that whole equivalence class of $R'$ containing $x$ (later noted as $[x]$) is a subclass of an equivalence class of $R_{L}$ and hence $R'$ has not less equivalence classes than $R_{L}$. \qed
+Assume $xR'y$. As stated before, also $xzR'yz$. That means, that $\delta (q_{0}, xz) \in F) \Leftrightarrow \delta (q_{0}, yz)$ and therefore $xR_{L}y$. It follows, that whole equivalence class of $R'$ containing $x$ (later denoted as $[x]_{L}$) is a subclass of an equivalence class of $R_{L}$ and hence $R'$ has not less equivalence classes than $R_{L}$. \qed
 
 \paragraph{}
 Important observation is, that this lower bound is tight, i. e. there really exists a DFA $A'$ accepting $L$ with $k$ states. We can construct it from relation $R_{L}$ as $A'=(K', \Sigma , \delta ', q'_{0}, F')$:
@@ -129,7 +129,7 @@ Now it is sufficient to show, that all states $p_{i}$ are distinct. Indeed, if $
 Since $|S| \geq n$, $A$ has at least $n$ states. \qed
 
 \subsection{Sequential Transducers}
-The natural question arises, how can be these results extended if we add an output function, in other words, what is the lower bound for the number of states of a (sequential, a-) transducer, which transforms a language $L_{1}$ to a language $L_{2}$? Unfortunately, we do not have a answer in such a general form yet. However, in the case of sequential transducers, in \cite{moh:min} was given an answer to a simplified question: what is the minimal number of states of a sequential transducer representing a sequential function?
+The natural question arises, how can be these results extended if we add an output function, in other words, what is the lower bound for the number of states of a (sequential, a-) transducer, which transforms a language $L_{1}$ to a language $L_{2}$? Unfortunately, we do not have an answer in such a general form yet. However, in the case of sequential transducers, in \cite{moh:min} was given an answer to a simplified question: what is the minimal number of states of a sequential transducer representing a sequential function?
 
 \paragraph{}
 \oznacenie If $f$ is a sequential function (see Chapter 1), we denote
@@ -159,9 +159,9 @@ Moreover, $\delta (q_{0}, u) = \delta (q_{0}, v)$ also defines an equivalence re
 It was also shown, that this lower bound is tight, i. e. there is a sequential transducer realizing $f$ with $|K|$ equal to number of equivalence classes of $R_{f}$. However, we do not present the proof of this claim, since it is quite technical and is not of vast importance for the purpose of our thesis.
 
 \paragraph{}
-As mentioned before, we do not know, how can be this result applied to a pair of languages $L_{1}$ and $L_{2}$, if we do not have the exact sequential function transforming the former to the latter.
+As mentioned before, we do not know, how to apply this result to a pair of languages $L_{1}$ and $L_{2}$, if we do not have the exact sequential function transforming the former to the latter.
 
-\section{Decompositions of finite automata}
+\section{Decompositions of Finite Automata}
 
 \paragraph{}
 We now show the relation between state behavior decompositions and advisors and the necessary and sufficient condition on SB- and ASB-decomposability, as presented in \cite{Gazi}.

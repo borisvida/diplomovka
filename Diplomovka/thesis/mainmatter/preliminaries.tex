@@ -4,7 +4,7 @@
 \paragraph{}
 In this section, we present some basic notation and terminology used in our thesis.
 
-\section{Basic concepts and notation}
+\section{Basic Concepts and Notation}
 
 \paragraph{}
 \oznacenie In our thesis we use the following notation: $\varepsilon $ denotes an empty string, $|w|$ the length of a word $w$ ($|\varepsilon |=0$), $|A|$ the number of elements of a finite set (or a finite language) $A$, $\# _{a}(w)$ the number of occurences of the symbol $a$ in the word $w$, $2^{A}$ the set of all subsets of $A$.
@@ -38,7 +38,7 @@ In this section, we present some basic notation and terminology used in our thes
 \definicia A (full) semi-AFL is called a \emph{(full) AFL}, if it is closed under concatenation and $+$.
 
 %------------------------------------------------------------------------------------------
-\section{Transformation models}
+\section{Transformation Models}
 \paragraph{}
 We shall now define some of the models mentioned in the Introduction. Although the central point of our interest is an a-transducer, we also introduce the definitions of other models, which will be used in the next chapters, because they can give us an insight of language transformations in general and many of the concepts used in results involving them can be put to use by examination of a-transducers.
 
@@ -138,13 +138,13 @@ As one can see, a generalized sequential machine is a sequential transducer with
 \oznacenie A sequential function described by a generalized sequential machine is called a \emph{gsm mapping}.
 
 %------------------------------------------------------------------------------------------
-\section{Complexity, advisors and decomposition}
+\section{Complexity, Advisors and Decomposition}
 
 \paragraph{}
 In this section we define the concept of advisors and decompositions.
 
 \paragraph{}
-\definicia The \emph{state complexity} of an a-transducer $M = (K, \Sigma_1, \Sigma_2, H, q_0, F)$ (a finite automaton $A = (K, \Sigma, \delta, q_0, F)$), denoted by $\C{T}$ ($\C{A}$), is the number of its states. Formally \\
+\definicia The \emph{state complexity} of an a-transducer $M = (K, \Sigma_1, \Sigma_2, H, q_0, F)$ (a sequential transducer $M = (K, \Sigma_1, \Sigma_2, \delta, \sigma, q_0, F)$, a finite automaton $A = (K, \Sigma, \delta, q_0, F)$), denoted by $\C{T}$ ($\C{A}$), is the number of its states. Formally \\
 \centerline{$\C{T} = |K|$.}
 
 \paragraph{}
@@ -154,9 +154,9 @@ In this section we define the concept of advisors and decompositions.
 If $L$ is not regular, we define $\C{L} = \infty $.
 
 \paragraph{}
-\definicia In a similar way, we can define the \emph{a-transducer state complexity} of a pair of languages $L_1, L_2$, denoted by $\C{L_1,L_2}$, as the state complexity of the minimal a-transducer, which translates language $L_1$ to $L_2$. Formally \\
+\definicia In a similar way, we can define the \emph{sequential (a-)transducer state complexity} of a pair of languages $L_1, L_2$, denoted by $\C{L_1,L_2}$, as the state complexity of the minimal sequential (a-)transducer $M$, which translates language $L_1$ to $L_2$. Formally \\
 \centerline{$\C{L_1, L_2} = min\{ \C{M}|M(L_1) = L_2\} $.} \\
-Note, that it is possible, that $\C{L_1,L_2} \neq \C{L_2,L_1}$ and it may happen, that $\C{L_1,L_2} \allowbreak  = \infty$ (if there is no a-transducer $M$, such that $M(L_1) = L_2$).
+Note, that it is possible, that $\C{L_1,L_2} \neq \C{L_2,L_1}$ and it may happen, that $\C{L_1,L_2} \allowbreak  = \infty$ (if there is no sequential (a-)transducer $M$, such that $M(L_1) = L_2$).
 
 \paragraph{}
 Now we shall define the acceptance of a language with an advisor and some other concepts presented in \cite{Gazi}.
@@ -185,9 +185,5 @@ If $\C{A_1} < \C{A}$ and $\C{A_2} < \C{A}$, the decomposition is called \emph{no
 
 \paragraph{}
 \definicia A language $L$ and its corresponding minimal deterministic finite automaton $A$ are called (A)SB-undecomposable, if $A$ has no nontrivial (A)SB-decomposition. The class of all regular (A)SB-undecomposable languages is denoted by $\mathcal{U}_{SB}$ ($\mathcal{U}_{ASB}$).
-
-\section{Group and number theory}
-\paragraph{}
-\color{red}ToDo: mozno definovat aspon zakladne pojmy z teorie grup, kedze ich neskor pouzivam a aj vysledok gcd(a,b).lcm(a,b)=a.b\color{black}
 
 \paragraph{}

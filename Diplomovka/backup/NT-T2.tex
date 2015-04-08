@@ -1,0 +1,32 @@
+\paragraph{}
+\cveta There are infinitely many languages, that are $T$-undecomposable, but $NT_{\exists}$- and $NT_{\forall}$-decomposable.
+
+\paragraph{}
+\dokaz Each of the languages $L_{p,r} = \{a^k|k \neq 0\ (mod\  p)\ \vee k \neq 0\ (mod\  r)\}$, where $p \neq r$ are primes and $p,r \geq 3$, is $T$-undecomposable, but $NT_{\exists}$- and $NT_{\forall}$-decomposable.
+
+\paragraph{}
+We first present the $NT_{\forall}$ and $NT_{\exists}$ decompositon of $L_{p,r}$. The effective advice is $(L_{p,r,adv},M)$, where $M$ is an a-transducer from the Figure 4.2 ($q_1...$ represents the set of states from $q_{13}$ to $q_{1p-1}$ connected by transitions $(q_i,a,\varepsilon,q_i+1)$; $q_2...$ has similar meaning for states $q_{23}$ to $q_{2r-1}$) and $L_{p,r,adv} = \{a\}^*$. Clearly, $M(a^{p.k}) = M(a^{r.k}) = \{a^k\}$, and for $k$ not divisible by $p$ nor $r$, $M(a^k) = \emptyset$, therefore $M^{-1}_{\forall}(L_{p,r,adv}) = M^{-1}_{\exists}(L_{p,r,adv}) = L_{p,r}$. Moreover $\C{M} = p+r+1$, $\C{L_{p,r,adv}} = 1$ and $\C{A} = 1$, where $A$ is the automaton accepting language $a^*$ (clearly, since $L_{p,r} = M^{-1}_{\forall}(L_{p,r,adv}) = M^{-1}_{\exists}(L_{p,r,adv})$, so $L[M^{-1}_{\forall}(L_{p,r,adv})](A) = L[M^{-1}_{\exists}(L_{p,r,adv})](A) = L_{p,r}$), while $\C{L_{p,r}} = p.r$.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{mainmatter/images/NT-T.png}
+\caption{a-transducer $M$}
+\end{figure}
+
+\paragraph{}
+We now prove the $T$-undecomposability of $L_{p,r}$ by contradiction. Assume, that there is a pair $(L'_{p,r,adv},M'_{p,r})$, which forms an effective $T$-advice for $L_{p,r}$. Moreover, let $A'_{p,r}$ be an automaton, such that with this effective $T$-advice it accepts $L_{p,r}$. Let $L'_{p,r} = L(A'_{p,r})$. Let us now look at the properties of $L'_{p,r}$.
+
+\paragraph{}
+We know, that $\C{L'_{p,r}} < p.r$. Moreover, $L'_{p,r}$ has to contain all words from $L_{p,r}$. We claim, that all states of $A'_{p,r}$ are acceptable, therefore $L'_{p,r} = \{a\}^*$. Assume this is not the case. Then, since $\C{A'_{p,r}} < p,r$, there is a word $a^k, k > p.r$, such that the computation of $A'$ on this word ends in a nonaccepting state. However, the computation of this word runs in a cycle of length $l$, where $l < p.r$. From the group theory we know, that both $\Z_{p}$ and $\Z_r$ are cyclic groups, where every $i \neq 0$ is a generator. Therefore, also $l$ is a generator in one of those two groups (otherwise $l = 0\ (mod\ p) \wedge i = 0\ (mod\ q)$, therefore $l = p.q$, but $l < p.q$) and for some $j$, $j.l$ is the inverse element to $k$ in this group. Without loss of generality, let this group be $\Z_p$. Since the computation of $a^k$ and $a^{k+j.l}$ differs only in the number of iterations of the cycle, $a^{k+j.l}$ is not accepted, but as we have seen, $k+j.l = 0\ (mod\ p)$, which leads to a contradiction.
+
+\paragraph{}
+Similar train of thoughts can now be used for the sequential transducer $M'_{p,r}$. We know, that $\C{M'_{p,r}} < p.r$. Now, assume that there is a non-accepting state of $M'_{p,r}$. Again, there is a word $a^k, k > p.r$, such that its computation on $M'_{p.r}$ is not accepting, but then also $a_{k+j.l} \notin M_{p,r;D}^{'-1}(L'_{p,r,adv})$. Since $L'_{p,r} = \{a\}^*$, it is necessary, that $M_{p,r;D}^{'-1}(L'_{p,r,adv}) \cap \{a\}^* = L_{p,r}$ (otherwise $L'_{p,r} \cap M_{p,r;D}^{'-1}(L'_{p,r,adv})$ contains words not from $L_{p,r}$), so all states of $M'_{p,r}$ are accepting.
+
+\paragraph{}
+Let us denote $M_{p,r;D}^{'-1}(L'_{p,r,adv})$ by $L_{p,r,trans}$. We have seen, that $L_{p,r,trans}) \cap \{a\}^* = L_{p,r}$, which means, that $L_{p,r,trans}$ has at least $p.q$ equivalence classes from Myhill-Nerode theorem. However, since our desired advice has to be effective, $L'_{p,r,adv}$ has less than $p.q$ of them. We have proven, that $M'_{p,r}$ gives an output for every $a^k, k \geq 0$. From Dirichlets principle it follows, that there are words $a^k, a^l$ for $k,l > p.r \wedge |k - l| < p.q$, such that $[a^k]_{L_{p,r,trans}} \neq [a^l]_{L_{p,r,trans}}$, but $[M(a^k)]_{L'_{p,r,adv}} = [M(a^l)]_{L'_{p,r,adv}}$. Since $k,l > p.r$ the computations of $M'_{p,r}$ on both $a^k$ and $a^l$ contains a cycle. Let the shortest cycle start and end in a state $q$ and let it transform an input $a^s$ into output $x$.
+
+\paragraph{}
+When we look at the equivalence classes of $L_{p,r}$, we see, that for every class $[w]$ there are infinitely many suffixes $u$, such that $w.u \in L_{p,r}$ and also infinitely many suffixes $v$, such that $w.v \notin L_{p,r}$. 
+
+\color{red}ToDo: dokoncit!\color{black} \qed 
+

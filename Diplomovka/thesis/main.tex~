@@ -11,8 +11,11 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{mathrsfs}
-\linespread{1.3} %riadkovanie 1.5
+\usepackage{stackengine}
+\usepackage{rotating}
+\linespread{2.6} %riadkovanie 1.5
 \input foja
+\DeclareMathOperator{\lcm}{lcm}
 \allowbreak
 \begin{document}
 
